@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Inline&family=Bungee+Shade&family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
+
+html {
+    height: 100%;
+}
+
+header {
+    font-family: 'Bungee', cursive;
+}
+
+.bg-custom {
+    background-color: #C5B358;
+}
+
+.border-black {
+    border: 1px solid black !important;
+}
+
+.text-black {
+    color: #000 !important;
+}
+
+.navbar-brand {
+    font-family: 'Bungee Shade', cursive !important;
+}
+
+body {
+    background: url('/media/home_page_hopheaven.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 164px);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+    .container {
+      max-width: 80%;
+    }
+  }
+  
+  /* fixed top navbar only on medium and up */
+  @media (min-width: 992px) {
+      .fixed-top-desktop-only {
+          position: fixed;
+          top: 0;
+          right: 0;
+          left: 0;
+          z-index: 1030;
+      }
+  
+      .header-container {
+          padding-top: 164px;
+      }
+  }
