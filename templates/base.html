@@ -35,6 +35,11 @@
   </head>
   <body>
     <header class="container-fluid fixed-top">
+        <div id="delivery-banner" class="row text-center">
+            <div class="col bg-black">
+                <h6 class="my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h6>                
+            </div>            
+        </div>
       <div class="row bg-custom pt-lg-2 d-lg-flex">
         <div class="col-12 col-md-3 my-auto py-1 py-lg-0">
           <form method="GET" action="">
@@ -53,9 +58,7 @@
           <div class="col-12 col-sm-6 col-md-4 offset-md-1 py-1 py-lg-0">
             <!-- Image and text -->
 <nav class="navbar navbar-light justify-content-center">
-  <a class="navbar-brand" href="{% url 'home' %}"><h1>Hop
-    <img src="{% static '/images/hop_heaven_logo.png' %}" width="50" height="50" class="d-inline-block align-center" alt="">
-    Heaven</h1>
+  <a class="navbar-brand" href="{% url 'home' %}"><h1>Hop<img src="{% static '/images/hop_heaven_logo.png' %}" width="40" height="40" class="d-inline-block align-center" alt="">Heaven</h1>
   </a>
 </nav>
           </div>
