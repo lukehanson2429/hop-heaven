@@ -10,6 +10,14 @@ header {
     letter-spacing: 0.05em;
 }
 
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
 
 .btn-pos {
     position: absolute;
@@ -100,4 +108,26 @@ body {
       .header-container {
           padding-top: 164px;
       }
+  }
+
+  @media (max-width: 992px) {
+      .navbar-custom-bg {
+          background: #C5B358;
+      }
+
+      nav .navbar-nav li a {
+          color: #000 !important;
+      }
+
+      .navbar li {
+          margin-left: 1em;
+          margin-right: 1em;
+      }
+  }
+
+  @media (max-width: 466px) {
+
+  .list-inline-item p {
+        font-size: 8px;
+    }
   }
