@@ -1,5 +1,6 @@
 {% load static %}
 
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -53,7 +54,7 @@
             <!-- Image and text -->
 <nav class="navbar navbar-light justify-content-center">
   <a class="navbar-brand" href="{% url 'home' %}"><h1>Hop
-    <img src="/docs/4.6/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+    <img src="{% static '/images/hop_heaven_logo.png' %}" width="50" height="50" class="d-inline-block align-center" alt="">
     Heaven</h1>
   </a>
 </nav>
@@ -88,7 +89,7 @@
                                   {% if grand_total %}
                                       ${{ grand_total|floatformat:2 }}
                                   {% else %}
-                                      $0.00
+                                      £0.00
                                   {% endif %}
                               </p>
                           </div>

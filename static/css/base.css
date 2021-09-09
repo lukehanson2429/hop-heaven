@@ -9,6 +9,13 @@ header {
     font-family: 'Bungee', cursive;
 }
 
+
+.btn-pos {
+    position: absolute;
+    right: 50%;
+    bottom: 10px;
+}
+
 .bg-custom {
     background-color: #C5B358;
 }
@@ -23,15 +30,49 @@ header {
 
 .navbar-brand {
     font-family: 'Bungee Shade', cursive !important;
+    letter-spacing: 0.1em;
 }
 
 body {
-    background: url('/media/home_page_hopheaven.jpg') no-repeat center center fixed;
+    background: url('/static/images/home_page_hopheaven.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
     color: white;
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
+    overflow-x: hidden;
+}
+
+.shop-now-button,
+.btn-custom {
+    background: black;
+    color: #C5B358;
+    font-family: 'Bungee', cursive !important;
+    border: solid;
+    border-width: 1px;
+    border-color: white;
+}
+
+.shop-now-button {
+    min-width: 260px;
+}
+
+.btn-black {
+    background: black;
+    color: #C5B358;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus,
+.btn-custom:hover,
+.btn-custom:active,
+.btn-custom:focus {
+    background: #222;
+    color: white;
 }
 
 /* Slightly larger container on xl screens */
