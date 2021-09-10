@@ -3,11 +3,25 @@
 
 html {
     height: 100%;
+    overflow-x: hidden;
+}
+
+.text-content {
+    font-family: 'Oswald', sans-serif;
+    color: white;
 }
 
 header {
     font-family: 'Bungee', cursive;
     letter-spacing: 0.05em;
+}
+
+.overlay {
+    background-color: black;
+}
+
+.header-container {
+    padding-top: 155px;
 }
 
 .icon {
@@ -21,7 +35,7 @@ header {
 
 .btn-pos {
     position: absolute;
-    right: 50%;
+    right: 10px;
     bottom: 10px;
 }
 
@@ -45,14 +59,15 @@ header {
     letter-spacing: 0.1em;
 }
 
-body {
+
+.home-image {
     background: url('/static/images/home_page_hopheaven.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
-    color: white;
-    font-family: 'Oswald', sans-serif;
+}
+
+.uppercase-font {
     text-transform: uppercase;
-    overflow-x: hidden;
 }
 
 .shop-now-button,
@@ -83,10 +98,39 @@ body {
 .btn-black:focus,
 .btn-custom:hover,
 .btn-custom:active,
-.btn-custom:focus {
+.btn-custom:focus,
+.social-links li a i:hover,
+.social-links li a i:active,
+.social-links li a i:focus {
     background: #222;
     color: white;
 }
+
+.footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #C5B358;
+    color: #000;
+    position: absolute;
+    font-family: 'Oswald', sans-serif;
+  }
+
+.footer-brand {
+    font-family: 'Bungee Shade', cursive !important;
+}
+
+.social-links li a i {
+    width: 36px;
+    height: 36px;
+    color: #C5B358;
+    background: #000000;
+    border: solid;
+    border-width: 1px;
+    border-color: white;
+    padding-top: 10px;
+}
+
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
@@ -103,10 +147,6 @@ body {
           right: 0;
           left: 0;
           z-index: 1030;
-      }
-  
-      .header-container {
-          padding-top: 164px;
       }
   }
 
