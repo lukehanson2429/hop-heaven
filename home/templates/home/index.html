@@ -1,18 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
-{% endblock %}
 
 {% block content %}
 <div class="home-image">
-<div class="container content h-100">
-    <div class="row h-100">
+<div class="container h-100">
+    <div class="row h-100 home-content">
         <div class="col-7 col-md-6 my-auto">
             <h2 class="uppercase-font text-content">
                 Bored of watery lager? Your in the the right Place!
@@ -25,8 +18,9 @@
             </div>
         </div>
     </div>
-        <!-- Button to add! <button class="btn btn-md btn-custom btn-pos rounded-0"><i class="fa fa-arrow-down fa-sm"
-            aria-hidden="true"></i></button> -->
 </div>
+<button class="btn btn-md btn-custom btn-pos rounded-0"><i class="fa fa-arrow-down fa-sm"
+    aria-hidden="true"></i></button> 
 </div>
 {% endblock %}
+

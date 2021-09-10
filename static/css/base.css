@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Inline&family=Bungee+Shade&family=Oswald:wght@200;300;400;500;600;700&display=swap');
 
 
+body,
 html {
     height: 100%;
     overflow-x: hidden;
@@ -11,17 +12,13 @@ html {
     color: white;
 }
 
+.home-content {
+    padding-top: 160px;
+}
+
 header {
     font-family: 'Bungee', cursive;
     letter-spacing: 0.05em;
-}
-
-.overlay {
-    background-color: black;
-}
-
-.header-container {
-    padding-top: 155px;
 }
 
 .icon {
@@ -63,7 +60,17 @@ header {
 .home-image {
     background: url('/static/images/home_page_hopheaven.jpg') no-repeat center center fixed;
     background-size: cover;
-    height: calc(100vh - 164px);
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    background-blend-mode: multiply;
+    animation: toColor 2s;
+}
+@keyframes toColor {
+    0%    { -webkit-filter: grayscale(100%); filter: grayscale(100%); }
+    25%   { -webkit-filter: grayscale(75%); filter: grayscale(75%); }
+    50%   { -webkit-filter: grayscale(50%); filter: grayscale(50%); }
+    75%   { -webkit-filter: grayscale(25%); filter: grayscale(25%); }
+    100%  { -webkit-filter: grayscale(0%); filter: grayscale(0%); }
 }
 
 .uppercase-font {
@@ -112,7 +119,6 @@ header {
     width: 100%;
     background: #C5B358;
     color: #000;
-    position: absolute;
     font-family: 'Oswald', sans-serif;
   }
 
