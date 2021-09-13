@@ -16,6 +16,10 @@ html {
     padding-top: 160px;
 }
 
+.header-container {
+    padding-top: 160px;
+}
+
 header {
     font-family: 'Bungee', cursive;
     letter-spacing: 0.05em;
