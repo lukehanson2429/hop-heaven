@@ -62,6 +62,10 @@ html {
     padding-top: 160px;
 }
 
+.footer-container {
+    padding-top: 110px;
+}
+
 header {
     font-family: 'Bungee', cursive;
     letter-spacing: 0.05em;
@@ -155,6 +159,7 @@ header {
     left: 0;
     bottom: 0;
     width: 100%;
+    position: absolute;
     background: #C5B358;
     color: #000;
     font-family: 'Oswald', sans-serif;
