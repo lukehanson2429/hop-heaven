@@ -27,7 +27,7 @@
     </div>
     <div class="row mb-4 mt-4">
         <div class="product-container col-12 col-md-10 offset-md-1">
-            <div class="card mb-3 text-content bg-black border-dark rounded-0">
+            <div class="card mb-3 text-content text-white bg-black border-dark rounded-0 shadow-lg">
                 <div class="row no-gutters">
                     <div class="col-12 col-md-6 col-lg-5">
                         {% if product.image %}
@@ -39,6 +39,13 @@
                             <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                         </a>
                         {% endif %}
+                    <p class="mt-2 ml-2">Description: {{ product.description }}
+                    {% if product.rating %}
+                                            <small class="text-muted product-rating"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                                        {% else %}
+                                            <small class="text-muted product-rating">No Rating</small>
+                                        {% endif %}
+                                    </p>
                     </div>
                     <div class="col-12 col-md-6 col-lg-7">
                         <div class="card-body text-content text-white text-uppercase">
@@ -65,6 +72,18 @@
                                 <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">size:</li>
                                 <li class="list-group-item list-group-item-light text-black text-right flex-fill rounded-0">{{ product.size }}ml</li>
                               </ul>
+                              <hr class="card-hr">
+                            </div>
+                            <h5 class="card-title text-center">Make your Selection</h5>
+                            <div class="card-text">
+                                <ul class="list-group list-group-horizontal mt-3">
+                                    <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">Unit Price:</li>
+                                    <li class="list-group-item list-group-item-light text-black  flex-fill rounded-0 text-right">£{{ product.price }}</li>
+                                  </ul>
+                                  <ul class="list-group list-group-horizontal mt-3">
+                                    <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">Country:</li>
+                                    <li class="list-group-item list-group-item-light text-black flex-fill rounded-0 text-right">{{ product.country }}</li>
+                                  </ul>
                             </div>
                             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                         </div>

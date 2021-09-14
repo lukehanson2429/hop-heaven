@@ -24,7 +24,7 @@
             <div class="row">
                 {% for product in products %}
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                        <div class="card h-100 text-content bg-black border-dark rounded-0">
+                        <div class="card h-100 text-content bg-black border-dark rounded-0 shadow-lg">
                             {% if product.image %}
                             <a href="{% url 'product_detail' product.id %}">
                                 <div class="card-img-wrap"><img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}"></div>
