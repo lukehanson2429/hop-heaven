@@ -26,17 +26,17 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="nav-link text-white mr-5" href="#" id="all-beers-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link text-white mr-5" href="#" id="styles-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Styles
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="all-beers-link">
-                <a href="" class="dropdown-item">Session IPA</a>
-                <a href="" class="dropdown-item ">Amber Ale</a>
-                <a href="" class="dropdown-item ">Pilsner</a>
-                <a href="" class="dropdown-item ">Pale Ale</a>
-                <a href="" class="dropdown-item ">India Pale Ale</a>
-                <a href="" class="dropdown-item ">Brown Ale</a>
-                <a href="" class="dropdown-item ">American Pale Ale</a>
+            <div class="dropdown-menu border-0" aria-labelledby="styles-link">
+                <a href="{% url 'products' %}?category=session_ipa" class="dropdown-item">Session IPA</a>
+                <a href="{% url 'products' %}?category=amber_ale" class="dropdown-item ">Amber Ale</a>
+                <a href="{% url 'products' %}?category=pilsner" class="dropdown-item ">Pilsner</a>
+                <a href="{% url 'products' %}?category=pale_ale" class="dropdown-item ">Pale Ale</a>
+                <a href="{% url 'products' %}?category=india_pale_ale" class="dropdown-item ">India Pale Ale</a>
+                <a href="{% url 'products' %}?category=brown_ale" class="dropdown-item ">Brown Ale</a>
+                <a href="{% url 'products' %}?category=american_pale_ale" class="dropdown-item ">American Pale Ale</a>
                 <a href="{% url 'products' %}" class="dropdown-item">All Beers</a>
             </div>
         </li>
