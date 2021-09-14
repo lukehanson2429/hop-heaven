@@ -62,8 +62,7 @@ html {
     padding-top: 160px;
 }
 
-header,
-.sub-headings {
+header {
     font-family: 'Bungee', cursive;
     letter-spacing: 0.05em;
 }
@@ -123,36 +122,25 @@ header,
     100%  { -webkit-filter: grayscale(0%); filter: grayscale(0%); }
 }
 
-.uppercase-font {
-    text-transform: uppercase;
-}
 
-.shop-now-button,
 .btn-custom {
     background: black;
     color: #C5B358;
-    font-family: 'Bungee', cursive !important;
+    font-family: 'Oswald', sans-serif;
     letter-spacing: 0.05em;
     border: solid;
     border-width: 1px;
     border-color: white;
 }
 
+.btn-border {
+    border: solid, 1px, #C5B358 !important;
+}
+
 .shop-now-button {
     min-width: 260px;
 }
 
-.btn-black {
-    background: black;
-    color: #C5B358;
-}
-
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus,
 .btn-custom:hover,
 .btn-custom:active,
 .btn-custom:focus,
