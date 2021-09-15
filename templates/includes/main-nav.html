@@ -18,9 +18,9 @@
                 All Beers
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-beers-link">
-                <a href="" class="dropdown-item">By Price</a>
-                <a href="" class="dropdown-item ">By Rating</a>
-                <a href="" class="dropdown-item ">By Style</a>
+                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
+                <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Style</a>
                 <a href="{% url 'products' %}" class="dropdown-item">All Beers</a>
             </div>
         </li>
@@ -35,7 +35,6 @@
                 <a href="{% url 'products' %}?category=pilsner" class="dropdown-item ">Pilsner</a>
                 <a href="{% url 'products' %}?category=pale_ale" class="dropdown-item ">Pale Ale</a>
                 <a href="{% url 'products' %}?category=india_pale_ale" class="dropdown-item ">India Pale Ale</a>
-                <a href="{% url 'products' %}?category=brown_ale" class="dropdown-item ">Brown Ale</a>
                 <a href="{% url 'products' %}?category=american_pale_ale" class="dropdown-item ">American Pale Ale</a>
                 <a href="{% url 'products' %}" class="dropdown-item">All Beers</a>
             </div>
