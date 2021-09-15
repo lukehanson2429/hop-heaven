@@ -19,12 +19,6 @@
 </div>
 </div>
 <div class="container-fluid text-content">
-    <div class="row">
-        <div class="col-12 pt-3 pt-md-0 pt-lg-0 pt-xl-0 text-center text-black">
-            <h2 class="text-uppercase font-weight-bold">{{ product.name }}</h2>
-            <hr class="custom-hr w-50 mb-1">
-        </div>
-    </div>
     <div class="row mb-4 mt-4">
         <div class="product-container col-12 col-md-10 offset-md-1">
             <div class="card mb-3 text-content text-white bg-black border-dark rounded-0 shadow-lg">
@@ -42,15 +36,15 @@
                     <p class="mt-2 ml-2">Description: {{ product.description }}
                     <br>
                     {% if product.rating %}
-                                            <small class="text-muted product-rating"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                                            <small class="fas-custom"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
                                         {% else %}
-                                            <small class="text-muted product-rating">No Rating</small>
+                                            <small class="fas-custom">No Rating</small>
                                         {% endif %}
                                     </p>
                     </div>
                     <div class="col-12 col-md-6 col-lg-7">
                         <div class="card-body text-content text-white text-uppercase">
-                            <h5 class="card-title text-center">Details</h5>
+                            <h5 class="card-title text-center font-weight-bold">{{ product.name }}</h5>
                             <hr class="card-hr">
                             <div class="card-text">
                             <ul class="list-group list-group-horizontal mt-3">

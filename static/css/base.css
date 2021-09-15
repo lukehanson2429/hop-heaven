@@ -52,6 +52,7 @@ html {
 
 .text-content {
     font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.03em;
 }
 
 .home-content {
@@ -89,10 +90,10 @@ header {
 .bg-custom {
     background-color: #C5B358;
 }
-.bg-black{
+.bg-black {
     background-color: #000;
 }
-.product-rating{
+.fas-custom {
     color: #C5B358 !important;
 }
 
@@ -134,7 +135,7 @@ header {
     letter-spacing: 0.05em;
     border: solid;
     border-width: 1px;
-    border-color: white;
+    border-color: #C5B358;
 }
 
 .btn-border {
