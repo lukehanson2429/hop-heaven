@@ -27,16 +27,17 @@
 
         <li class="nav-item dropdown">
             <a class="nav-link text-white mr-5" href="#" id="styles-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Styles
+                All Styles
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="styles-link">
                 <a href="{% url 'products' %}?category=session_ipa" class="dropdown-item">Session IPA</a>
                 <a href="{% url 'products' %}?category=amber_ale" class="dropdown-item ">Amber Ale</a>
                 <a href="{% url 'products' %}?category=pilsner" class="dropdown-item ">Pilsner</a>
+                <a href="{% url 'products' %}?category=lager" class="dropdown-item ">Lager</a>
                 <a href="{% url 'products' %}?category=pale_ale" class="dropdown-item ">Pale Ale</a>
                 <a href="{% url 'products' %}?category=india_pale_ale" class="dropdown-item ">India Pale Ale</a>
                 <a href="{% url 'products' %}?category=american_pale_ale" class="dropdown-item ">American Pale Ale</a>
-                <a href="{% url 'products' %}" class="dropdown-item">All Beers</a>
+                <a href="{% url 'products' %}?category=american_pale_ale,india_pale_ale,pale_ale,pilsner,amber_ale,session_ipa,lager" class="dropdown-item">All Styles</a>
             </div>
         </li>
 

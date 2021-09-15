@@ -11,20 +11,49 @@
 
 {% block content %}
 <div class="overlay"></div>
-<div class="container-fluid">
+<div class="container-fluid text-content text-uppercase">
     <div class="row">
         <div class="col-12 text-center mt-3">
-            <h2 class="text-content text-black font-weight-bold text-uppercase">Beers</h2>
+            <h2 class="text-black font-weight-bold">Beers</h2>
+            {% for c in current_categories %}
+                    <a class="text-decoration-none text-uppercase" href="{% url 'products' %}?category={{ c.name }}">
+                        <span class="p-2 mt-2 badge badge-white btn-custom rounded-0">{{ c.friendly_name }}</span>
+                    </a>
+                {% endfor %}
             <hr class="custom-hr w-50 mb-1">
         </div>
     </div>
     <div class="row">
         <div class="product-container col-10 offset-1">
-            <div class="row mt-1 mb-2"></div>
+            <div class="row mt-1 mb-2">
+                <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                    <div class="sort-select-wrapper w-50">
+                        <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                            <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
+                            <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
+                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                            <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Style (A-Z)</option>
+                            <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Style (Z-A)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 order-md-first">
+                    <p class="text-muted mt-3 text-center text-md-left">
+                        {% if search_term or current_categories or current_sorting != 'None_None' %}
+                            <span class="small"><a href="{% url 'products' %}?category=american_pale_ale,india_pale_ale,pale_ale,pilsner,amber_ale,session_ipa,lager">All Beers</a> | </span>
+                        {% endif %}
+                        {{ products|length }} Beers{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                    </p>
+                </div>
+            </div>
             <div class="row">
                 {% for product in products %}
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                        <div class="card h-100 text-content bg-black border-dark rounded-0 shadow-lg">
+                        <div class="card h-100 bg-black border-dark rounded-0 shadow-lg">
                             {% if product.image %}
                             <a href="{% url 'product_detail' product.id %}">
                                 <div class="card-img-wrap"><img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}"></div>
@@ -35,7 +64,7 @@
                                 <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                             </a>
                             {% endif %}
-                            <div class="card-body text-white text-uppercase pb-0">
+                            <div class="card-body text-white pb-0">
                                 <p class="mb-0 lead">{{ product.name }}</p>
                                 {% if product.category %}
                                             <small class="mt-1 mb-0">
