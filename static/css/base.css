@@ -138,6 +138,18 @@ header {
     border-color: #C5B358;
 }
 
+.btt-a-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 100px;
+    right: 10px;
+}
+
+.btt-a-link {
+    cursor: pointer;
+}
+
 .btn-border {
     border: solid, 1px, #C5B358 !important;
 }
