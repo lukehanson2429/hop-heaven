@@ -78,6 +78,8 @@
                                   <ul class="list-group list-group-horizontal mt-3">
                                     <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">Qty:</li>
                                     <li class="list-group-item list-group-item-light text-black  flex-fill rounded-0 text-right">
+                                        <form class="form" action="" method="POST">
+                                            {% csrf_token %}
                                         <div class="form-group">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
@@ -106,9 +108,10 @@
                                   </ul>
                                   <div class="text-center mt-3">
                                     <h4>
-                                        <a href="" class="btn-custom btn btn-lg rounded-0 py-2">Add to Cart</a>
+                                        <input type="submit" href="" class="btn-custom btn btn-lg rounded-0 py-2" value="ADD TO CART">
                                     </h4>
                                 </div>
+                            </form>
                             </div>
                         </div>
                     </div>
