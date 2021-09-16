@@ -116,19 +116,6 @@ Initial Wireframe designs made on Figma:
 
 ### Functionality Testing - Products Page
 
-#### Navigation menu
-
-
-
-
-#### Buttons:
-
-
-#### Map Functionality:
-
-
-#### Font Awesome Arrow Buttons:
-
 
 #### Contact Form:
 
