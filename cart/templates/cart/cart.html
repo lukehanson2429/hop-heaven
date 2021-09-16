@@ -11,82 +11,23 @@
 
 {% block content %}
 <div class="overlay"></div>
-<div class="row text-center">
-    <div class="col-12 col-md-4 col-lg-3 pt-4 pt-lg-3 pt-xl-3">
-    <h4>
-        <a href="{% url 'products' %}" class="btn-custom btn btn-lg rounded-0 text-uppercase py-2"><i class="fas fa-chevron-left"></i> Back to Shop</a>
-    </h4>
-</div>
-</div>
-<div class="container-fluid text-content">
-    <div class="row mb-4 mt-4">
-        <div class="product-container col-12 col-md-10 offset-md-1">
-            <div class="card mb-3 text-content text-white bg-black border-dark rounded-0 shadow-lg">
-                <div class="row no-gutters">
-                    <div class="col-12 col-md-6 col-lg-5">
-                        {% if product.image %}
-                        <a href="{{ product.image.url }}" target="_blank">
-                            <div class="card-img-wrap"><img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}"></div>
-                        </a>
-                        {% else %}
-                        <a href="">
-                            <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                        </a>
-                        {% endif %}
-                    <p class="mt-2 ml-2">Description: {{ product.description }}
-                    <br>
-                    {% if product.rating %}
-                                            <small class="fas-custom"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
-                                        {% else %}
-                                            <small class="fas-custom">No Rating</small>
-                                        {% endif %}
-                                    </p>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-7">
-                        <div class="card-body text-content text-white text-uppercase">
-                            <h5 class="card-title text-center font-weight-bold">{{ product.name }}</h5>
-                            <hr class="card-hr">
-                            <div class="card-text">
-                            <ul class="list-group list-group-horizontal mt-3">
-                                <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">Style:</li>
-                                <li class="list-group-item list-group-item-light text-black  flex-fill rounded-0 text-right">{{ product.category.friendly_name }}</li>
-                              </ul>
-                              <ul class="list-group list-group-horizontal mt-3">
-                                <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">Country:</li>
-                                <li class="list-group-item list-group-item-light text-black flex-fill rounded-0 text-right">{{ product.country }}</li>
-                              </ul>
-                              <ul class="list-group list-group-horizontal mt-3">
-                                <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">Brewery:</li>
-                                <li class="list-group-item list-group-item-light text-black flex-fill rounded-0 text-right">{{ product.brewery }}</li>
-                              </ul>
-                              <ul class="list-group list-group-horizontal rounded-0 mt-3">
-                                <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">abv:</li>
-                                <li class="list-group-item list-group-item-light text-black flex-fill rounded-0 text-right">{{ product.abv }}%</li>
-                              </ul>
-                              <ul class="list-group list-group-horizontal mt-3">
-                                <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">size:</li>
-                                <li class="list-group-item list-group-item-light text-black text-right flex-fill rounded-0">{{ product.size }}ml</li>
-                              </ul>
-                              <hr class="card-hr">
-                            </div>
-                            <h5 class="card-title text-center">Make your Selection</h5>
-                            <div class="card-text">
-                                <ul class="list-group list-group-horizontal mt-3">
-                                    <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">Unit Price:</li>
-                                    <li class="list-group-item list-group-item-light text-black  flex-fill rounded-0 text-right">£{{ product.price }}</li>
-                                  </ul>
-                                  <ul class="list-group list-group-horizontal mt-3">
-                                    <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">Country:</li>
-                                    <li class="list-group-item list-group-item-light text-black flex-fill rounded-0 text-right">{{ product.country }}</li>
-                                  </ul>
-                            </div>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="container">
+<div class="row">
+    <div class="col">
+        {% if cart_items %}
+            <div class="table-responsive rounded"></div>
+        {% else %}
+            <p class="lead mb-5">Your bag is empty.</p>
+            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span class="text-uppercase">Keep Shopping</span>
+            </a>
+        {% endif %}
     </div>
+</div>
+</div>
 </div>
 {% endblock %}
 
