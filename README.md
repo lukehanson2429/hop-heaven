@@ -75,7 +75,26 @@ Initial Wireframe designs made on Figma:
 
 ## Features
 
-* 
+### Site Wide
+
+* Responsive on all devices.
+
+* Search bar functionality within header to search by name/description.
+* Navigation dropdown bar to select beers by style/view all in Header.
+* Navigation dropdown bar to sort beers by rating, price & style all in Header.
+* My account link in header to view profile, login, logout, signup.
+* Cart link to view current shopping cart/checkout.
+* Footer Social links.
+
+### Home Page
+
+### Products Page
+
+* Ability to sort by price, name, rating & style.
+* Navigation buttons at top for each style of beer when viewing all styles.
+* Back to top button - fixed on medium/large displays and centred at bottom on smaller devices.
+* img wapper for beer images for opaque zoom effect.
+
     
 ### Features left to implement
 
