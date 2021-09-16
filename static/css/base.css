@@ -138,12 +138,17 @@ header {
     border-color: #C5B358;
 }
 
-.btt-button {
+.button-fixed {
     height: 42px;
     width: 42px;
     position: fixed;
-    bottom: 100px;
-    right: 10px;
+    bottom: 110px;
+    right: 20px;
+}
+
+.button-mobile {
+    height: 42px;
+    width: 42px;
 }
 
 .btt-link {
