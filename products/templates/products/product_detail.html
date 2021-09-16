@@ -13,10 +13,11 @@
 <div class="overlay"></div>
 <div class="row text-center">
     <div class="col-12 col-md-4 col-lg-3 pt-5 pt-md-4 pt-lg-3 pt-xl-3">
-    <h4>
-        <a href="{% url 'products' %}" class="btn-custom btn btn-lg rounded-0 text-uppercase py-2"><i class="fas fa-chevron-left"></i> Back to Shop</a>
-    </h4>
-</div>
+        <h4>
+            <a href="{% url 'products' %}" class="btn-custom btn btn-lg rounded-0 text-uppercase py-2"><i
+                    class="fas fa-chevron-left"></i> Back to Shop</a>
+        </h4>
+    </div>
 </div>
 <div class="container-fluid pt-3 pb-1 text-content">
     <div class="row">
@@ -26,92 +27,114 @@
                     <div class="col-12 col-md-6 col-lg-5">
                         {% if product.image %}
                         <a href="{{ product.image.url }}" target="_blank">
-                            <div class="card-img-wrap"><img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}"></div>
+                            <div class="card-img-wrap"><img class="img-fluid" src="{{ product.image.url }}"
+                                    alt="{{ product.name }}"></div>
                         </a>
                         {% else %}
                         <a href="">
                             <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                         </a>
                         {% endif %}
-                    <p class="mt-2 ml-2">Description: {{ product.description }}
-                    <br>
-                    {% if product.rating %}
-                                            <small class="fas-custom"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
-                                        {% else %}
-                                            <small class="fas-custom">No Rating</small>
-                                        {% endif %}
-                                    </p>
+                        <p class="mt-2 ml-2">Description: {{ product.description }}
+                            <br>
+                            {% if product.rating %}
+                            <small class="fas-custom"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                            {% else %}
+                            <small class="fas-custom">No Rating</small>
+                            {% endif %}
+                        </p>
                     </div>
                     <div class="col-12 col-md-6 col-lg-7">
                         <div class="card-body text-content text-white text-uppercase">
                             <h5 class="card-title text-center font-weight-bold">{{ product.name }}</h5>
                             <hr class="card-hr">
                             <div class="card-text">
-                            <ul class="list-group list-group-horizontal mt-3">
-                                <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">Style:</li>
-                                <li class="list-group-item list-group-item-light text-black  flex-fill rounded-0 text-right">{{ product.category.friendly_name }}</li>
-                              </ul>
-                              <ul class="list-group list-group-horizontal mt-3">
-                                <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">Country:</li>
-                                <li class="list-group-item list-group-item-light text-black flex-fill rounded-0 text-right">{{ product.country }}</li>
-                              </ul>
-                              <ul class="list-group list-group-horizontal mt-3">
-                                <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">Brewery:</li>
-                                <li class="list-group-item list-group-item-light text-black flex-fill rounded-0 text-right">{{ product.brewery }}</li>
-                              </ul>
-                              <ul class="list-group list-group-horizontal rounded-0 mt-3">
-                                <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">abv:</li>
-                                <li class="list-group-item list-group-item-light text-black flex-fill rounded-0 text-right">{{ product.abv }}%</li>
-                              </ul>
-                              <ul class="list-group list-group-horizontal mt-3">
-                                <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">size:</li>
-                                <li class="list-group-item list-group-item-light text-black text-right flex-fill rounded-0">{{ product.size }}ml</li>
-                              </ul>
-                              <hr class="card-hr">
+                                <ul class="list-group list-group-horizontal mt-3">
+                                    <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">
+                                        Style:</li>
+                                    <li
+                                        class="list-group-item list-group-item-light text-black  flex-fill rounded-0 text-right">
+                                        {{ product.category.friendly_name }}</li>
+                                </ul>
+                                <ul class="list-group list-group-horizontal mt-3">
+                                    <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">
+                                        Country:</li>
+                                    <li
+                                        class="list-group-item list-group-item-light text-black flex-fill rounded-0 text-right">
+                                        {{ product.country }}</li>
+                                </ul>
+                                <ul class="list-group list-group-horizontal mt-3">
+                                    <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">
+                                        Brewery:</li>
+                                    <li
+                                        class="list-group-item list-group-item-light text-black flex-fill rounded-0 text-right">
+                                        {{ product.brewery }}</li>
+                                </ul>
+                                <ul class="list-group list-group-horizontal rounded-0 mt-3">
+                                    <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">
+                                        abv:</li>
+                                    <li
+                                        class="list-group-item list-group-item-light text-black flex-fill rounded-0 text-right">
+                                        {{ product.abv }}%</li>
+                                </ul>
+                                <ul class="list-group list-group-horizontal mt-3">
+                                    <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">
+                                        size:</li>
+                                    <li
+                                        class="list-group-item list-group-item-light text-black text-right flex-fill rounded-0">
+                                        {{ product.size }}ml</li>
+                                </ul>
+                                <hr class="card-hr">
                             </div>
                             <h5 class="card-title text-center">Make your Selection</h5>
                             <div class="card-text">
                                 <ul class="list-group list-group-horizontal mt-3">
-                                    <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">Unit Price:</li>
-                                    <li class="list-group-item list-group-item-light text-black  flex-fill rounded-0 text-right">£{{ product.price }}</li>
-                                  </ul>
-                                  <ul class="list-group list-group-horizontal mt-3">
-                                    <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">Qty:</li>
-                                    <li class="list-group-item list-group-item-light text-black  flex-fill rounded-0 text-right">
-                                        <form class="form" action="" method="POST">
+                                    <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">
+                                        Unit Price:</li>
+                                    <li
+                                        class="list-group-item list-group-item-light text-black  flex-fill rounded-0 text-right">
+                                        £{{ product.price }}</li>
+                                </ul>
+                                <form class="form" action="" method="POST">
+                                <ul class="list-group list-group-horizontal mt-3">
+                                    <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">
+                                        Qty:</li>
+                                    <li
+                                        class="list-group-item list-group-item-light text-black  flex-fill rounded-0 text-right">
                                             {% csrf_token %}
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <button class="decrement-qty btn btn-custom btn-sm rounded-0" 
-                                                        data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
-                                                        <span class="icon">
-                                                            <i class="fas fa-minus"></i>
-                                                        </span>
-                                                    </button>
-                                                </div>
-                                                <input class="form-control qty_input" type="number"
-                                                    name="quantity" value="1" min="1" max="99"
-                                                    data-item_id="{{ product.id }}"
-                                                    id="id_qty_{{ product.id }}">
-                                                <div class="input-group-append">
-                                                    <button class="increment-qty btn btn-custom btn-sm rounded-0"
-                                                        data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
-                                                        <span class="icon">
-                                                            <i class="fas fa-plus"></i>
-                                                        </span>
-                                                    </button>
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <button class="decrement-qty btn btn-custom btn-sm rounded-0"
+                                                            data-item_id="{{ product.id }}"
+                                                            id="decrement-qty_{{ product.id }}">
+                                                            <span class="icon">
+                                                                <i class="fas fa-minus"></i>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                    <input class="form-control qty_input" type="number" name="quantity"
+                                                        value="1" min="1" max="99" data-item_id="{{ product.id }}"
+                                                        id="id_qty_{{ product.id }}">
+                                                    <div class="input-group-append">
+                                                        <button class="increment-qty btn btn-custom btn-sm rounded-0"
+                                                            data-item_id="{{ product.id }}"
+                                                            id="increment-qty_{{ product.id }}">
+                                                            <span class="icon">
+                                                                <i class="fas fa-plus"></i>
+                                                            </span>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
                                     </li>
-                                  </ul>
-                                  <div class="text-center mt-3">
-                                    <h4>
-                                        <input type="submit" href="" class="btn-custom btn btn-lg rounded-0 py-2" value="ADD TO CART">
-                                    </h4>
+                                </ul>
+                                <div class="text-center mt-3">
+                                        <input type="submit" class="btn-custom text-uppercase btn btn-lg rounded-0 py-2"
+                                            value="add to cart">
+
                                 </div>
-                            </form>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -122,17 +145,18 @@
 </div>
 <div class="row text-center">
     <div class="col-12 col-md-4 offset-md-8 col-lg-3 offset-lg-9 pt-1 pt-lg-2 pt-xl-2">
-    <h4>
-        <a href="{% url 'view_cart' %}" class="btn-custom btn btn-lg rounded-0 text-uppercase py-2">View Beer Cart <i class="fas fa-chevron-right"></i></a>
-    </h4>
-</div>
+        <h4>
+            <a href="{% url 'view_cart' %}" class="btn-custom btn btn-lg rounded-0 text-uppercase py-2">View Beer Cart
+                <i class="fas fa-chevron-right"></i></a>
+        </h4>
+    </div>
 </div>
 {% endblock %}
 
 {% block page_footer %}
-    <div class="container footer-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container footer-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
