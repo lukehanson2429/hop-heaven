@@ -16,6 +16,10 @@
         <div class="product-container col-12 col-md-10 offset-md-1">
             <div class="card mb-3 text-content text-white bg-black border-dark rounded-0 shadow-lg">
                 <div class="row no-gutters">
+                    <div class="col-12 d-block pt-2 d-md-none d-lg-none d-xl-none text-center">
+                    <h5 class="card-title font-weight-bold">{{ product.name }}</h5>
+                            <hr class="card-hr w-auto">
+                        </div>
                     <div class="col-12 col-md-6 col-lg-5">
                         {% if product.image %}
                         <a href="{{ product.image.url }}" target="_blank">
@@ -38,7 +42,7 @@
                     </div>
                     <div class="col-12 col-md-6 col-lg-7">
                         <div class="card-body text-content text-white text-uppercase">
-                            <h5 class="card-title text-center font-weight-bold">{{ product.name }}</h5>
+                            <h5 class="card-title d-none d-md-block d-lg-block d-xl-block text-center font-weight-bold">{{ product.name }}</h5>
                             <hr class="card-hr">
                             <div class="card-text">
                                 <ul class="list-group list-group-horizontal mt-3">
