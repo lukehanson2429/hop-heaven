@@ -17,7 +17,7 @@
         <hr class="custom-hr w-50 mb-1">
     </div>
 </div>
-<div class="container pt-3">
+<div class="container text-content pt-3">
     <div class="row">
         <div class="col">
             {% if cart_items %}
@@ -32,7 +32,6 @@
                                 <th scope="col">Subtotal</th>
                             </tr>
                         </thead>
-
                         {% for item in cart_items %}
                             <tr>
                                 <td class="p-0 w-25">
@@ -79,8 +78,8 @@
                     </table>
                 </div>
             {% else %}
-                <p class="lead mb-5">Your bag is empty.</p>
-                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                <p class="lead mb-5">Your cart is empty.</p>
+                <a href="{% url 'products' %}" class="btn-custom btn btn-lg rounded-0 text-uppercase py-2">
                     <span class="icon">
                         <i class="fas fa-chevron-left"></i>
                     </span>
