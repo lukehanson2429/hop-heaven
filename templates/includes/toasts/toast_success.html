@@ -33,6 +33,13 @@
                         </div>
                         <div class="col-9">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                            {% if item.product.category %}
+                                            <small class="mt-1 mb-0">
+                                                <a class="color-custom" href="{% url 'products' %}?category={{ item.product.category.name }}">
+                                                    <i class="fas fa-beer mr-1"></i>{{ item.product.category.friendly_name }}
+                                                </a>
+                                            </small>
+                                            {% endif %}
                             <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                         </div>
                     </div>
