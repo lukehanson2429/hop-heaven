@@ -4,7 +4,8 @@
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
-        <div class="col"></div>
+        <div class="col">
+        </div>
     </div>
 </div>
 {% endblock %}
@@ -34,9 +35,9 @@
                         <p class="mt-2 ml-2 mb-0 mb-md-3 mb-lg-3 mb-xl-3">Description: {{ product.description }}
                             <br>
                             {% if product.rating %}
-                            <small class="fas-custom"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                            <small class="color-custom"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
                             {% else %}
-                            <small class="fas-custom">No Rating</small>
+                            <small class="color-custom">No Rating</small>
                             {% endif %}
                         </p>
                     </div>

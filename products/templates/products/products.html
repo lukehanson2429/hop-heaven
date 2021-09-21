@@ -68,7 +68,7 @@
                                 <p class="mb-0 lead">{{ product.name }}</p>
                                 {% if product.category %}
                                             <small class="mt-1 mb-0">
-                                                <a class="fas-custom" href="{% url 'products' %}?category={{ product.category.name }}">
+                                                <a class="color-custom" href="{% url 'products' %}?category={{ product.category.name }}">
                                                     <i class="fas fa-beer mr-1"></i>{{ product.category.friendly_name }}
                                                 </a>
                                             </small>
@@ -80,9 +80,9 @@
                                     <div class="col">
                                         <p class="lead mb-0 text-left text-white font-weight-bold">£{{ product.price }}</p>
                                         {% if product.rating %}
-                                            <small class="fas-custom"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                                            <small class="color-custom"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
                                         {% else %}
-                                            <small class="fas-custom">No Rating</small>
+                                            <small class="color-custom">No Rating</small>
                                         {% endif %}
                                     </div>
                                 </div>
@@ -116,14 +116,14 @@
     <div class="row justify-content-center">
         <div class="d-block d-sm-block d-md-none d-lg-none d-xl-none rounded-0 button-mobile">
             <a class="btt-link btn-custom d-flex h-100">
-                <i class="fas fa-arrow-up fas-custom mx-auto my-auto"></i>
+                <i class="fas fa-arrow-up color-custom mx-auto my-auto"></i>
             </a>	
         </div>
     </div>
 </div>
 <div class="d-none d-sm-none d-md-block d-lg-block d-xl-block rounded-0 button-fixed">
     <a class="btt-link btn-custom d-flex h-100">
-        <i class="fas fa-arrow-up fas-custom mx-auto my-auto"></i>
+        <i class="fas fa-arrow-up color-custom mx-auto my-auto"></i>
     </a>	
 </div>
 {% endblock %}
