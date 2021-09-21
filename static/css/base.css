@@ -7,6 +7,28 @@ html {
     overflow-x: hidden;
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #C5B358; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a7974a;
+  }
+
 .card-hr {
     border: 1px solid #ffffff;
     border-radius: 60%;
@@ -215,13 +237,64 @@ header {
 
 .message-container {
     position: fixed;
-    top: 160px;
-    left: 15px;
+    top: 110px;
+    right: 15px;
     z-index: 99999999999999999999;
 }
 
 .custom-toast {
     overflow: visible;
+}
+
+/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent; 
+    border-bottom: 10px solid black;
+    position: absolute;
+    top: -10px;
+    right: 36px;
+}
+
+/* Convenience classes - colors copied from Bootstrap */
+.arrow-primary {
+    border-bottom-color: #007bff !important;
+}
+
+.arrow-secondary {
+    border-bottom-color: #6c757d !important;
+}
+
+.arrow-success {
+    border-bottom-color: #28a745 !important;
+}
+
+.arrow-danger {
+    border-bottom-color: #dc3545 !important;
+}
+
+.arrow-warning {
+    border-bottom-color: #ffc107 !important;
+}
+
+.arrow-info {
+    border-bottom-color: #17a2b8 !important;
+}
+
+.arrow-light {
+    border-bottom-color: #f8f9fa !important;
+}
+
+.arrow-dark {
+    border-bottom-color: #343a40 !important;
+}
+
+.cart-toasts-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 /* Slightly larger container on xl screens */
@@ -255,11 +328,17 @@ header {
           margin-left: 1em;
           margin-right: 1em;
       }
+      .message-container {
+        top: 90px;
+    }
   }
 
   @media (max-width: 466px) {
 
   .list-inline-item p {
         font-size: 8px;
+    }
+    .message-container {
+        top: 75px;
     }
   }

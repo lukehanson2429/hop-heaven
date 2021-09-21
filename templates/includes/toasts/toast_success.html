@@ -1,22 +1,27 @@
 <div class="toast custom-toast border border-black rounded-0 text-content text-uppercase" data-autohide="false">
     <div class="arrow-up arrow-success"></div>
     <div class="w-100 bg-success pt-2"></div>
-    <div class="toast-header bg-black text-white rounded-0">
-        <strong class="mr-auto color-custom">Success!</strong>
-        <button type="button" class="ml-2 mb-1 close btn text-white" data-dismiss="toast" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <hr class="card-hr m-0">
-    <div class="toast-body bg-black text-white rounded-0">
+    <div class="toast-header bg-black text-white border border-black rounded-0">
         <div class="row">
-            <div class="col color-custom">
+            <div class="col-7">
+                <strong class="color-custom">Success!</strong>
+            </div>
+            <div class="col-5">
+                <button type="button" class="ml-2 mb-1 close btn text-white" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="col-12 color-custom">
+                <hr class="card-hr mt-1 mb-1">
                 {{ message }}
+                <hr class="card-hr mb-1 mt-1">
             </div>
         </div>
-        {% if grand_total and not on_profile_page %}
+    </div>
+    <div class="toast-body bg-black text-white rounded-0 pt-1">
+        {% if grand_total %}
             <h6 class="bg-black text-white py-1 pt-2">Your Bag ({{ product_count }})</h6>
-            <div class="bag-notification-wrapper">
+            <div class="cart-toasts-wrapper">
                 {% for item in cart_items %}
                     <div class="row">
                         <div class="col-3 my-1">
@@ -31,8 +36,12 @@
                             <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                         </div>
                     </div>
+                    {% if forloop.counter|divisibleby:1 %}
+                        <div class="col-12 mb-2">
+                            <hr class="card-hr">
+                        </div>
+                    {% endif %} 
                 {% endfor %}
-                <hr class="card-hr m-0">
             </div>
             <div class="row">
                 <div class="col text-center">
