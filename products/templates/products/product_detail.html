@@ -31,7 +31,7 @@
                             <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                         </a>
                         {% endif %}
-                        <p class="mt-2 ml-2">Description: {{ product.description }}
+                        <p class="mt-2 ml-2 mb-0 mb-md-3 mb-lg-3 mb-xl-3">Description: {{ product.description }}
                             <br>
                             {% if product.rating %}
                             <small class="fas-custom"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
@@ -41,7 +41,7 @@
                         </p>
                     </div>
                     <div class="col-12 col-md-6 col-lg-7">
-                        <div class="card-body text-content text-white text-uppercase">
+                        <div class="card-body text-content text-white text-uppercase pt-0 pt-md-3 pt-lg-3 pt-xl-3">
                             <h5 class="card-title d-none d-md-block d-lg-block d-xl-block text-center font-weight-bold">{{ product.name }}</h5>
                             <hr class="card-hr">
                             <div class="card-text">
