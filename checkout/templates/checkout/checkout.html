@@ -16,7 +16,7 @@
 
 {% block content %}
 <div class="overlay"></div>
-<div class="container-fluid">
+<div class="container-fluid pt-4">
     <div class="row">
         <div class="product-container col-12 col-md-10 offset-md-1">
             <div class="card mb-3 text-content text-uppercase text-white bg-black border-black rounded-0">
@@ -26,10 +26,10 @@
                             <div class="rounded-0 border border-white p-3 checkout-scroll">
                             <div class="row">
                                 <div class="col-6">
-                                    <p class="mb-1 mt-0 small text-left color-custom">Item</p>
+                                    <p class="mb-1 mt-0 small text-left color-custom"><u>Item</u></p>
                                 </div>
                                 <div class="col-6">
-                                    <p class="mb-1 mt-0 small text-right color-custom">Subtotal</p>
+                                    <p class="mb-1 mt-0 small text-right color-custom"><u>Subtotal</u></p>
                                 </div>
                             </div>
                             {% for item in cart_items %}
@@ -45,25 +45,45 @@
                                 </div>
                                 <div class="col-5 col-md-6">
                                     <p class="my-0">{{ item.product.name }}</p>
+                                    {% if item.product.category %}
+                                            <small class="mt-1 mb-0">
+                                                <a class="color-custom" href="{% url 'products' %}?category={{ item.product.category.name }}">
+                                                    <i class="fas fa-beer mr-1"></i>{{ item.product.category.friendly_name }}
+                                                </a>
+                                            </small>
+                                            {% endif %}
                                     <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                                 </div>
                                 <div class="col-3 text-right">
-                                    <p class="my-0 small text-muted">
+                                    <p class="my-0 small">
                                         £{{ item.product.price | calc_subtotal:item.quantity }}</p>
                                 </div>
                             </div>
+                            {% if forloop.counter|divisibleby:1 %}
+                        <div class="col-12 mb-1">
+                            <hr class="card-hr">
+                        </div>
+                    {% endif %}  
                             {% endfor %}
-                            <hr class="my-0">
-                            <div class="row text-right">
-                                <div class="col-7 offset-2">
+                            <div class="col-12 px-0 pb-3">
+                                {% if free_delivery_delta > 0 %}
+                                    <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
+                                        Spend <strong>£{{ free_delivery_delta }}</strong> more to get free next day delivery!
+                                    </p>
+                                {% endif %}
+                            </div>
+                            <div class="row text-left">
+                                <div class="col-7">
                                     <p class="my-0">Order Total:</p>
                                     <p class="my-0">Delivery:</p>
-                                    <p class="my-0">Grand Total:</p>
+                                    <hr class="card-hr my-1">
+                                    <p class="my-0 color-custom">Grand Total:</p>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-3 offset-2 text-right">
                                     <p class="my-0">£{{ total | floatformat:2 }}</p>
                                     <p class="my-0">£{{ delivery | floatformat:2 }}</p>
-                                    <p class="my-0"><strong>£{{ grand_total | floatformat:2 }}</strong></p>
+                                    <hr class="card-hr my-1">
+                                    <p class="my-0 color-custom"><strong>£{{ grand_total | floatformat:2 }}</strong></p>
                                 </div>
                             </div>
                         </div>
@@ -109,7 +129,7 @@
                                                 {% endif %}
                                             </div>
                                         </fieldset>
-                                        <fieldset class="px-3">
+                                        <fieldset class="px-3 border color-custom">
                                             <legend class="fieldset-label small px-2 w-auto">Payment</legend>
                                             <!-- A Stripe card element will go here -->
                                             <div class="mb-3" id="card-element"></div>
@@ -117,27 +137,30 @@
                                             <!-- Used to display form errors -->
                                             <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                                         </fieldset>
-
-                                        <div class="submit-button text-right mt-5 mb-2">
-                                            <a href="{% url 'view_cart' %}" class="btn btn-outline-black rounded-0">
-                                                <span class="icon">
-                                                    <i class="fas fa-chevron-left"></i>
-                                                </span>
-                                                <span class="font-weight-bold">Adjust Bag</span>
-                                            </a>
-                                            <button id="submit-button" class="btn btn-black rounded-0">
-                                                <span class="font-weight-bold">Complete Order</span>
-                                                <span class="icon">
-                                                    <i class="fas fa-lock"></i>
-                                                </span>
-                                            </button>
-                                            <p class="small text-danger my-0">
-                                                <span class="icon">
-                                                    <i class="fas fa-exclamation-circle"></i>
-                                                </span>
-                                                <span>Your card will be charged
-                                                    <strong>${{ grand_total|floatformat:2 }}</strong></span>
-                                            </p>
+                                        <div class="row pl-3 pt-3 pr-3">
+                                            <div class="col-6 text-left pb-3">
+                                                <a href="{% url 'view_cart' %}" class="btn btn-custom rounded-0">
+                                                    <span class="icon">
+                                                        <i class="fas fa-chevron-left"></i>
+                                                    </span>
+                                                    <span class="font-weight-bold">Adjust cart</span>
+                                                </a>
+                                            </div>
+                                            <div class="col-6 text-right pb-3">
+                                                <button id="submit-button" class="btn btn-custom rounded-0">
+                                                    <span class="font-weight-bold text-uppercase">Complete Order</span>
+                                                    <span class="icon">
+                                                        <i class="fas fa-lock"></i>
+                                                    </span>
+                                                </button>
+                                                <p class="small text-danger my-0">
+                                                    <span class="icon">
+                                                        <i class="fas fa-exclamation-circle"></i>
+                                                    </span>
+                                                    <span>Your card will be charged
+                                                        <strong>£{{ grand_total|floatformat:2 }}</strong></span>
+                                                </p>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>

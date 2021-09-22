@@ -234,7 +234,7 @@ header {
 }
 
 .checkout-scroll {
-    max-height: 800px;
+    max-height: 735px;
     overflow-y: scroll;
 }
 
@@ -345,5 +345,9 @@ header {
     }
     .message-container {
         top: 75px;
+    }
+    .checkout-scroll {
+        max-height: 300px;
+        overflow-y: scroll;
     }
   }
