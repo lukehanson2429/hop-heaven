@@ -21,9 +21,9 @@
         <div class="product-container col-12 col-md-10 offset-md-1">
             <div class="card mb-3 text-content text-uppercase text-white bg-black border-black rounded-0">
                 <div class="row pl-2 pr-2">
-                        <div class="col-12 col-md-6 col-lg-5 pt-4">
-                            <p><strong><u>Order Summary ({{ product_count }})</u></strong></p>
-                            <div class="rounded-0 border border-white p-3 checkout-scroll">
+                    <div class="col-12 col-md-6 col-lg-5 pt-4">
+                        <p><strong><u>Order Summary ({{ product_count }})</u></strong></p>
+                        <div class="rounded-0 border border-white p-3 checkout-scroll">
                             <div class="row">
                                 <div class="col-6">
                                     <p class="mb-1 mt-0 small text-left color-custom"><u>Item</u></p>
@@ -46,12 +46,13 @@
                                 <div class="col-5 col-md-6">
                                     <p class="my-0">{{ item.product.name }}</p>
                                     {% if item.product.category %}
-                                            <small class="mt-1 mb-0">
-                                                <a class="color-custom" href="{% url 'products' %}?category={{ item.product.category.name }}">
-                                                    <i class="fas fa-beer mr-1"></i>{{ item.product.category.friendly_name }}
-                                                </a>
-                                            </small>
-                                            {% endif %}
+                                    <small class="mt-1 mb-0">
+                                        <a class="color-custom"
+                                            href="{% url 'products' %}?category={{ item.product.category.name }}">
+                                            <i class="fas fa-beer mr-1"></i>{{ item.product.category.friendly_name }}
+                                        </a>
+                                    </small>
+                                    {% endif %}
                                     <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                                 </div>
                                 <div class="col-3 text-right">
@@ -60,16 +61,17 @@
                                 </div>
                             </div>
                             {% if forloop.counter|divisibleby:1 %}
-                        <div class="col-12 mb-1">
-                            <hr class="card-hr">
-                        </div>
-                    {% endif %}  
+                            <div class="col-12 mb-1">
+                                <hr class="card-hr">
+                            </div>
+                            {% endif %}
                             {% endfor %}
                             <div class="col-12 px-0 pb-3">
                                 {% if free_delivery_delta > 0 %}
-                                    <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
-                                        Spend <strong>£{{ free_delivery_delta }}</strong> more to get free next day delivery!
-                                    </p>
+                                <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
+                                    Spend <strong>£{{ free_delivery_delta }}</strong> more to get free next day
+                                    delivery!
+                                </p>
                                 {% endif %}
                             </div>
                             <div class="row text-left">
@@ -91,7 +93,7 @@
                     <div class="col-12 col-md-6 col-lg-7 px-1">
                         <div class="card-body p-0 pt-3">
                             <div class="col-12 pl-md-0 pl-lg-0 pl-xl-0">
-                            <h5 class="card-title"><u>Checkout</u></h5>
+                                <h5 class="card-title"><u>Checkout</u></h5>
                             </div>
                             <div class="card-text">
                                 <div class="col-12 pl-md-0 pl-lg-0 pl-xl-0">
