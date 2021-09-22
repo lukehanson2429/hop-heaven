@@ -233,6 +233,11 @@ header {
     list-style-type: none;
 }
 
+.checkout-scroll {
+    max-height: 800px;
+    overflow-y: scroll;
+}
+
 /* Toasts */
 
 .message-container {
