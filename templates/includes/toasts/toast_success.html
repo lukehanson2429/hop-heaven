@@ -26,9 +26,11 @@
                     <div class="row">
                         <div class="col-3 my-1">
                             {% if item.product.image %}
-                            <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                            <a href="{% url 'product_detail' item.product.id %}">
+                            <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}"></a>
                             {% else %}
-                            <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                            <a href="{% url 'product_detail' product.id %}">
+                            <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}"></a>
                             {% endif %}
                         </div>
                         <div class="col-9">
