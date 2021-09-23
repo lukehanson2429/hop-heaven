@@ -29,6 +29,11 @@ html {
     background: #a7974a;
   }
 
+
+.list-group-item {
+    box-shadow: 4px 4px #C5B358;
+    border: 1px solid #000000;
+}
 .card-hr {
     border: 1px solid #ffffff;
     border-radius: 60%;
@@ -190,8 +195,10 @@ header {
 .social-links li a i:hover,
 .social-links li a i:active,
 .social-links li a i:focus {
-    background: #222;
-    color: white;
+    background: white;
+    border: 1px solid #000000;
+    -webkit-transition: 500ms ease;
+    transition: 500ms ease;
 }
 
 .footer {
