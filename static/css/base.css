@@ -34,6 +34,10 @@ html {
     box-shadow: 4px 4px #C5B358;
     border: 1px solid #000000;
 }
+
+.card-box-sh {
+    box-shadow: 5px 5px #C5B358 !important;
+}
 .card-hr {
     border: 1px solid #ffffff;
     border-radius: 60%;
