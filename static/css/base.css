@@ -241,7 +241,7 @@ header {
 }
 
 .checkout-scroll {
-    max-height: 735px;
+    max-height: 840px;
     overflow-y: scroll;
 }
 
