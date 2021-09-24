@@ -29,18 +29,18 @@
                 <div class="row pl-2 pr-2">
                     <div class="col-12 col-md-6 col-lg-5 pt-3">
                         <div class="row">
-                        <div class="col-6 text-left pt-1 pr-1">
-                        <p><strong><u>Order Summary ({{ product_count }})</u></strong></p>
+                            <div class="col-6 text-left pt-1 pr-1">
+                                <p><strong><u>Order Summary ({{ product_count }})</u></strong></p>
+                            </div>
+                            <div class="col-6 text-right pb-3 pl-1">
+                                <a href="{% url 'view_cart' %}" class="btn btn-sm btn-custom rounded-0">
+                                    <span class="icon">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span>Adjust Order</span>
+                                </a>
+                            </div>
                         </div>
-                        <div class="col-6 text-right pb-3 pl-1">
-                            <a href="{% url 'view_cart' %}" class="btn btn-sm btn-custom rounded-0">
-                                <span class="icon">
-                                    <i class="fas fa-chevron-left"></i>
-                                </span>
-                                <span>Adjust Order</span>
-                            </a>
-                        </div>
-                    </div>
                         <div class="rounded-0 border border-white p-3 checkout-scroll">
                             <div class="row">
                                 <div class="col-6">
@@ -156,6 +156,8 @@
 
                                             <!-- Used to display form errors -->
                                             <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                                            <!-- Pass the client secret to the view so we can get the payment intent id -->
+                                            <input type="hidden" value="{{ client_secret }}" name="client_secret">
                                         </fieldset>
                                         <div class="row pl-3 pt-3 pr-3">
                                             <div class="col-12 text-right pb-3">
@@ -204,8 +206,8 @@
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
-    {{ client_secret|json_script:"id_client_secret" }}
-    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+{{ block.super }}
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ client_secret|json_script:"id_client_secret" }}
+<script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
