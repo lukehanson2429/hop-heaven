@@ -1,12 +1,12 @@
 {% load static %}
-<div class="col-12 d-block d-lg-none">
-    <!-- Image and text -->
-<nav class="navbar navbar-light justify-content-center">
-<a class="navbar-brand" href="{% url 'home' %}"><h1>Hop<img src="{% static '/images/hop_heaven_logo.png' %}" width="40" height="40" class="d-inline-block align-center" alt="">Heaven</h1>
-</a>
-</nav>
-  </div>
 <div class="collapse navbar-collapse" id="main-nav">
+    <div class="col-12 px-0 d-block d-lg-none">
+        <!-- Image and text -->
+    <nav class="navbar navbar-light justify-content-center">
+    <a class="navbar-brand" href="{% url 'home' %}"><h1>Hop<img src="{% static '/images/hop_heaven_logo.png' %}" width="40" height="40" class="d-inline-block align-center" alt="">Heaven</h1>
+    </a>
+    </nav>
+      </div>
     <ul class="navbar-nav w-auto mx-auto">
         <li class="nav-item d-block d-md-none">
             <a class="nav-link text-black mr-5" href="{% url 'home' %}" id="home-link">

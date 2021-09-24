@@ -102,6 +102,8 @@ header {
     font-family: 'Bungee', cursive;
     letter-spacing: 0.05em;
     z-index: 10;
+    position: fixed;
+    top: 0;
 }
 
 .icon {
@@ -206,10 +208,8 @@ header {
 }
 
 .footer {
-    left: 0;
-    bottom: 0;
+    margin-bottom: auto;
     width: 100%;
-    position: absolute;
     background: #C5B358;
     color: #000;
     font-family: 'Oswald', sans-serif;
@@ -346,6 +346,9 @@ header {
       }
       .message-container {
         top: 90px;
+    }
+    .header-container {
+        padding-top: 80px;
     }
   }
 
