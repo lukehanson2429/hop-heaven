@@ -328,6 +328,32 @@ header {
     overflow-y: scroll;
 }
 
+/* Allauth form formatting */
+
+
+.allauth-form-inner-content input {
+    border-color: #000;
+    border-radius: 0;
+    box-shadow: 3px 3px #C5B358;
+    -webkit-transition: box-shadow 500ms ease;
+    transition: box-shadow 500ms ease;
+}
+
+.allauth-form-inner-content input:focus,
+.allauth-form-inner-content input:active {
+  box-shadow: none;
+  border: hidden;
+}
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #777777;
+}
+
+
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
     .container {
