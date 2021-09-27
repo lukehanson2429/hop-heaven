@@ -4,9 +4,14 @@
 
 {% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
 
-{% block content %}
-    <h1>{% trans "Verify Your E-mail Address" %}</h1>
+{% block inner_content %}
+<div class="card-header color-custom">
+    <h2>{% trans "Verify Your E-mail Address" %} <i class="fas fa-user-check"></i></h2>
+    <hr class="light-hr">
+</div>
 
+<div class="card-body pt-0">
     <p>{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. Please contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
+</div>
 
 {% endblock %}
