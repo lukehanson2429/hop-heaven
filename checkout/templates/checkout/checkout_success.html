@@ -30,7 +30,7 @@
                 <div class="p-2 border border-black bg-black text-white card-box-sh">
                     <div class="row">
                         <div class="col">
-                            <small class="color-custom">Order Info:</small>
+                            <small class="color-custom"><u>Order Info:</u></small>
                         </div>
                     </div>
 
@@ -51,10 +51,10 @@
                             <p class="mb-0">{{ order.date }}</p>
                         </div>
                     </div>
-
+                    <hr class="card-hr my-1">
                     <div class="row">
                         <div class="col">
-                            <small class="color-custom">Order Details:</small>
+                            <small class="color-custom"><u>Order Details:</u></small>
                         </div>
                     </div>
 
@@ -62,18 +62,18 @@
                     <div class="row">
                         <div class="col-12 col-md-4">
                             <p class="small mb-0  font-weight-bold">
-                                {{ item.product.name }}{% if item.product_size %} - Size {{ item.product.size|upper }}{% endif %}
+                                {{ item.product.name }}
                             </p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
-                            <p class="small mb-0">{{ item.quantity }} @ ${{ item.product.price }} each</p>
+                            <p class="small mb-0">{{ item.quantity }} @ £{{ item.product.price }} each</p>
                         </div>
                     </div>
                     {% endfor %}
-
+                    <hr class="card-hr my-1">
                     <div class="row">
                         <div class="col">
-                            <small class="color-custom">Delivering To:</small>
+                            <small class="color-custom"><u>Delivering To:</u></small>
                         </div>
                     </div>
 
@@ -154,10 +154,10 @@
                             <p class="mb-0">{{ order.phone_number }}</p>
                         </div>
                     </div>
-
+                    <hr class="card-hr my-1">
                     <div class="row">
                         <div class="col">
-                            <small class="color-custom">Billing Info:</small>
+                            <small class="color-custom"><u>Billing Info:</u></small>
                         </div>
                     </div>
 
@@ -166,7 +166,7 @@
                             <p class="mb-0  font-weight-bold">Order Total</p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
-                            <p class="mb-0">{{ order.order_total }}</p>
+                            <p class="mb-0">£{{ order.order_total }}</p>
                         </div>
                     </div>
 
@@ -175,16 +175,16 @@
                             <p class="mb-0  font-weight-bold">Delivery</p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
-                            <p class="mb-0">{{ order.delivery_cost }}</p>
+                            <p class="mb-0">£{{ order.delivery_cost }}</p>
                         </div>
                     </div>
-
+                    <hr class="card-hr my-1">
                     <div class="row">
                         <div class="col-12 col-md-4">
                             <p class="mb-0  font-weight-bold">Grand Total</p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
-                            <p class="mb-0">{{ order.grand_total }}</p>
+                            <p class="mb-0">£{{ order.grand_total }}</p>
                         </div>
                     </div>
                 </div>
@@ -193,14 +193,14 @@
         <div class="row">
 			<div class="col-12 col-lg-7 text-right">
                 {% if from_profile %}
-                    <a href="{% url 'profile' %}" class="btn btn-black rounded-0 my-2">
+                    <a href="{% url 'profile' %}" class="btn btn-black rounded-0 my-3">
                         <span class="icon mr-2">
                             <i class="fas fa-angle-left"></i>
                         </span>
                         <span class="text-uppercase">Back to Profile</span>
                     </a>
                 {% else %}
-                    <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="btn btn-black rounded-0 my-2">
+                    <a href="{% url 'products' %}" class="btn btn-custom rounded-0 my-3">
                         <span class="icon mr-2">
                             <i class="fas fa-gifts"></i>
                         </span>
