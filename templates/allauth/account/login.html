@@ -8,7 +8,7 @@
 {% block inner_content %}
 <div class="card-header">
 <h2>{% trans "Sign In" %}</h2>
-<hr class="card-hr">
+<hr class="light-hr">
 </div>
 <div class="card-body pt-0">
 {% get_providers as socialaccount_providers %}
@@ -43,12 +43,12 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
   {% endif %}
   <div class="row">
     <div class="col-6 text-left pb-1">
-        <a href="{% url 'home' %}" class="btn-custom btn btn-lg rounded-0 text-uppercase py-2"><i
+        <a href="{% url 'home' %}" class=" btn btn-lg rounded-0 text-uppercase py-2"><i
             class="fas fa-chevron-left"></i> Home <i
             class="fas fa-home"></i></a>
     </div>
     <div class="col-6 text-right pb-1">
-      <button class="btn btn-lg btn-custom rounded-0 text-uppercase py-2" type="submit">{% trans "Sign In" %} <i
+      <button class="btn btn-lg rounded-0 text-uppercase py-2" type="submit">{% trans "Sign In" %} <i
         class="fas fa-sign-in-alt"></i></button>
     </div>
 </div>

@@ -15,7 +15,7 @@
 <div class="row text-center text-content text-uppercase">
     <div class="col-12 mt-3">
         <h2 class="text-black font-weight-bold">Beer Cart</h2>
-        <hr class="custom-hr w-50 mb-1">
+        <hr class="dark-hr w-50 mb-1">
     </div>
 </div>
 <div class="container text-content pt-3">
@@ -50,7 +50,7 @@
                                         <div class="form-group">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <button class="decrement-qty btn btn-sm btn-custom rounded-0"
+                                                    <button class="decrement-qty btn btn-sm  rounded-0"
                                                         data-item_id="{{ item.item_id }}"
                                                         id="decrement-qty_{{ item.item_id }}">
                                                         <span>
@@ -62,7 +62,7 @@
                                                     value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}"
                                                     id="id_qty_{{ item.item_id }}">
                                                 <div class="input-group-append">
-                                                    <button class="increment-qty btn btn-sm btn-custom rounded-0"
+                                                    <button class="increment-qty btn btn-sm  rounded-0"
                                                         data-item_id="{{ item.item_id }}"
                                                         id="increment-qty_{{ item.item_id }}">
                                                         <span>
@@ -73,8 +73,8 @@
                                             </div>
                                         </div>
                                     </form>
-                                    <a class="update-link btn btn-sm btn-custom text-info"><small>Update</small></a>
-                                        <a class="remove-item text-danger btn btn-sm btn-custom float-right" id="remove_{{ item.item_id }}"><small>Remove</small></a>
+                                    <a class="update-link btn btn-sm  text-info"><small>Update</small></a>
+                                        <a class="remove-item text-danger btn btn-sm  float-right" id="remove_{{ item.item_id }}"><small>Remove</small></a>
                                 </td>
                                 <td class="py-3">
                                     <p class="my-0">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
@@ -96,11 +96,11 @@
                         <tr>
                             <td colspan="5" class="text-right">
 
-                                    <a href="{% url 'products' %}" class="btn-custom btn btn-lg rounded-0 text-uppercase py-2"><i
+                                    <a href="{% url 'products' %}" class=" btn btn-lg rounded-0 text-uppercase py-2"><i
                                             class="fas fa-chevron-left"></i> Back to Shop</a>
 
 
-                                    <a href="{% url 'checkout' %}" class="btn-custom btn btn-lg rounded-0 text-uppercase py-2">Secure Checkout <i
+                                    <a href="{% url 'checkout' %}" class=" btn btn-lg rounded-0 text-uppercase py-2">Secure Checkout <i
                                         class="fas fa-lock"></i></a>
 
                             </td>
@@ -109,7 +109,7 @@
                 </div>
             {% else %}
                 <p class="lead mb-5">Your cart is empty.</p>
-                <a href="{% url 'products' %}" class="btn-custom btn btn-lg rounded-0 text-uppercase py-2">
+                <a href="{% url 'products' %}" class=" btn btn-lg rounded-0 text-uppercase py-2">
                     <span class="icon">
                         <i class="fas fa-chevron-left"></i>
                     </span>

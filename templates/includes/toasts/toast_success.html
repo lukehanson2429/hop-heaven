@@ -12,9 +12,9 @@
                 </button>
             </div>
             <div class="col-12 color-custom">
-                <hr class="card-hr mt-1 mb-1">
+                <hr class="light-hr mt-1 mb-1">
                 {{ message }}
-                <hr class="card-hr mb-1 mt-1">
+                <hr class="light-hr mb-1 mt-1">
             </div>
         </div>
     </div>
@@ -47,7 +47,7 @@
                     </div>
                     {% if forloop.counter|divisibleby:1 %}
                         <div class="col-12 mb-2">
-                            <hr class="card-hr">
+                            <hr class="light-hr">
                         </div>
                     {% endif %} 
                 {% endfor %}
@@ -63,7 +63,7 @@
                             Spend <strong>£{{ free_delivery_delta }}</strong> more to get free next day delivery!
                         </p>
                     {% endif %}
-                    <a href="{% url 'view_cart' %}" class="btn btn-custom w-100 rounded-0 mt-2">
+                    <a href="{% url 'view_cart' %}" class="btn  w-100 rounded-0 mt-2">
                         <span class="text-uppercase">Go To Secure Checkout</span>
                         <span class="icon">
                             <i class="fas fa-lock"></i>

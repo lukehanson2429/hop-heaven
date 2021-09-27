@@ -51,7 +51,7 @@
                             <p class="mb-0">{{ order.date }}</p>
                         </div>
                     </div>
-                    <hr class="card-hr my-1">
+                    <hr class="light-hr my-1">
                     <div class="row">
                         <div class="col">
                             <small class="color-custom"><u>Order Details:</u></small>
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                     {% endfor %}
-                    <hr class="card-hr my-1">
+                    <hr class="light-hr my-1">
                     <div class="row">
                         <div class="col">
                             <small class="color-custom"><u>Delivering To:</u></small>
@@ -154,7 +154,7 @@
                             <p class="mb-0">{{ order.phone_number }}</p>
                         </div>
                     </div>
-                    <hr class="card-hr my-1">
+                    <hr class="light-hr my-1">
                     <div class="row">
                         <div class="col">
                             <small class="color-custom"><u>Billing Info:</u></small>
@@ -178,7 +178,7 @@
                             <p class="mb-0">£{{ order.delivery_cost }}</p>
                         </div>
                     </div>
-                    <hr class="card-hr my-1">
+                    <hr class="light-hr my-1">
                     <div class="row">
                         <div class="col-12 col-md-4">
                             <p class="mb-0  font-weight-bold">Grand Total</p>
@@ -200,7 +200,7 @@
                         <span class="text-uppercase">Back to Profile</span>
                     </a>
                 {% else %}
-                    <a href="{% url 'products' %}" class="btn btn-custom rounded-0 my-3">
+                    <a href="{% url 'products' %}" class="btn  rounded-0 my-3">
                         <span class="icon mr-2">
                             <i class="fas fa-gifts"></i>
                         </span>

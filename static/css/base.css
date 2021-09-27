@@ -38,12 +38,12 @@ html {
 .card-box-sh {
     box-shadow: 5px 5px #C5B358 !important;
 }
-.card-hr {
+.light-hr {
     border: 1px solid #ffffff;
     border-radius: 60%;
 }
 
-.custom-hr {
+.dark-hr {
     border: 1px solid #000;
     border-radius: 60%;
 }
@@ -176,7 +176,7 @@ header {
 }
 
 
-.btn-custom {
+.btn {
     background: black;
     color: #C5B358;
     font-family: 'Oswald', sans-serif;
@@ -203,14 +203,13 @@ header {
     cursor: pointer;
 }
 
-
 .shop-now-button {
     min-width: 260px;
 }
 
-.btn-custom:hover,
-.btn-custom:active,
-.btn-custom:focus,
+.btn:hover,
+.btn:active,
+.btn:focus,
 .social-links li a i:hover,
 .social-links li a i:active,
 .social-links li a i:focus {
@@ -240,9 +239,6 @@ header {
     height: 36px;
     color: #C5B358;
     background: #000000;
-    border: solid;
-    border-width: 1px;
-    border-color: white;
     padding-top: 10px;
 }
 
@@ -353,6 +349,9 @@ header {
     color: #777777;
 }
 
+input[name='q']::placeholder {
+    color: #777777;
+}
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {

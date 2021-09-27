@@ -19,7 +19,7 @@
                 <div class="row no-gutters">
                     <div class="col-12 d-block pt-2 d-md-none d-lg-none d-xl-none text-center text-uppercase">
                     <h3 class="card-title font-weight-bold">{{ product.name }}</h3>
-                            <hr class="card-hr w-auto">
+                            <hr class="light-hr w-auto">
                         </div>
                     <div class="col-12 col-md-6 col-lg-5">
                         {% if product.image %}
@@ -44,7 +44,7 @@
                     <div class="col-12 col-md-6 col-lg-7 my-auto">
                         <div class="card-body text-content text-white text-uppercase">
                             <h3 class="card-title d-none d-md-block d-lg-block d-xl-block text-center font-weight-bold">{{ product.name }}</h3>
-                            <hr class="card-hr">
+                            <hr class="light-hr">
                             <div class="card-text">
                                 <ul class="list-group list-group-horizontal mt-3">
                                     <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">
@@ -81,7 +81,7 @@
                                         class="list-group-item list-group-item-light text-black text-right flex-fill rounded-0">
                                         {{ product.size }}ml</li>
                                 </ul>
-                                <hr class="card-hr">
+                                <hr class="light-hr">
                             </div>
                             <h5 class="card-title text-center">Make your Selection</h5>
                             <div class="card-text">
@@ -102,7 +102,7 @@
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
-                                                        <button class="decrement-qty btn btn-custom btn-sm rounded-0"
+                                                        <button class="decrement-qty btn  btn-sm rounded-0"
                                                             data-item_id="{{ product.id }}"
                                                             id="decrement-qty_{{ product.id }}">
                                                             <span class="icon">
@@ -114,7 +114,7 @@
                                                         value="1" min="1" max="99" data-item_id="{{ product.id }}"
                                                         id="id_qty_{{ product.id }}">
                                                     <div class="input-group-append">
-                                                        <button class="increment-qty btn btn-custom btn-sm rounded-0"
+                                                        <button class="increment-qty btn  btn-sm rounded-0"
                                                             data-item_id="{{ product.id }}"
                                                             id="increment-qty_{{ product.id }}">
                                                             <span class="icon">
@@ -125,7 +125,7 @@
                                                 </div>
                                             </div>
                                             <div class="text-center mt-3">
-                                                <input type="submit" class="btn-custom text-uppercase btn btn-lg w-100 rounded-0 py-2"
+                                                <input type="submit" class=" text-uppercase btn btn-lg w-100 rounded-0 py-2"
                                                     value="add to cart">
         
                                         </div>
@@ -134,17 +134,17 @@
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                 </form>
                             </div>
-                            <hr class="card-hr">
+                            <hr class="light-hr">
                         </div>
                     </div>
                     </div>
                     <div class="row pl-3 pr-3">
                         <div class="col-6 text-left pb-3">
-                            <a href="{% url 'products' %}" class="btn-custom btn btn-lg rounded-0 text-uppercase py-2"><i
+                            <a href="{% url 'products' %}" class=" btn btn-lg rounded-0 text-uppercase py-2"><i
                                 class="fas fa-chevron-left"></i> Back to Shop</a>
                         </div>
                         <div class="col-6 text-right pb-3">
-                            <a href="{% url 'view_cart' %}" class="btn-custom btn btn-lg rounded-0 text-uppercase py-2">View Beer Cart
+                            <a href="{% url 'view_cart' %}" class=" btn btn-lg rounded-0 text-uppercase py-2">View Beer Cart
                                 <i class="fas fa-chevron-right"></i></a>
                         </div>
                     </div>
