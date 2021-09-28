@@ -255,11 +255,6 @@ header {
     list-style-type: none;
 }
 
-.checkout-scroll {
-    max-height: 840px;
-    overflow-y: scroll;
-}
-
 /* Toasts */
 
 .message-container {

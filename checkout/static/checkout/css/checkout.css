@@ -44,6 +44,11 @@ select option[value=""] {
     color: #777777 !important;
 }
 
+.checkout-scroll {
+  max-height: 840px;
+  overflow-y: scroll;
+}
+
 #loading-overlay {
 	display: none;
 	position: fixed;
@@ -62,3 +67,11 @@ select option[value=""] {
     margin: 0;
     height: 100%;
 }
+
+@media (max-width: 466px) {
+
+    .checkout-scroll {
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+  }

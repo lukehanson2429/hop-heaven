@@ -41,41 +41,33 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="rounded-0 border border-white p-3 checkout-scroll">
+                        <div class="rounded-0 border border-white p-3 order-scroll">
                             <div class="row">
                                 <div class="col-6">
                                     <p class="mb-1 mt-0 small text-left color-custom"><u>Item</u></p>
                                 </div>
                                 <div class="col-6">
-                                    <p class="mb-1 mt-0 small text-right color-custom"><u>Subtotal</u></p>
+                                    <p class="mb-1 mt-0 small text-right color-custom"><u>Order Total</u></p>
                                 </div>
                             </div>
-                            {% for item in cart_items %}
+                            {% for order in orders %}
                             <div class="row">
                                 <div class="col-4 col-md-3 mb-1">
-                                    <a href="{% url 'product_detail' item.product.id %}">
-                                        {% if item.product.image %}
-                                        <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
-                                        {% else %}
-                                        <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                                        {% endif %}
-                                    </a>
+                                    <a href="{% url 'order_history' order.order_number %}"
+                                        title="{{ order.order_number }}">
+                                            {{ order.order_number|truncatechars:6 }}
+                                        </a>
                                 </div>
                                 <div class="col-5 col-md-6">
-                                    <p class="my-0">{{ item.product.name }}</p>
-                                    {% if item.product.category %}
-                                    <small class="mt-1 mb-0">
-                                        <a class="color-custom"
-                                            href="{% url 'products' %}?category={{ item.product.category.name }}">
-                                            <i class="fas fa-beer mr-1"></i>{{ item.product.category.friendly_name }}
-                                        </a>
-                                    </small>
-                                    {% endif %}
+                                    <p class="my-0">{{ order.date }}</p>
+                                    {% for item in order.lineitems.all %}
+                                    <small class="mt-1 mb-0">{{ item.product.name }} x{{ item.quantity }}</small>
+                                    {% endfor %}
                                     <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                                 </div>
                                 <div class="col-3 text-right">
                                     <p class="my-0 small">
-                                        £{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                        ${{ order.grand_total }}</p>
                                 </div>
                             </div>
                             {% if forloop.counter|divisibleby:1 %}
@@ -84,28 +76,6 @@
                             </div>
                             {% endif %}
                             {% endfor %}
-                            <div class="col-12 px-0 pb-3">
-                                {% if free_delivery_delta > 0 %}
-                                <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
-                                    Spend <strong>£{{ free_delivery_delta }}</strong> more to get free next day
-                                    delivery!
-                                </p>
-                                {% endif %}
-                            </div>
-                            <div class="row text-left">
-                                <div class="col-7">
-                                    <p class="my-0">Order Total:</p>
-                                    <p class="my-0">Delivery:</p>
-                                    <hr class="light-hr my-1">
-                                    <p class="my-0 color-custom">Grand Total:</p>
-                                </div>
-                                <div class="col-3 offset-2 text-right">
-                                    <p class="my-0">£{{ total | floatformat:2 }}</p>
-                                    <p class="my-0">£{{ delivery | floatformat:2 }}</p>
-                                    <hr class="light-hr my-1">
-                                    <p class="my-0 color-custom"><strong>£{{ grand_total | floatformat:2 }}</strong></p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-7 px-1">
