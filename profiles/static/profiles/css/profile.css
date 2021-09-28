@@ -7,12 +7,7 @@
 }
 
 .profile-form-input {
-  box-sizing: border-box;
-  height: 40px;
-  padding: 8px 12px;
-  border-radius: 0px;
   color: #000000;
-  background-color: white;
   box-shadow: 3px 3px #C5B358;
   -webkit-transition: box-shadow 500ms ease;
   transition: box-shadow 500ms ease;
@@ -24,15 +19,11 @@
   border: hidden;
 }
 
-
-select,
-select option {
-    color: #000000;
-    padding-top: 20px;
-    padding-bottom: 100px;
+#id_default_country,
+#id_default_country option:not(:first-child) {
+    color: #000;
 }
 
-select:invalid,
-select option[value=""] {
-    color: #777777 !important;
+#id_default_country option:first-child {
+    color: #777777;
 }
