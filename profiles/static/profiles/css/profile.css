@@ -28,15 +28,15 @@
     color: #777777;
 }
 
-.checkout-scroll {
-    max-height: 600px;
+.order-scroll {
+    max-height: 460px;
     overflow-y: scroll;
   }
 
   @media (max-width: 466px) {
 
-    .checkout-scroll {
-        max-height: 300px;
+    .order-scroll {
+        max-height: 280px;
         overflow-y: scroll;
     }
   }
