@@ -1,6 +1,7 @@
 .StripeElement,
 .stripe-style-input {
   box-sizing: border-box;
+  border: 1px solid black;
   height: 40px;
   padding: 8px 12px;
   border-radius: 0px;
@@ -8,6 +9,12 @@
   box-shadow: 3px 3px #C5B358;
   -webkit-transition: box-shadow 500ms ease;
   transition: box-shadow 500ms ease;
+}
+
+#card-element .form-control,
+#payment-form .form-control {
+  color: #000000;
+
 }
 
 .StripeElement--focus,
@@ -23,14 +30,6 @@
 
 .stripe-style-input::placeholder {
     color: #777777;
-}
-
-
-#card-element,
-#payment-form,
-.form-control {
-    color: black;
-    border: 1px solid #000000;
 }
 
 select,

@@ -19,10 +19,125 @@
 <div class="container-fluid text-content text-uppercase pt-4">
     <div class="row">
         <div class="col-12 text-center">
-            <h2 class="text-black font-weight-bold">My Profile</h2>
+            <h2 class="text-black font-weight-bold">Profile</h2>
             <hr class="dark-hr w-50 mb-3">
         </div>
-        {{ profile }}
+    </div>
+    <div class="row">
+        <div class="product-container col-12 col-md-10 offset-md-1">
+            <div class="card card-box-sh mb-3 text-white bg-black border-black rounded-0">
+                <div class="row pl-2 pr-2">
+                    <div class="col-12 col-md-6 col-lg-5 pt-3">
+                        <div class="row">
+                            <div class="col-6 text-left pt-1 pr-1">
+                                <p><strong><u>Order History ({{ product_count }})</u></strong></p>
+                            </div>
+                            <div class="col-6 text-right pb-3 pl-1">
+                                <a href="{% url 'view_cart' %}" class="btn btn-sm  rounded-0">
+                                    <span class="icon">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span>Adjust Order</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="rounded-0 border border-white p-3 checkout-scroll">
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="mb-1 mt-0 small text-left color-custom"><u>Item</u></p>
+                                </div>
+                                <div class="col-6">
+                                    <p class="mb-1 mt-0 small text-right color-custom"><u>Subtotal</u></p>
+                                </div>
+                            </div>
+                            {% for item in cart_items %}
+                            <div class="row">
+                                <div class="col-4 col-md-3 mb-1">
+                                    <a href="{% url 'product_detail' item.product.id %}">
+                                        {% if item.product.image %}
+                                        <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                                        {% else %}
+                                        <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                        {% endif %}
+                                    </a>
+                                </div>
+                                <div class="col-5 col-md-6">
+                                    <p class="my-0">{{ item.product.name }}</p>
+                                    {% if item.product.category %}
+                                    <small class="mt-1 mb-0">
+                                        <a class="color-custom"
+                                            href="{% url 'products' %}?category={{ item.product.category.name }}">
+                                            <i class="fas fa-beer mr-1"></i>{{ item.product.category.friendly_name }}
+                                        </a>
+                                    </small>
+                                    {% endif %}
+                                    <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <p class="my-0 small">
+                                        £{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                </div>
+                            </div>
+                            {% if forloop.counter|divisibleby:1 %}
+                            <div class="col-12 mb-1">
+                                <hr class="light-hr">
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                            <div class="col-12 px-0 pb-3">
+                                {% if free_delivery_delta > 0 %}
+                                <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
+                                    Spend <strong>£{{ free_delivery_delta }}</strong> more to get free next day
+                                    delivery!
+                                </p>
+                                {% endif %}
+                            </div>
+                            <div class="row text-left">
+                                <div class="col-7">
+                                    <p class="my-0">Order Total:</p>
+                                    <p class="my-0">Delivery:</p>
+                                    <hr class="light-hr my-1">
+                                    <p class="my-0 color-custom">Grand Total:</p>
+                                </div>
+                                <div class="col-3 offset-2 text-right">
+                                    <p class="my-0">£{{ total | floatformat:2 }}</p>
+                                    <p class="my-0">£{{ delivery | floatformat:2 }}</p>
+                                    <hr class="light-hr my-1">
+                                    <p class="my-0 color-custom"><strong>£{{ grand_total | floatformat:2 }}</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-7 px-1">
+                        <div class="card-body p-0 pt-3">
+                            <div class="col-12 pl-md-0 pl-lg-0 pl-xl-0">
+                                <h5 class="card-title"><u>Default Delivery Information</u></h5>
+                            </div>
+                            <div class="card-text">
+                                <div class="col-12 pl-md-0 pl-lg-0 pl-xl-0">
+                                    <p class="color-custom">Save your delivery information to make checking out easier.</p>
+                                    <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                                        {% csrf_token %}
+                                        {{ form| crispy }}
+                                        <div class="row pl-3 pt-3 pr-3">
+                                            <div class="col-12 text-right pb-3">
+                                                <button id="submit-button" class="btn rounded-0 w-100">
+                                                    <span class="font-weight-bold text-uppercase">Update Information</span>
+                                                    <span class="icon">
+                                                        <i class="fas fa-edit"></i>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
