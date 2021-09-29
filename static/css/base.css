@@ -58,7 +58,7 @@ html {
     border: 1px solid #000000;
 }
 
-.card-box-sh {
+.box-sh {
     box-shadow: 5px 5px #C5B358 !important;
 }
 .light-hr {
@@ -137,13 +137,6 @@ header {
     width: 1.5rem;
 }
 
-
-.btn-pos {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-}
-
 .bg-custom {
     background-color: #C5B358;
 }
@@ -213,7 +206,7 @@ header {
     height: 42px;
     width: 42px;
     position: fixed;
-    bottom: 110px;
+    bottom: 60px;
     right: 20px;
 }
 

@@ -10,7 +10,7 @@
             <a class="nav-link text-white mr-5" href="#" id="all-beers-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Beers
             </a>
-            <div class="dropdown-menu rounded-0 mt-0 border-0" aria-labelledby="all-beers-link">
+            <div class="dropdown-menu rounded-0 mt-0 border border-black box-sh" aria-labelledby="all-beers-link">
                 <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
                 <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
                 <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Style</a>
@@ -22,7 +22,7 @@
             <a class="nav-link text-white mr-5" href="#" id="styles-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Styles
             </a>
-            <div class="dropdown-menu rounded-0 mt-0 border-0" aria-labelledby="styles-link">
+            <div class="dropdown-menu rounded-0 mt-0 border border-black box-sh" aria-labelledby="styles-link">
                 <a href="{% url 'products' %}?category=session_ipa" class="dropdown-item">Session IPA</a>
                 <a href="{% url 'products' %}?category=amber_ale" class="dropdown-item ">Amber Ale</a>
                 <a href="{% url 'products' %}?category=pilsner" class="dropdown-item ">Pilsner</a>
@@ -38,7 +38,7 @@
             <a class="nav-link text-white" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Special Offers
             </a>
-            <div class="dropdown-menu rounded-0 mt-0 border-0" aria-labelledby="specials-link">
+            <div class="dropdown-menu rounded-0 mt-0 border border-black box-sh" aria-labelledby="specials-link">
                 <a href="{% url 'products' %}?category=bundle" class="dropdown-item">Beer Bundles</a>
                 <a href="" class="dropdown-item">Deals</a>
                 {% if request.user.is_authenticated %}
