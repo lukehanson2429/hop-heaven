@@ -15,6 +15,7 @@ html {
   }
   .animated {
     animation-duration: 3s;
+    animation-delay: 100ms;
     animation-fill-mode: both;
   }
   
