@@ -1,12 +1,5 @@
 {% load static %}
 <div class="collapse navbar-collapse" id="main-nav">
-    <div class="col-12 px-0 d-block d-lg-none">
-        <!-- Image and text -->
-    <nav class="navbar navbar-light justify-content-center">
-    <a class="navbar-brand" href="{% url 'home' %}"><h1>Hop<img src="{% static '/images/hop_heaven_logo.png' %}" width="40" height="40" class="d-inline-block align-center" alt="">Heaven</h1>
-    </a>
-    </nav>
-      </div>
     <ul class="navbar-nav w-auto mx-auto">
         <li class="nav-item d-block d-md-none">
             <a class="nav-link text-black mr-5" href="{% url 'home' %}" id="home-link">
@@ -56,3 +49,17 @@
         </li>
     </ul>
 </div>
+
+{% block postloadjs %}
+<script type="text/javascript">
+    // Add slideDown animation to Bootstrap dropdown when expanding.
+  $('.dropdown').on('show.bs.dropdown', function() {
+    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+  });
+
+  // Add slideUp animation to Bootstrap dropdown when collapsing.
+  $('.dropdown').on('hide.bs.dropdown', function() {
+    $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+  });
+</script>
+{% endblock %}
