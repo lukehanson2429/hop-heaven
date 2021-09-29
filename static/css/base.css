@@ -400,3 +400,30 @@ input[name='q']::placeholder {
         overflow-y: scroll;
     }
   }
+
+  @media (max-width: 992px) {
+    .navbar-collapse {
+        position: fixed;
+        top: 75px; /* adjust to height of navbar */
+        left: 0;
+        background-color: #C5B358;
+        padding-right: 0px;
+        padding-bottom: 15px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .navbar-collapse.collapsing {
+        left: -75%;
+        transition: height 0s ease;
+    }
+
+    .navbar-collapse.show {
+        left: 0;
+        transition: left 300ms ease-in-out;
+    }
+
+    .navbar-toggler.collapsed ~ .navbar-collapse {
+        transition: left 500ms ease-in-out;
+    }
+}
