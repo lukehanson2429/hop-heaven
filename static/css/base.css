@@ -7,6 +7,28 @@ html {
     overflow-x: hidden;
 }
 
+.slide-wrap {
+    overflow-x:hidden;
+  }
+  .slideInLeft {
+    animation-name: slideInLeft;
+  }
+  .animated {
+    animation-duration: 3s;
+    animation-fill-mode: both;
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      transform: translate3d(100%, 0, 0);
+      visibility: visible;
+    }
+  
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
 /* width */
 ::-webkit-scrollbar {
     width: 5px;
@@ -152,7 +174,7 @@ header {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.2);
     background-blend-mode: multiply;
-    animation: toColor 2s;
+    animation: toColor 3s;
 }
 @keyframes toColor {
     0%    { -webkit-filter: grayscale(100%); filter: grayscale(100%); }

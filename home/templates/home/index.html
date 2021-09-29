@@ -6,8 +6,8 @@
 <div class="home-image">
 <div class="container h-100">
     <div class="row h-100 home-content">
-        <div class="col-10 col-md-7 my-auto">
-            <h3 class="text-uppercase text-content text-white">
+        <div class="col-10 col-md-7 slide-wrap my-auto">
+            <h3 class="text-uppercase text-content text-white slideInLeft animated">
                 Bored of watery lager? You're in the the right Place!
                 Have a browse of our great selection of craft beers from across the world.
             </h3>
@@ -24,5 +24,15 @@
 </div>
 
 {% endblock %}
+
+{% block postloadjs %}
+    <script type="text/javascript">
+        $(function(){
+            
+        $(".mydiv").addClass("active");
+        console.log($(".mydiv"));
+        });
+    </script>
+    {% endblock %}
 
 
