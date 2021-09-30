@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'flags/sprite.css' %}">
+{% endblock %}
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -57,8 +61,8 @@
                                     <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">
                                         Country:</li>
                                     <li
-                                        class="list-group-item list-group-item-light text-black flex-fill rounded-0 text-right">
-                                        {{ product.country }}</li>
+                                        class="list-group-item list-group-item-light text-black flex-fill rounded-0 text-right">{{ product.country.name }}
+                                        <i class="{{ product.country.flag_css }}"></i></li>
                                 </ul>
                                 <ul class="list-group list-group-horizontal mt-3">
                                     <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">
