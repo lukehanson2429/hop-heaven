@@ -1,16 +1,8 @@
-#product-form input::placeholder {
-    color: #777777;
-}
-
-#product-form .form-control {
-    color: #000000;
-}
-
 .product-form-input {
-  color: #000000;
   box-shadow: 3px 3px #C5B358;
   -webkit-transition: box-shadow 500ms ease;
   transition: box-shadow 500ms ease;
+  color: black;
 }
 
 .product-form-input:focus,
@@ -19,11 +11,3 @@
   border: hidden;
 }
 
-#id_default_country,
-#id_default_country option:not(:first-child) {
-    color: #000;
-}
-
-#id_default_country option:first-child {
-    color: #777777;
-}
