@@ -11,7 +11,7 @@
   border: hidden;
 }
 
-.modal-button, input[type="submit"], input[type="reset"] {
+.modal-button {
 	background: none;
 	color: inherit;
 	border: none;
