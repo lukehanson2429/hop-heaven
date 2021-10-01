@@ -43,6 +43,12 @@
                             {% else %}
                             <small class="color-custom">No Rating</small>
                             {% endif %}
+                            {% if request.user.is_superuser %}
+                                    <small class="ml-5 text-uppercase">
+                                        <a href="{% url 'edit_product' product.id %}">Edit</a><strong class="text-white"> | </strong>
+                                        <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                                    </small>
+                            {% endif %}
                         </p>
                     </div>
                     <div class="col-12 col-md-6 col-lg-7 my-auto">
