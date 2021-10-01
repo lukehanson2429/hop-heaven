@@ -75,9 +75,9 @@ def add_product(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            messages.info(request, 'Successfully added beer!')
-            return redirect(reverse('add_product'))
+            product = form.save()
+            messages.info(request, f'Successfully added {product.name}!')
+            return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(request, 'Failed to add beer. Please ensure the form is valid.')
     else:
@@ -98,10 +98,10 @@ def edit_product(request, product_id):
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-            messages.info(request, 'Successfully updated beer!')
+            messages.info(request, f'Successfully updated {product.name}!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to update beer. Please ensure the form is valid.')
+            messages.error(request, f'Failed to update {product.name}. Please ensure the form is valid.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -113,3 +113,11 @@ def edit_product(request, product_id):
     }
 
     return render(request, template, context)
+
+
+def delete_product(request, product_id):
+    """ Edit a product in the store """
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+    messages.info(request, f'{product.name} Deleted!')
+    return redirect(reverse('products'))
