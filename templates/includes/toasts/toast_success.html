@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="toast-body bg-black text-white rounded-0 pt-1">
-        {% if grand_total and not on_profile_page and not on_beer_admin_page %}
+        {% if grand_total and not on_profile_page %}
             <h6 class="bg-black text-white py-1 pt-2">Your Cart ({{ product_count }})</h6>
             <div class="cart-toasts-wrapper">
                 {% for item in cart_items %}
