@@ -43,13 +43,13 @@
                 <p class="my-0"><small>Free delivery on orders over £{{ free_delivery_threshold }}!</small></p>             
             </div>            
         </div>
-      <div id="topnav" class="row bg-custom pt-lg-2 d-none d-lg-flex">
+      <div id="topnav" class="row  pt-lg-2 d-none d-lg-flex">
         <div class="col-12 col-md-3 my-auto py-1 py-lg-0">
           <form method="GET" action="{% url 'products' %}">
               <div class="input-group w-100">
-                  <input class="form-control text-black border border-black rounded-0 bg-custom" type="text" name="q" placeholder="Search For Beers">
+                  <input class="form-control text-black border border-black rounded-0 " type="text" name="q" placeholder="Search For Beers">
                   <div class="input-group-append">
-                      <button class="form-control btn  border border-black rounded-0" type="submit">
+                      <button class="form-control btn border border-black rounded-0" type="submit">
                           <span class="icon">
                               <i class="fas fa-search"></i>
                           </span>

@@ -1,34 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Inline&family=Bungee+Shade&family=Oswald:wght@200;300;400;500;600;700&display=swap');
 
 
+/* ---------------Site Wide--------------- */
+
+/* Body/html height set, overflow hidden */
 body,
 html {
     height: 100%;
     overflow-x: hidden;
 }
 
-.slide-wrap {
-    overflow-x:hidden;
-  }
-  .slideInLeft {
-    animation-name: slideInLeft;
-  }
-  .animated {
-    animation-duration: 3s;
-    animation-delay: 100ms;
-    animation-fill-mode: both;
-  }
-  
-  @keyframes slideInLeft {
-    from {
-      transform: translate3d(100%, 0, 0);
-      visibility: visible;
-    }
-  
-    to {
-      transform: translate3d(0, 0, 0);
-    }
-  }
+/* Site Wide - Background Overlay*/
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: #ece7e7;
+	z-index: -1;
+}
+
+/* Site Wide - Scroll Bar */
 
 /* width */
 ::-webkit-scrollbar {
@@ -52,67 +45,13 @@ html {
     background: #a7974a;
   }
 
-
-.list-group-item {
-    box-shadow: 4px 4px #C5B358;
-    border: 1px solid #000000;
-}
-
-.box-sh {
-    box-shadow: 5px 5px #C5B358 !important;
-}
-.light-hr {
-    border: 1px solid #ffffff;
-    border-radius: 60%;
-}
-
-.dark-hr {
-    border: 1px solid #000;
-    border-radius: 60%;
-}
-
-.card-img-wrap {
-    overflow: hidden;
-    position: relative;
-  }
-  .card-img-wrap:after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    transition: opacity .25s;
-  }
-  .card-img-wrap img {
-    transition: transform .25s;
-    width: 100%;
-  }
-  .card-img-wrap:hover img {
-    transform: scale(1.2);
-  }
-  .card-img-wrap:hover:after {
-    opacity: 1;
-  }
-
-.overlay {
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	position: fixed;
-	background: #ece7e7;
-	z-index: -1;
-}
-
+/* Site Wide - Text Content */
 .text-content {
     font-family: 'Oswald', sans-serif;
     letter-spacing: 0.03em;
 }
 
-.home-content {
-    padding-top: 160px;
-}
-
+/* Header & footer Containers to allow padding from base.html */
 .header-container {
     padding-top: 160px;
 }
@@ -121,25 +60,7 @@ html {
     padding-top: 70px;
 }
 
-header {
-    font-family: 'Bungee', cursive;
-    letter-spacing: 0.05em;
-    z-index: 10;
-    position: fixed;
-    top: 0;
-}
-
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
-}
-
-.bg-custom {
-    background-color: #C5B358;
-}
+/* Important Color/BG Classes */
 .bg-black {
     background-color: #000;
 }
@@ -156,13 +77,126 @@ header {
     color: #000 !important;
 }
 
+/* Box Shadow for Cards/Content */
+.box-sh {
+    box-shadow: 5px 5px #C5B358 !important;
+}
+
+/* Light hr for dark backgrounds */
+.light-hr {
+    border: 1px solid #ffffff;
+    border-radius: 60%;
+}
+
+/* Dark hr for light backgrounds */
+.dark-hr {
+    border: 1px solid #000;
+    border-radius: 60%;
+}
+
+/* ---------------Buttons--------------- */
+
+/* Site Wide - Buttons */
+.btn {
+    background: black;
+    color: #C5B358;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.05em;
+    border: solid;
+    border-width: 1px;
+    border-color: #C5B358;
+}
+
+/* Fixed to top Button Products Page */
+.button-fixed {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 55px;
+    right: 3px;
+}
+
+/* To top button products page on mobile */
+.button-mobile {
+    height: 42px;
+    width: 42px;
+}
+
+/* To top button cursor pointer */
+.btt-link {
+    cursor: pointer;
+}
+
+/* Button Width Home Page */
+.shop-now-button {
+    min-width: 260px;
+}
+
+/* All Buttons hover effects */
+.btn:hover,
+.btn:active,
+.btn:focus,
+.social-links li a i:hover,
+.social-links li a i:active,
+.social-links li a i:focus {
+    background: white;
+    border: 1px solid #000000;
+    color: #000000;
+    -webkit-transition: 500ms ease;
+    transition: 500ms ease;
+}
+
+/* ---------------Header--------------- */
+
+/* Header Positioning, Font Family, BG color */
+header {
+    font-family: 'Bungee', cursive;
+    letter-spacing: 0.05em;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    background-color: #C5B358;
+}
+
+/* Site Logo Font Family  */
 .navbar-brand {
     font-family: 'Bungee Shade', cursive !important;
     letter-spacing: 0.1em;
 }
 
+/* ---------------Home Page - Index.html--------------- */
 
-.home-image {
+/* Index.html - Home Content Padding */
+.home-content {
+    padding-top: 160px;
+}
+
+
+/* Index.html - Text Slide aimation & Home Background with color animation blend */
+.slide-wrap {
+    overflow-x:hidden;
+  }
+  .slideInLeft {
+    animation-name: slideInLeft;
+  }
+  .animated {
+    animation-duration: 3s;
+    animation-delay: 100ms;
+    animation-fill-mode: both;
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      transform: translate3d(100%, 0, 0);
+      visibility: visible;
+    }
+  
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .home-image {
     background: url('/static/images/home_page_hopheaven.jpg') no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
@@ -178,6 +212,23 @@ header {
     100%  { -webkit-filter: grayscale(0%); filter: grayscale(0%); }
 }
 
+/* Profile & Product Details - Box Shadow and border for list items */
+.list-group-item {
+    box-shadow: 4px 4px #C5B358;
+    border: 1px solid #000000;
+}
+
+
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/* All auth templates background images */
+
 .accounts-bg-img {
     height: 100vh;
 
@@ -191,50 +242,9 @@ header {
     z-index: 10;
 }
 
+/* -------------------Footer----------------- */
 
-.btn {
-    background: black;
-    color: #C5B358;
-    font-family: 'Oswald', sans-serif;
-    letter-spacing: 0.05em;
-    border: solid;
-    border-width: 1px;
-    border-color: #C5B358;
-}
-
-.button-fixed {
-    height: 42px;
-    width: 42px;
-    position: fixed;
-    bottom: 60px;
-    right: 20px;
-}
-
-.button-mobile {
-    height: 42px;
-    width: 42px;
-}
-
-.btt-link {
-    cursor: pointer;
-}
-
-.shop-now-button {
-    min-width: 260px;
-}
-
-.btn:hover,
-.btn:active,
-.btn:focus,
-.social-links li a i:hover,
-.social-links li a i:active,
-.social-links li a i:focus {
-    background: white;
-    border: 1px solid #000000;
-    -webkit-transition: 500ms ease;
-    transition: 500ms ease;
-}
-
+/* Footer positioning, bg & font Family  */
 .footer {
     position: absolute;
     left: 0;
@@ -246,33 +256,24 @@ header {
     z-index: 1000;
   }
 
+  /* Site Logo Font Family  */
 .footer-brand {
     font-family: 'Bungee Shade', cursive !important;
 }
 
+  /* Social Icons  */
 .social-links li a i {
     width: 36px;
     height: 36px;
+    border-radius: 50%;
     color: #C5B358;
     background: #000000;
     padding-top: 10px;
 }
 
-.products-list {
-    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
-    padding-left: 0px;
-    line-height: 30px;
-}
+/* -------------Toasts------------ */
 
-.products-list li {
-    font-size: 20px;
-    letter-spacing: 0.05em;
-    margin-bottom: 1.5em;
-    list-style-type: none;
-}
-
-/* Toasts */
-
+/* Message Container fixed position */
 .message-container {
     position: fixed;
     top: 110px;
@@ -280,6 +281,7 @@ header {
     z-index: 99999999999999999999;
 }
 
+/* Overflow visible  */
 .custom-toast {
     overflow: visible;
 }
@@ -335,9 +337,7 @@ header {
     overflow-y: scroll;
 }
 
-/* Allauth form formatting */
-
-
+/* -----------Allauth form formatting------------ */
 .allauth-form-inner-content input {
     border-color: #000;
     border-radius: 0;
@@ -362,34 +362,6 @@ header {
 
 input[name='q']::placeholder {
     color: #777777;
-}
-
-/* Product Form */
-
-.btn-file {
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-file input[type="file"] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.custom-checkbox .custom-control-label::before {
-    border-radius: 0;
-    border-color: #dc3545;
-}
-
-.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-    background-color: #dc3545;
-    border-color: #dc3545;
-    border-radius: 0;
 }
 
 /* Slightly larger container on xl screens */

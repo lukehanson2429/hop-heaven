@@ -17,15 +17,15 @@
 {% block content %}
 <div class="overlay"></div>
 <div class="container-fluid text-content text-uppercase pt-4">
-    <div class="row">
-        <div class="col-12 text-center">
-            <h2 class="text-black font-weight-bold">checkout</h2>
-            <hr class="dark-hr w-50 mb-3">
-        </div>
-    </div>
-    <div class="row">
-        <div class="product-container col-12 col-md-10 offset-md-1">
-            <div class="card box-sh mb-3 text-white bg-black border-black rounded-0">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-11 col-lg-10">
+            <div class="card box-sh mb-3 text-white bg-black border-black pt-3 rounded-0">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h2 class="font-weight-bold">checkout</h2>
+                        <hr class="light-hr w-50 mb-3">
+                    </div>
+                </div>
                 <div class="row pl-2 pr-2">
                     <div class="col-12 col-md-6 col-lg-5 pt-3">
                         <div class="row">
@@ -110,9 +110,6 @@
                     </div>
                     <div class="col-12 col-md-6 col-lg-7 px-1">
                         <div class="card-body p-0 pt-3">
-                            <div class="col-12 pl-md-0 pl-lg-0 pl-xl-0">
-                                <h5 class="card-title"><u>Checkout</u></h5>
-                            </div>
                             <div class="card-text">
                                 <div class="col-12 pl-md-0 pl-lg-0 pl-xl-0">
                                     <p class="color-custom">Please fill out the form below to complete your order</p>
@@ -159,7 +156,7 @@
                                             <!-- Pass the client secret to the view so we can get the payment intent id -->
                                             <input type="hidden" value="{{ client_secret }}" name="client_secret">
                                         </fieldset>
-                                        <div class="row pl-3 pt-3 pr-3">
+                                        <div class="row pt-3">
                                             <div class="col-12 text-right pb-3">
                                                 <button id="submit-button" class="btn  rounded-0 w-100">
                                                     <span class="font-weight-bold text-uppercase">Complete Order</span>
