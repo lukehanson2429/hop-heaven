@@ -29,17 +29,26 @@ class Product(models.Model):
     abv = models.DecimalField(max_digits=6, decimal_places=2)
     size = models.CharField(max_length=3, validators=[RegexValidator(r'^\d{1,10}$')])
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.name
 
+    def rating(self):
+        total = sum(int(review['rating']) for review in self.reviews.values())
+
+        if self.reviews.count() > 0:
+            return total / self.reviews.count()
+        else:
+            return 0
 
 class ProductReview(models.Model):
     product = models.ForeignKey(Product, related_name='reviews', on_delete=models.CASCADE)
     user = models.ForeignKey(User, related_name='reviews', on_delete=models.CASCADE)
     content = models.TextField(blank=True, null=True)
-    stars = models.IntegerField()
+    rating = models.IntegerField()
     date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.content

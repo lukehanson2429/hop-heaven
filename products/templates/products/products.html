@@ -101,7 +101,7 @@
                                 <div class="col">
                                     <p class="lead mb-0 text-left text-white font-weight-bold">£{{ product.price }}</p>
                                     {% if product.rating %}
-                                    <small class="color-custom"><i class="fas fa-star mr-1"></i>{{ product.rating }} /
+                                    <small class="color-custom"><i class="fas fa-star mr-1"></i>{{ product.rating|floatformat:1 }} /
                                         5</small>
                                     {% else %}
                                     <small class="color-custom">No Rating</small>

@@ -11,7 +11,6 @@ class ProductAdmin(admin.ModelAdmin):
         'brewery',
         'abv',
         'price',
-        'rating',
         'image',
     )
 
