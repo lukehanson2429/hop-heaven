@@ -1,5 +1,6 @@
 from django.db import models
 from django_countries.fields import CountryField
+from django.core.validators import RegexValidator
 
 
 class Category(models.Model):
@@ -22,10 +23,10 @@ class Product(models.Model):
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     description = models.TextField()
-    country = CountryField(blank_label='Country *', null=False, blank=False)
+    country = CountryField(null=False, blank=False)
     brewery = models.CharField(max_length=20)
     abv = models.DecimalField(max_digits=6, decimal_places=2)
-    size = models.IntegerField()
+    size = models.CharField(max_length=3, validators=[RegexValidator(r'^\d{1,10}$')])
     price = models.DecimalField(max_digits=6, decimal_places=2)
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
