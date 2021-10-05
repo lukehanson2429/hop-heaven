@@ -43,7 +43,7 @@
                             <small class="color-custom"><i
                                     class="fas fa-star mr-1"></i>{{ product.rating|floatformat:1 }} / 5</small>
                             {% else %}
-                            <small class="color-custom">No Rating</small>
+                            <small class="color-custom text-uppercase">No Rating</small>
                             {% endif %}
                             {% if request.user.is_superuser %}
                             <small class="ml-5 text-uppercase">
@@ -178,53 +178,64 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 text-left">
-                    <h5 class="text-uppercase">Reviews</h5>
-                    <hr class="light-hr">
-                    <div class="reviews-wrapper">
-                        {% for review in product.reviews.all %}
-                        <div class="notification space-below">
-                            <p>
-                                <strong>Date: </strong>{{ review.date_added|date:"Y-m-d" }},
-                                <strong>Stars: </strong>{{ review.rating }}
-                            </p>
-
-                            {{ review.content }}
-                        </div>
-                        {% empty %}
-                        <div class="notification space-below">
-                            No reviews yet...
-                        </div>
-                        {% endfor %}
-                    </div>
-
-                    <div class="notification space-below">
-                        {% if request.user.is_authenticated %}
-                        <form method="post" action=".">
-                            {% csrf_token %}
-                            {% for field in form %}
-                            {{ field | as_crispy_field }}
-                            {% endfor %}
-
-                            <div class="field">
-                                <div class="control">
-                                    <button class="button is-success">Submit</button>
-                                </div>
-                            </div>
-                        </form>
-                        {% else %}
-                        <p>Please sign in to add review!</p>
-                        {% endif %}
-                    </div>
-                </div>
                 <div class="row pl-3 pr-3">
                     <div class="col-6 text-left pb-3">
                         <a href="{% url 'products' %}" class="btn btn-lg rounded-0 text-uppercase py-2"><i
                                 class="fas fa-chevron-left"></i> Back to Shop</a>
                     </div>
                     <div class="col-6 text-right pb-3">
-                        <a href="{% url 'view_cart' %}" class=" btn btn-lg rounded-0 text-uppercase py-2">View Beer Cart
+                        <a href="{% url 'view_cart' %}" class="btn btn-lg rounded-0 text-uppercase py-2">View Beer Cart
                             <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+                <hr class="light-hr my-2 mx-3">
+                <div class="row text-uppercase p-3">
+                    <div class="col-md-6">
+                        <h5><u>Leave a Review</u></h5>
+                        <div>
+                            {% if request.user.is_authenticated %}
+                            <form method="post" action=".">
+                                {% csrf_token %}
+                                {% for field in form %}
+                                {{ field | as_crispy_field }}
+                                {% endfor %}
+                                <div class="text-right">
+                                    <button type="submit"
+                                        class="btn btn-lg rounded-0 text-uppercase py-2">Submit</button>
+                                </div>
+                            </form>
+                            {% else %}
+                            <p>Please sign in to add review!</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h5><u>Reviews</u></h5>
+                        <div class="review-scroll py-1 pl-0 pr-3">
+                            {% for review in product.reviews.all reversed %}
+                            <div class="row">
+                                <div class="col-12">
+                                    <ul class="list-group list-group-horizontal my-1 mx-auto">
+                                        <li
+                                            class="list-group-item list-group-item-light text-black flex-fill rounded-0">
+                                            <small>Date: {{ review.date_added|date:"Y-m-d" }}<br>User: {{ review.user }}</small>
+                                        </li>
+                                        <li
+                                            class="list-group-item list-group-item-light text-black flex-fill rounded-0 text-right">{{ review.content }}<br><small><i
+                                                    class="fas fa-star mr-1"></i>{{ product.rating|floatformat:1 }} /
+                                                5</small>
+                                    </ul>
+                                </div>
+                            </div>
+                            {% if forloop.counter|divisibleby:1 %}
+                            <div class="col-12 mb-1">
+                                <hr class="light-hr">
+                            </div>
+                            {% endif %}
+                            {% empty %}
+                            <p>No Reviews Currently for this beer!</p>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
             </div>
