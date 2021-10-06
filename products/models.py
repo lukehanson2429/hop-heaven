@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django_countries.fields import CountryField
-from django.core.validators import RegexValidator
+from django.core.validators import RegexValidator, MaxValueValidator, MinValueValidator
 
 
 class Category(models.Model):
@@ -45,11 +45,13 @@ class Product(models.Model):
 
 
 class Review(models.Model):
-    product = models.ForeignKey(Product, related_name='reviews', on_delete=models.CASCADE)
-    user = models.ForeignKey(User, related_name='reviews', on_delete=models.CASCADE)
-    content = models.CharField(max_length=250, blank=True, null=True)
-    rating = models.IntegerField()
+    product = models.ForeignKey(Product, null=False, blank=False, related_name='reviews', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, null=False, blank=False, related_name='reviews', on_delete=models.CASCADE)
+    content = models.CharField(max_length=18, null=False, blank=False,)
+    rating = models.IntegerField(null=False, blank=False,
+        validators=[
+            MaxValueValidator(5),
+            MinValueValidator(1)
+        ]
+     )
     date_added = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.content

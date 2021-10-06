@@ -62,17 +62,19 @@ def all_products(request):
 def product_detail(request, product_id):
     """ A View to show product detail page  """
     product = get_object_or_404(Product, pk=product_id)
-    form = ReviewForm()
 
-    # Add Review
+    # Add Review when logged In too Product details Page
     if request.method == 'POST' and request.user.is_authenticated:
-        rating = request.POST.get('rating', 3)
-        content = request.POST.get('content', '')
-
-        review = Review.objects.create(product=product, user=request.user, rating=rating, content=content)
-
-        messages.success(request, f'Successfully added review too {product.name}!')
-        return redirect('product_detail', product_id)
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            rating = request.POST.get('rating')
+            content = request.POST.get('content')
+            review = Review.objects.create(product=product, user=request.user, rating=rating, content=content)
+            messages.success(request, f'Successfully added review too {product.name}!')
+        else:
+            messages.error(request, 'Please ensure form is valid!')
+    else:
+        form = ReviewForm()
 
     context = {
         'product': product,

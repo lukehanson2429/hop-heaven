@@ -194,14 +194,14 @@
                         <h5><u>Leave a Review</u></h5>
                         <div>
                             {% if request.user.is_authenticated %}
-                            <form method="post" action=".">
+                            <form method="post" id="review" action=".">
                                 {% csrf_token %}
                                 {% for field in form %}
                                 {{ field | as_crispy_field }}
                                 {% endfor %}
                                 <div class="text-right">
                                     <button type="submit"
-                                        class="btn btn-lg rounded-0 text-uppercase py-2">Submit</button>
+                                        class="btn btn-lg rounded-0 text-uppercase py-2 prevent_multiple">Submit</button>
                                 </div>
                             </form>
                             {% else %}
@@ -222,7 +222,7 @@
                                         </li>
                                         <li
                                             class="list-group-item list-group-item-light text-black flex-fill rounded-0 text-right">{{ review.content }}<br><small><i
-                                                    class="fas fa-star mr-1"></i>{{ product.rating|floatformat:1 }} /
+                                                    class="fas fa-star mr-1"></i>{{ review.rating }} /
                                                 5</small>
                                     </ul>
                                 </div>
@@ -255,4 +255,15 @@
 {% block postloadjs %}
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
+<script type="text/javascript">
+    // configure prevent multiple submit buttons on Review Submission Form
+$('.prevent_multiple').click(function() {
+    var old_width = $(this).width();                                // store original width
+    $(this).html('<i class="fa fa-refresh fa-lg fa-spin"></i>');    // replace button text with icon
+    $(this).width(old_width);                                       // restore original width
+    $(this).prop('disabled', true);                                 // disable the button
+    $(this).parents('form:first').submit();                         // submit the form
+    $(this).trigger("reset");
+});
+</script>
 {% endblock %}
