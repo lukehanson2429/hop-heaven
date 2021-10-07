@@ -60,12 +60,25 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
-    """ A View to show product detail page  """
+    """ A View to show product detail page   """
+    product = get_object_or_404(Product, pk=product_id)
+
+    template = 'products/product_detail.html'
+    context = {
+        'product': product,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def add_product_rating(request, product_id):
+    """ Rate product when signed in on product details page"""
     user = request.user
     product = get_object_or_404(Product, pk=product_id)
     user_rating = Rating.objects.filter(product=product, user=user)
 
-    # If there is a rating currently for this product raise an error
+    # If there is a rating currently for this product from current user raise an error
     if request.method == 'POST' and request.user.is_authenticated:
         form = RatingForm(request.POST)
         if user_rating:
@@ -79,17 +92,19 @@ def product_detail(request, product_id):
                     rating = request.POST.get('rating')
                     user_rating = Rating.objects.create(product=product, user=user, rating=rating)
                     messages.success(request, f'Successfully added rating too {product.name}!')
+                    return redirect(reverse('product_detail', args=[product.id]))
                 else:
                     messages.error(request, 'Please ensure form is valid!')
     else:
         form = RatingForm()
 
+    template = 'products/add_product_rating.html'
     context = {
-        'product': product,
         'form': form,
+        'product': product,
     }
 
-    return render(request, 'products/product_detail.html', context)
+    return render(request, template, context)
 
 
 @login_required

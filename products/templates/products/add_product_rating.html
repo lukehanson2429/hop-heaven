@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'products/css/product.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="accounts-bg-img">
+    <div class="container pb-5 header-container">
+        <div class="overlay"></div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-7">
+                <div class="card rounded-0 text-content text-white bg-black box-sh text-uppercase p-3 text-center">
+                        <h3>{{ product.name }} - {{ product.category.friendly_name }}</h3>
+                        <hr class="light-hr">
+                        <div>
+                            {% if request.user.is_authenticated %}
+                            <form method="post" id="review" action=".">
+                                {% csrf_token %}
+                                {% for field in form %}
+                                {{ field | as_crispy_field }}
+                                {% endfor %}
+                                <div class="text-right">
+                                    <button type="submit"
+                                        class="btn btn-lg rounded-0 text-uppercase py-2 prevent_multiple">Rate <i class="fas fa-star"></i></button>
+                                </div>
+                            </form>
+                            {% else %}
+                            <p>Please sign in to rate this beer!</p>
+                            {% endif %}
+                        </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        // configure prevent multiple submit buttons on Review Submission Form
+    $('.prevent_multiple').click(function() {
+        var old_width = $(this).width();                                // store original width
+        $(this).html('<i class="fa fa-refresh fa-lg fa-spin"></i>');    // replace button text with icon
+        $(this).width(old_width);                                       // restore original width
+        $(this).prop('disabled', true);                                 // disable the button
+        $(this).parents('form:first').submit();                         // submit the form
+        $(this).trigger("reset");
+    });
+    </script>
+{% endblock %}
