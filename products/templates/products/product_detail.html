@@ -24,7 +24,7 @@
                 <div class="row no-gutters">
                     <div class="col-12 d-block pt-2 d-md-none d-lg-none d-xl-none text-center text-uppercase">
                         <h3 class="card-title font-weight-bold">{{ product.name }}</h3>
-                        <hr class="light-hr w-auto">
+                        <hr class="light-hr w-75">
                     </div>
                     <div class="col-12 col-md-6 col-lg-5">
                         {% if product.image %}
@@ -191,7 +191,7 @@
                 <hr class="light-hr my-2 mx-3">
                 <div class="row text-uppercase p-3">
                     <div class="col-md-6">
-                        <h5><u>Leave a Review</u></h5>
+                        <h5><u>Rate this beer</u></h5>
                         <div>
                             {% if request.user.is_authenticated %}
                             <form method="post" id="review" action=".">
@@ -205,25 +205,25 @@
                                 </div>
                             </form>
                             {% else %}
-                            <p>Please sign in to add review!</p>
+                            <p>Please sign in to rate this beer!</p>
                             {% endif %}
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <h5><u>Reviews</u></h5>
+                        <h5><u>Ratings</u></h5>
                         <div class="review-scroll py-1 pl-0 pr-3">
-                            {% for review in product.reviews.all reversed %}
+                            {% for rating in product.ratings.all reversed %}
                             <div class="row">
                                 <div class="col-12">
                                     <ul class="list-group list-group-horizontal my-1 mx-auto">
                                         <li
                                             class="list-group-item list-group-item-light text-black flex-fill rounded-0">
-                                            <small>Date: {{ review.date_added|date:"Y-m-d" }}<br>User: {{ review.user }}</small>
+                                            <small>Date: {{ rating.date_added|date:"Y-m-d" }}<br>User: {{ rating.user }}</small>
                                         </li>
                                         <li
-                                            class="list-group-item list-group-item-light text-black flex-fill rounded-0 text-right">{{ review.content }}<br><small><i
-                                                    class="fas fa-star mr-1"></i>{{ review.rating }} /
-                                                5</small>
+                                            class="list-group-item list-group-item-light text-black flex-fill rounded-0 text-right"><i
+                                                    class="fas fa-star mr-1"></i>{{ rating.rating }} /
+                                                5
                                     </ul>
                                 </div>
                             </div>
@@ -233,7 +233,7 @@
                             </div>
                             {% endif %}
                             {% empty %}
-                            <p>No Reviews Currently for this beer!</p>
+                            <p>No Rating currently for this beer!</p>
                             {% endfor %}
                         </div>
                     </div>

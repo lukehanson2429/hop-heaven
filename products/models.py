@@ -36,18 +36,17 @@ class Product(models.Model):
         return self.name
 
     def rating(self):
-        total = sum(int(review['rating']) for review in self.reviews.values())
+        total = sum(int(rating['rating']) for rating in self.ratings.values())
 
-        if self.reviews.count() > 0:
-            return total / self.reviews.count()
+        if self.ratings.count() > 0:
+            return total / self.ratings.count()
         else:
             return 0
 
 
-class Review(models.Model):
-    product = models.ForeignKey(Product, null=False, blank=False, related_name='reviews', on_delete=models.CASCADE)
-    user = models.ForeignKey(User, null=False, blank=False, related_name='reviews', on_delete=models.CASCADE)
-    content = models.CharField(max_length=18, null=False, blank=False,)
+class Rating(models.Model):
+    product = models.ForeignKey(Product, null=False, blank=False, related_name='ratings', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, null=False, blank=False, related_name='ratings', on_delete=models.CASCADE)
     rating = models.IntegerField(null=False, blank=False,
         validators=[
             MaxValueValidator(5),

@@ -1,5 +1,5 @@
 /* Product Admin Form Formatting */
-.review-form-input,
+.rating-form-input,
 .product-form-input {
   box-shadow: 3px 3px #C5B358;
   -webkit-transition: box-shadow 500ms ease;
@@ -7,8 +7,8 @@
   color: black;
 }
 
-.review-form-input:focus,
-.review-form-input:active,
+.rating-form-input:focus,
+.rating-form-input:active,
 .product-form-input:focus,
 .product-form-input:active {
   box-shadow: none;
@@ -82,7 +82,7 @@
 }
 
 .review-scroll {
-  max-height: 220px;
+  max-height: 100px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -90,7 +90,7 @@
 @media (max-width: 466px) {
 
   .review-scroll {
-      max-height: 280px;
+      max-height: 300px;
       overflow-y: scroll;
   }
 }

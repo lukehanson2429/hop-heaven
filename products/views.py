@@ -3,8 +3,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Product, Category, Review
-from .forms import ProductForm, ReviewForm
+from .models import Product, Category, Rating
+from .forms import ProductForm, RatingForm
 
 # Create your views here.
 
@@ -61,20 +61,28 @@ def all_products(request):
 
 def product_detail(request, product_id):
     """ A View to show product detail page  """
+    user = request.user
     product = get_object_or_404(Product, pk=product_id)
+    user_rating = Rating.objects.filter(product=product, user=user)
 
-    # Add Review when logged In too Product details Page
+    # If there is a rating currently for this product raise an error
     if request.method == 'POST' and request.user.is_authenticated:
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            rating = request.POST.get('rating')
-            content = request.POST.get('content')
-            review = Review.objects.create(product=product, user=request.user, rating=rating, content=content)
-            messages.success(request, f'Successfully added review too {product.name}!')
+        form = RatingForm(request.POST)
+        if user_rating:
+            # error raised
+            messages.error(request, 'You already have already rated this beer!')
         else:
-            messages.error(request, 'Please ensure form is valid!')
+            # If no review currently submit rating unless form is not valid.
+            if request.method == 'POST' and request.user.is_authenticated:
+                form = RatingForm(request.POST)
+                if form.is_valid():
+                    rating = request.POST.get('rating')
+                    user_rating = Rating.objects.create(product=product, user=user, rating=rating)
+                    messages.success(request, f'Successfully added rating too {product.name}!')
+                else:
+                    messages.error(request, 'Please ensure form is valid!')
     else:
-        form = ReviewForm()
+        form = RatingForm()
 
     context = {
         'product': product,
