@@ -73,7 +73,7 @@ def product_detail(request, product_id):
 
 @login_required
 def add_product_rating(request, product_id):
-    """ Rate product when signed in on product details page"""
+    """ Give each product a rating when signed in """
     user = request.user
     product = get_object_or_404(Product, pk=product_id)
     # filter product ratings by user
@@ -94,8 +94,8 @@ def add_product_rating(request, product_id):
         if user_rating:
             # error raised
             messages.error(request, 'You have already rated this beer!')
-            previous_url = request.META.get('HTTP_REFERER')
-            return redirect(previous_url)
+            prev_url = request.META.get('HTTP_REFERER')
+            return redirect(prev_url)
         form = RatingForm()
 
     template = 'products/add_product_rating.html'
@@ -120,14 +120,12 @@ def edit_product_rating(request, rating_id):
             messages.success(request, 'Successfully Updated your rating!')
             return redirect(reverse('products'))
         else:
-            messages.error(request, 'Failed to edit rating. Please ensure the \
-                form is valid.')
+            messages.error(request, 'Please ensure form is valid!')
     else:
         if rating.user != request.user:
-            messages.error(request, 'You cannot edit this rating as you are \
-                not the original author.')
-            previous_url = request.META.get('HTTP_REFERER')
-            return redirect(previous_url)
+            messages.error(request, 'You cannot edit this rating!')
+            prev_url = request.META.get('HTTP_REFERER')
+            return redirect(prev_url)
         form = RatingForm(instance=rating)
         messages.info(request, f'You are updating your rating for {rating.product}!')
 
@@ -138,6 +136,23 @@ def edit_product_rating(request, rating_id):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_product_rating(request, rating_id):
+    """ Delete your rating """
+
+    rating = get_object_or_404(Rating, pk=rating_id)
+
+    if rating.user != request.user:
+        messages.error(request, 'You did not create this rating.')
+        prev_url = request.META.get('HTTP_REFERER')
+        return redirect(prev_url)
+    else:
+        rating.delete()
+        messages.success(request, 'Rating deleted!')
+        prev_url = request.META.get('HTTP_REFERER')
+        return redirect(prev_url)
 
 
 @login_required
