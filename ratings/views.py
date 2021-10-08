@@ -28,8 +28,7 @@ def add_rating(request, product_id):
         if user_rating:
             # error raised
             messages.error(request, 'You have already rated this beer!')
-            prev_url = request.META.get('HTTP_REFERER')
-            return redirect(prev_url)
+            return redirect(reverse('product_detail', args=[product.id]))
         form = RatingForm()
 
     template = 'ratings/add_rating.html'
@@ -57,9 +56,8 @@ def edit_rating(request, rating_id):
             messages.error(request, 'Please ensure form is valid!')
     else:
         if rating.user != request.user:
-            messages.error(request, 'You cannot edit this rating!')
-            prev_url = request.META.get('HTTP_REFERER')
-            return redirect(prev_url)
+            messages.error(request, 'You are not authorized to edit this rating!')
+            return redirect(reverse('home'))
         form = RatingForm(instance=rating)
         messages.info(request, f'You are updating your rating for {rating.product}!')
 
@@ -79,9 +77,8 @@ def delete_rating(request, rating_id):
     rating = get_object_or_404(Rating, pk=rating_id)
 
     if rating.user != request.user:
-        messages.error(request, 'You did not create this rating.')
-        prev_url = request.META.get('HTTP_REFERER')
-        return redirect(prev_url)
+        messages.error(request, 'You are not authorized to delete this rating!')
+        return redirect(reverse('home'))
     else:
         rating.delete()
         messages.success(request, 'Rating deleted!')
