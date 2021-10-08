@@ -194,7 +194,7 @@
                         <h5><u>Rate this beer</u></h5>
                         <div>
                             {% if request.user.is_authenticated %}
-                            <a href="{% url 'add_product_rating' product.id %}"
+                            <a href="{% url 'add_rating' product.id %}"
                                 class="btn w-100 btn-lg rounded-0 text-uppercase py-2 mt-3">Add Rating
                                 <i class="fas fa-plus"></i></a>
                             {% else %}
@@ -220,7 +220,7 @@
                                                 5 <i class="fas fa-star mr-1"></i></p>
                                             {% if request.user.is_authenticated %}
                                             <small class="ml-5 text-uppercase">
-                                                <a href="{% url 'edit_product_rating' rating.id %}">Edit</a><strong
+                                                <a href="{% url 'edit_rating' rating.id %}">Edit</a><strong
                                                     class="text-black edit-button"> | </strong>
                                                 <button type="button" class="text-danger text-uppercase modal-button"
                                                     data-toggle="modal"
@@ -246,7 +246,7 @@
                                                                 class="rounded-0 btn btn-lg text-uppercase py-2"
                                                                 data-dismiss="modal"><i class="fas fa-chevron-left"></i>
                                                                 Close</button>
-                                                            <a href="{% url 'delete_product_rating' rating.id %}"
+                                                            <a href="{% url 'delete_rating' rating.id %}"
                                                                 class="btn btn-lg rounded-0 text-uppercase py-2">Delete
                                                                 <i class="fas fa-trash"></i></a>
                                                         </div>
