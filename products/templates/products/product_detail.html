@@ -188,34 +188,34 @@
                             <i class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
-                <hr class="light-hr my-2 mx-3">
-                <div class="row text-uppercase p-3">
-                    <div class="col-md-6">
-                        <h5><u>Rate this beer</u></h5>
+                <hr class="light-hr mt-2 mb-0 mx-3">
+                <div class="row text-uppercase text-center p-3">
+                    <div class="col-md-6 mt-2 mb-2 mt-md-3 mb-md-3">
                         <div>
                             {% if request.user.is_authenticated %}
                             <a href="{% url 'add_rating' product.id %}"
-                                class="btn w-100 btn-lg rounded-0 text-uppercase py-2 mt-3">Add Rating
+                                class="btn w-100 btn-lg rounded-0 text-uppercase">Add Rating
                                 <i class="fas fa-plus"></i></a>
                             {% else %}
-                            <p>Please sign in to rate this beer!</p>
+                            <h5 class="pt-0 pt-sm-3 pt-md-3 pt-lg-3 pt-xl-3">Please sign in to rate this beer!</h5>
                             {% endif %}
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <h5><u></u></h5>
-                        <div class="review-scroll py-1 pl-0 pr-3">
+                    <div class="col-md-6 px-0 px-sm-3 px-md-3 px-lg-3 px-xl-3">
+                            <div id="ratingslide" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
                             {% for rating in product.ratings.all reversed %}
+                            <div class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}">
                             <div class="row">
                                 <div class="col-12">
                                     <ul class="list-group list-group-horizontal my-1 mx-auto">
                                         <li
-                                            class="list-group-item list-group-item-light text-black flex-fill rounded-0">
+                                            class="list-group-item list-group-item-light text-black flex-fill rounded-0 text-left">
                                             <small>Date: {{ rating.date_added|date:"Y-m-d" }}<br>User:
                                                 {{ rating.user }}</small>
                                         </li>
                                         <li
-                                            class="list-group-item list-group-item-light text-black flex-fill rounded-0 text-right">
+                                            class="list-group-item pl-0 list-group-item-light text-black flex-fill rounded-0 text-right">
                                             <p class="mb-0">{{ rating.rating }} /
                                                 5 <i class="fas fa-star mr-1"></i></p>
                                             {% if request.user == rating.user %}
@@ -263,20 +263,17 @@
                                     </ul>
                                 </div>
                             </div>
-                            {% if forloop.counter|divisibleby:1 %}
-                            <div class="col-12 mb-1">
-                                <hr class="light-hr">
-                            </div>
-                            {% endif %}
+                        </div>
                             {% empty %}
-                            <p>No Rating currently for this beer!</p>
+                            <h5 class="mt-4">No Rating currently for this beer!</h5>
                             {% endfor %}
                         </div>
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 {% endblock %}
 
