@@ -13,9 +13,10 @@ class RatingForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
-            'rating': 'Rating',
+            'rating': 'Leave your rating between 1 - 5',
         }
 
+        self.fields['rating'].widget.attrs['autofocus'] = True
         for field in self.fields:
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
