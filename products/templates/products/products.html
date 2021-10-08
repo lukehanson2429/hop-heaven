@@ -3,6 +3,7 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'products/css/product.css' %}">
+<link rel="stylesheet" href="{% static 'flags/sprite.css' %}">
 {% endblock %}
 
 {% block page_header %}
@@ -41,10 +42,6 @@
                                 (low to high)</option>
                             <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
                                 (high to low)</option>
-                            <option value="ratings_asc" {% if current_sorting == 'ratings_asc' %}selected{% endif %}>
-                                Rating (low to high)</option>
-                            <option value="ratings_desc" {% if current_sorting == 'ratings_desc' %}selected{% endif %}>
-                                Rating (high to low)</option>
                             <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name
                                 (A-Z)</option>
                             <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name
@@ -53,6 +50,14 @@
                                 Style (A-Z)</option>
                             <option value="category_desc"
                                 {% if current_sorting == 'category_desc' %}selected{% endif %}>Style (Z-A)</option>
+                            <option value="country_asc" {% if current_sorting == 'country_asc' %}selected{% endif %}>
+                                Country (A-Z)</option>
+                            <option value="country_desc" {% if current_sorting == 'country_desc' %}selected{% endif %}>
+                                Country (Z-A)</option>
+                            <option value="abv_asc" {% if current_sorting == 'abv_asc' %}selected{% endif %}>
+                                    ABV (low to high)</option>
+                            <option value="abv_desc" {% if current_sorting == 'abv_desc' %}selected{% endif %}>
+                                ABV (high to low)</option>
                         </select>
                     </div>
                 </div>
@@ -90,7 +95,7 @@
                             <small class="mt-1 mb-0">
                                 <a class="color-custom"
                                     href="{% url 'products' %}?category={{ product.category.name }}">
-                                    <i class="fas fa-beer mr-1"></i>{{ product.category.friendly_name }}
+                                    <i class="fas fa-beer mr-1"></i>{{ product.category.friendly_name }} <i class="{{ product.country.flag_css }}"></i>
                                 </a>
                             </small>
                             {% endif %}

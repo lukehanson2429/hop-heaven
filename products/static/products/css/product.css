@@ -80,17 +80,3 @@
     border-color: #dc3545;
     border-radius: 0;
 }
-
-.review-scroll {
-  max-height: 100px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-
-@media (max-width: 466px) {
-
-  .review-scroll {
-      max-height: 300px;
-      overflow-y: scroll;
-  }
-}
