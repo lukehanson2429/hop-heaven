@@ -87,62 +87,7 @@
                     <div id="ratingslide" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                     {% for rating in ratings  %}
-                    <div class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}">
-                    <div class="row">
-                        <div class="col-12">
-                            <ul class="list-group list-group-horizontal my-1 mx-auto">
-                                <li
-                                    class="list-group-item list-group-item-light text-black flex-fill rounded-0 text-left">
-                                    <small>Date: {{ rating.date_added|date:"Y-m-d" }}<br>Beer: {{ rating.product|truncatechars:10 }}</small>
-                                </li>
-                                <li
-                                    class="list-group-item pl-0 list-group-item-light text-black flex-fill rounded-0 text-right">
-                                    <p class="mb-0">{{ rating.rating }} /
-                                        5 <i class="fas fa-star mr-1"></i></p>
-                                    <div>
-                                        <small class="ml-5 text-uppercase">
-                                            <a href="{% url 'edit_rating' rating.id %}">Edit</a><strong
-                                                class="text-black edit-button"> | </strong>
-                                            <button type="button"
-                                                class="text-danger text-uppercase modal-button"
-                                                data-toggle="modal"
-                                                data-target="#custom-modal{{ rating.id }}">Delete</button>
-                                        </small>
-                                        <div class="modal fade" id="custom-modal{{ rating.id }}" tabindex="-1"
-                                            role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title text-black text-uppercase">Are
-                                                            you
-                                                            sure you want to
-                                                            delete your rating?!
-                                                        </h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button"
-                                                            class="rounded-0 btn btn-lg text-uppercase py-2"
-                                                            data-dismiss="modal"><i
-                                                                class="fas fa-chevron-left"></i>
-                                                            Close</button>
-                                                        <a href="{% url 'delete_rating' rating.id %}"
-                                                            class="btn btn-lg rounded-0 text-uppercase py-2">Delete
-                                                            <i class="fas fa-trash"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                    {% include "profiles/profile_ratings.html" %}
                     {% empty %}
                     <a href="{% url 'products' %}" class="btn w-100 rounded-0">
                         <span>Leave a rating <i class="fas fa-star"></i></span>
