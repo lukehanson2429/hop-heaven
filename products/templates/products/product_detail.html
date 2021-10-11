@@ -194,20 +194,20 @@
                         <div>
                             {% if request.user.is_authenticated %}
                             <a href="{% url 'add_rating' product.id %}"
-                                class="btn w-100 btn-lg rounded-0 text-uppercase">Add Rating
-                                <i class="fas fa-plus"></i></a>
+                                class="btn w-100 btn-lg rounded-0 text-uppercase mt-md-3">Rate this Beer
+                                <i class="fas fa-star"></i></a>
                             {% else %}
-                            <h5 class="pt-0 pt-sm-3 pt-md-3 pt-lg-3 pt-xl-3">Please sign in to rate this beer!</h5>
+                            <h5>Please sign in to rate this beer!</h5>
                             {% endif %}
                         </div>
                     </div>
-                    <div class="col-md-6 px-0 px-sm-3 px-md-3 px-lg-3 px-xl-3">
+                    <div class="col-md-6 mt-2 mb-2 mt-md-3 mb-md-3">
                             <div id="ratingslide" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
                             {% for rating in product.ratings.all reversed %}
                             {% include "products/product_ratings.html" %}
                             {% empty %}
-                            <h5 class="mt-4">No Rating currently for this beer!</h5>
+                            <h5>No Rating currently for this beer!</h5>
                             {% endfor %}
                         </div>
                         </div>
