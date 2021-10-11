@@ -1,5 +1,5 @@
 <div class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}">
-    <div class="row">
+    <div class="row mr-1">
         <div class="col-12">
             <ul class="list-group list-group-horizontal my-1 mx-auto">
                 <li
@@ -9,8 +9,8 @@
                 </li>
                 <li
                     class="list-group-item pl-0 list-group-item-light text-black flex-fill rounded-0 text-right">
-                    <p class="mb-0">{{ rating.rating }} /
-                        5 <i class="fas fa-star mr-1"></i></p>
+                    <strong><p class="mb-0">{{ rating.rating }} /
+                        5 <i class="fas fa-star mr-1"></i></p></strong>
                     {% if request.user == rating.user %}
                     <div>
                         <small class="ml-5 text-uppercase">

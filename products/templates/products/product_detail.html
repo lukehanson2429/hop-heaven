@@ -190,7 +190,7 @@
                 </div>
                 <hr class="light-hr mt-2 mb-0 mx-3">
                 <div class="row text-uppercase text-center p-3">
-                    <div class="col-md-6 mt-2 mb-2 mt-md-3 mb-md-3">
+                    <div class="col-md-6 col-lg-5 mt-2 mb-2 mt-md-3 mb-md-3">
                         <div>
                             {% if request.user.is_authenticated %}
                             <a href="{% url 'add_rating' product.id %}"
@@ -201,7 +201,7 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div class="col-md-6 mt-2 mb-2 mt-md-3 mb-md-3">
+                    <div class="col-md-6 col-lg-7 mt-2 mb-2 mt-md-3 mb-md-3 pr-0">
                             <div id="ratingslide" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
                             {% for rating in product.ratings.all reversed %}
