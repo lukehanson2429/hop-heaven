@@ -22,7 +22,7 @@
             <div class="card box-sh mb-3 text-white bg-black border-black pt-3 px-1 rounded-0">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h2 class="font-weight-bold">Profile</h2>
+                        <h3 class="font-weight-bold">Profile - {{ user }}</h3>
                         <hr class="light-hr w-50 mb-3">
                     </div>
                 </div>
@@ -80,7 +80,10 @@
                             {% endif %}
                             {% endfor %}
                         </div>
-                        <div class="col-12">
+                        <div class="col-12 pl-0 py-3">
+                        {% if ratings %}
+                            <p class="mb-0 color-custom"><small><u>Ratings</u></small></p>
+                        {% endif %}
                     <div id="ratingslide" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                     {% for rating in ratings  %}
@@ -141,7 +144,9 @@
                     </div>
                 </div>
                     {% empty %}
-                    <h5 class="mt-4">No Rating currently for this beer!</h5>
+                    <a href="{% url 'products' %}" class="btn w-100 rounded-0">
+                        <span>Leave a rating <i class="fas fa-star"></i></span>
+                    </a>
                     {% endfor %}
                 </div>
                 </div>
@@ -162,7 +167,7 @@
                                         <div class="row pl-3 pt-3 pr-3">
                                             <div class="col-12 text-right pb-3">
                                                 <button id="submit-button" class="btn rounded-0 w-100">
-                                                    <span class="font-weight-bold text-uppercase">Update Information</span>
+                                                    <span class="text-uppercase">Update Information</span>
                                                     <span class="icon">
                                                         <i class="fas fa-edit"></i>
                                                     </span>
