@@ -1,0 +1,325 @@
+[
+    {
+        "model": "products.product",
+        "pk": 1,
+        "fields": {
+            "category": 3,
+            "sku": "LEM-IPA-65-330",
+            "name": "Lemke",
+            "description": "Refreshing fragrances of mango and grape- fruit, with hints of pine. Caressing the palate. The dominant bitterness is backed by the malt body’s strong notes of caramel and bread crust. Hop aromas balance out the bitterness on the pallet. Besides the exotic fruity notes, resinous tones gain more prominence. The mouthfeel is juicy and cooling. Long bitter-grapefruity nale. Hoppy-aromatic, fruity-bitter, intense.",
+            "country": "DE",
+            "brewery": "Brauerei Lemke",
+            "abv": "6.50",
+            "size": "330",
+            "price": "2.13",
+            "image_url": null,
+            "image": "berlin_ipa.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 2,
+        "fields": {
+            "category": 9,
+            "sku": "CLO-SES-45-330",
+            "name": "Clock Work Tangerine",
+            "description": "This fully automated IPA is infused with tangerine. At 4.5% it’s a stand-out session beer that packs a perfectly timed delivery of juicy citrus and mellow tropical fruit resting on a light toasty and caramel base. Fresh, juicy and sessionable.",
+            "country": "GB",
+            "brewery": "Brewdog",
+            "abv": "4.50",
+            "size": "330",
+            "price": "2.05",
+            "image_url": null,
+            "image": "brewdog_session_ipa.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 3,
+        "fields": {
+            "category": 5,
+            "sku": "DEV-PAL-4-340",
+            "name": "Devil's Peak",
+            "description": "Pronounced, fruity hop aroma. Citrus and other tropical fruits. Balanced by medium levels of roasted malt aroma. Hop forward for the style. Light malt presence with low bitterness. Light body with low to medium levels of carbonation. Smooth and crisp with medium-dry finish. Punchy for a 4%, but perfect for long sessions.",
+            "country": "ZA",
+            "brewery": "Devil's Peak",
+            "abv": "4.00",
+            "size": "340",
+            "price": "2.05",
+            "image_url": null,
+            "image": "devils_peak_pale.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 4,
+        "fields": {
+            "category": 5,
+            "sku": "KIT-PAL-56-473",
+            "name": "Kitchen Party",
+            "description": "A bright and citrusy dry-hopped pale ale, with a balanced malt character. Aromas of grapefuit & tangerine.",
+            "country": "CA",
+            "brewery": "Big Spruce",
+            "abv": "5.60",
+            "size": "473",
+            "price": "2.76",
+            "image_url": null,
+            "image": "big_spruce_pale.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 5,
+        "fields": {
+            "category": 6,
+            "sku": "VER-PIL-48-440",
+            "name": "Vergine di Norimberga",
+            "description": "Refreshing and light Italian Craft Keller Pilsner, (more Pils than Keller 🙂 with a particular and a little “green” bitterness.",
+            "country": "IT",
+            "brewery": "Boia Brewing",
+            "abv": "4.80",
+            "size": "440",
+            "price": "2.56",
+            "image_url": null,
+            "image": "italy_pilsner.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 6,
+        "fields": {
+            "category": 4,
+            "sku": "YOU-LAG-42-375",
+            "name": "Young Henrys Natural Lager",
+            "description": "Unfiltered, traditional German-style lager.",
+            "country": "AU",
+            "brewery": "Young Henrys",
+            "abv": "4.20",
+            "size": "375",
+            "price": "2.29",
+            "image_url": null,
+            "image": "young_henrys_lager.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 7,
+        "fields": {
+            "category": 3,
+            "sku": "SCU-IPA-7-340",
+            "name": "Sculpin",
+            "description": "Gold-medal winning IPA, whose inspired use of hops creates hints of apricot, peach, mango and lemon flavors.",
+            "country": "US",
+            "brewery": "Ballast Point",
+            "abv": "7.00",
+            "size": "340",
+            "price": "2.34",
+            "image_url": null,
+            "image": "sculpin_ipa.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 8,
+        "fields": {
+            "category": 6,
+            "sku": "GLO-PIL-55-355",
+            "name": "Glorioso",
+            "description": "This dry, crisp, Italian pilsner is generously dry hopped with Hallertau Mittelfruh and Styrian Bobekto impart elegant, floral, earthy, sweet spice and citrus aroma and flavour.",
+            "country": "CA",
+            "brewery": "Left Field",
+            "abv": "5.50",
+            "size": "355",
+            "price": "2.34",
+            "image_url": null,
+            "image": "leftfield_pilsner.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 9,
+        "fields": {
+            "category": 3,
+            "sku": "PUN-IPA-54-330",
+            "name": "Punk IPA",
+            "description": "Punk IPA is the beer that kick-started it. This light, golden classic has been subverted with new world hops to create an explosion of flavour. Bursts of caramel and tropical fruit with an all-out riot of grapefruit, pineapple and lychee, precede a spiky bitter finish.\r\n\r\nThis is the beer that started it all - and it’s not done yet.",
+            "country": "GB",
+            "brewery": "Brewdog",
+            "abv": "5.40",
+            "size": "330",
+            "price": "2.10",
+            "image_url": null,
+            "image": "brewdog_ipa.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 10,
+        "fields": {
+            "category": 5,
+            "sku": "HOP-PAL-56-440",
+            "name": "Hoptopuss",
+            "description": "A vienna pale.\r\nMalts - vienna, malted oats, malted wheat, carapils & golden naked oats\r\nBittering hops - pilgrim, Co2 & alpha extract\r\nAroma hops - cascade, citra, ekuanot & eldorado.",
+            "country": "GB",
+            "brewery": "81 Artisan",
+            "abv": "5.60",
+            "size": "440",
+            "price": "2.45",
+            "image_url": null,
+            "image": "hoptopuss_pale.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 11,
+        "fields": {
+            "category": 3,
+            "sku": "DRU-IPA-64-330",
+            "name": "Drunken Sailor",
+            "description": "Weigh the Anchor, Hoist the Sails! Colossal waves and lashing winds – this was the life of the English sailors whose job it was to bring beer to Colonial India. Only an insane amount of hops and high alcohol content helped it to withstand the perilous journey. Drunken Sailor IPA brings this adventure and powerful taste to the 21st century – Ship Ahoy! Hops: Herkules, Citra, Cascade, Simcoe Malt: Pilsener, Munich, Crystal",
+            "country": "DE",
+            "brewery": "Crew Republic",
+            "abv": "6.40",
+            "size": "330",
+            "price": "2.04",
+            "image_url": null,
+            "image": "crew_ipa.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 12,
+        "fields": {
+            "category": 3,
+            "sku": "IDA-IPA-65-455",
+            "name": "Idahome",
+            "description": "Idahome is a west coast style IPA made in the heart of Idaho with fresh Idaho ingredients including Idaho Barley, Idaho hops, Idaho water, and finished with a huge dry hop using Idaho’s own Idaho 7 hops.",
+            "country": "US",
+            "brewery": "Sawtooth",
+            "abv": "6.50",
+            "size": "455",
+            "price": "2.78",
+            "image_url": null,
+            "image": "idahome_ipa.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 13,
+        "fields": {
+            "category": 1,
+            "sku": "TIN-PAL-52-330",
+            "name": "Tiny Gangsta",
+            "description": "This is a modern take on an American Style Pale Ale and it's all about the hops. Late in the boil hops are added in increasingly generous quantities and again as post-fermentation dry hop. The result is a slightly hazy, softly bitter beer with juicy hops notes of mango and orange.",
+            "country": "CN",
+            "brewery": "Crafters",
+            "abv": "5.20",
+            "size": "330",
+            "price": "1.94",
+            "image_url": null,
+            "image": "tinygangsta_apa.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 14,
+        "fields": {
+            "category": 7,
+            "sku": "OSO-AMB-53-340",
+            "name": "Oso Bueno",
+            "description": "Oso Bueno. Translated as \"Good Bear\", our American Amber Ale is made for the summers and cuisine of Texas. Subtle caramel and toffee flavors with a touch of rye malt are balanced by floral and earthy hop aromas.",
+            "country": "US",
+            "brewery": "11 Below",
+            "abv": "5.30",
+            "size": "340",
+            "price": "2.29",
+            "image_url": null,
+            "image": "oso_bueno_amber.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 15,
+        "fields": {
+            "category": 9,
+            "sku": "SMA-SES-47-330",
+            "name": "S.M.A.S.H. Mandarina Bavaria",
+            "description": "Mandarina Bavaria, German Hopped Variety - Session IPA. The perfect quencher!",
+            "country": "RS",
+            "brewery": "Dogma",
+            "abv": "4.70",
+            "size": "330",
+            "price": "2.02",
+            "image_url": null,
+            "image": "smash_ipa.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 16,
+        "fields": {
+            "category": 3,
+            "sku": "BIG-IPA-56-330",
+            "name": "Big Wednesday",
+            "description": "Hazy IPA with aromas of ripe tropical fruit and flavours of juicy mango & papaya. A nice soft mouth feel that is bold and robust.",
+            "country": "GB",
+            "brewery": "Harbour",
+            "abv": "5.60",
+            "size": "330",
+            "price": "1.89",
+            "image_url": null,
+            "image": "wednesday_ipa.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 17,
+        "fields": {
+            "category": 14,
+            "sku": "10B-BUN-55-330",
+            "name": "10 Barrel Beer Bundle (4pk)",
+            "description": "Some of our personal favourites from the guys at 10 Barrel Brewing. \r\nGoogle Tan (Amber Ale),  Apocalypse (IPA),  Joe (IPA), Coast Trip (Cream Ale).\r\nGrab them while they are still in stock!",
+            "country": "US",
+            "brewery": "10 Barrel",
+            "abv": "5.50",
+            "size": "330",
+            "price": "7.50",
+            "image_url": null,
+            "image": "10_barrell_bundle.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 19,
+        "fields": {
+            "category": 14,
+            "sku": "BRE-BUN-5-330",
+            "name": "Brewdog Bundle - Mixed (4pk)",
+            "description": "Brewdog Mixed Bundle - 4pk of our favourite Brewdog Beers.",
+            "country": "GB",
+            "brewery": "Brewdog",
+            "abv": "5.00",
+            "size": "330",
+            "price": "6.50",
+            "image_url": null,
+            "image": "brewdog_bundle.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 20,
+        "fields": {
+            "category": 15,
+            "sku": "GIP-MEG-5-330",
+            "name": "Gipsy Hill Mixed Mega Pack (24pk)",
+            "description": "Mixed Mega Pack from one of our favourite breweries in London. From session pale ale's to hoppy IPA's. This once can't be missed. Limited Stock!!!!",
+            "country": "GB",
+            "brewery": "Gipsy Hill",
+            "abv": "5.00",
+            "size": "330",
+            "price": "48.64",
+            "image_url": null,
+            "image": "gipsy_hill_mega_pack.jpg"
+        }
+    }
+]

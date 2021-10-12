@@ -1,0 +1,74 @@
+[   
+    {
+        "model": "products.category",
+        "pk": 1,
+        "fields": {
+            "name": "american_pale_ale",
+            "friendly_name": "American Pale Ale"
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 3,
+        "fields": {
+            "name": "india_pale_ale",
+            "friendly_name": "India Pale Ale (IPA)"
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 4,
+        "fields": {
+            "name": "lager",
+            "friendly_name": "Lager"
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 5,
+        "fields": {
+            "name": "pale_ale",
+            "friendly_name": "Pale Ale"
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 6,
+        "fields": {
+            "name": "pilsner",
+            "friendly_name": "Pilsner"
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 7,
+        "fields": {
+            "name": "amber_ale",
+            "friendly_name": "Amber Ale"
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 9,
+        "fields": {
+            "name": "session_ipa",
+            "friendly_name": "Session IPA"
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 14,
+        "fields": {
+            "name": "bundle",
+            "friendly_name": "Beer Bundle"
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 15,
+        "fields": {
+            "name": "mega_packs",
+            "friendly_name": "Mega Packs"
+        }
+    }
+]
