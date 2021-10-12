@@ -45,22 +45,27 @@ def add_rating(request, product_id):
 def edit_rating(request, rating_id):
     """ Edit Product Rating """
     rating = get_object_or_404(Rating, pk=rating_id)
-
+    # User can only edit rating if created by the user
     if rating.user != request.user:
         messages.error(request, 'You are not authorized to edit this rating!')
         return redirect(reverse('home'))
     else:
+        # Editing rating
         if request.method == 'POST':
             form = RatingForm(request.POST)
+            # If form is valid edit rating
             if form.is_valid():
                 form = RatingForm(request.POST, instance=rating)
                 form.save()
                 messages.success(request, 'Successfully Updated your rating!')
                 return redirect(reverse('products'))
             else:
+                # If form is invalid error message is raised.
                 messages.error(request, 'Please ensure form is valid!')
+        # Form prefilled with exisiting rating and info message displayed.
         form = RatingForm(instance=rating)
-        messages.info(request, f'You are updating your rating for {rating.product}!')
+        messages.info(request, f'You are updating \
+            your rating for {rating.product}!')
 
     template = 'ratings/edit_rating.html'
     context = {
@@ -76,11 +81,13 @@ def delete_rating(request, rating_id):
     """ Delete your rating """
 
     rating = get_object_or_404(Rating, pk=rating_id)
-
+    # User can only delete rating if created by the user
     if rating.user != request.user:
-        messages.error(request, 'You are not authorized to delete this rating!')
+        messages.error(request, 'You are not authorized \
+            to delete this rating!')
         return redirect(reverse('home'))
     else:
+        # Otherwise delete rating
         rating.delete()
         messages.success(request, 'Rating deleted!')
         prev_url = request.META.get('HTTP_REFERER', reverse('home'))

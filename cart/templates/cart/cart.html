@@ -2,6 +2,7 @@
 {% load static %}
 {% load cart_tools %}
 
+<!-- Header Container with padding -->
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -21,6 +22,7 @@
 <div class="container text-content pt-3">
     <div class="row">
         <div class="col">
+            <!-- Cart Items - Table -->
             {% if cart_items %}
                 <div class="table-responsive text-content text-uppercase rounded-0">
                     <table class="table table-sm table-striped table-dark border border-black">
@@ -33,6 +35,7 @@
                                 <th scope="col">Subtotal</th>
                             </tr>
                         </thead>
+                        <!-- For loop for items in the cart -->
                         {% for item in cart_items %}
                             <tr>
                                 <td class="p-0 w-25">
@@ -49,6 +52,7 @@
                                     <p class="my-0">£{{ item.product.price }}</p>
                                 </td>
                                 <td class="py-3 w-25">
+                                <!-- Form to update/remove items in the cart -->
                                     <form class="form update-form" method="POST" action="{% url 'adjust_cart' item.item_id %}">
                                         {% csrf_token %}
                                         <div class="form-group">
@@ -86,10 +90,12 @@
                             </tr>
                         {% endfor %}
                         <tr>
+                            <!-- Cart Totals -->
                             <td colspan="5" class="pt-5 text-right">
                                 <h6><strong>Cart Total: £{{ total|floatformat:2 }}</strong></h6>
                                 <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
                                 <h4 class="mt-4"><strong>Grand Total: £{{ grand_total|floatformat:2 }}</strong></h4>
+                            <!-- Free delivery if statement -->
                                 {% if free_delivery_delta > 0 %}
                                     <p class="mb-1 text-danger">
                                         You could get free delivery by spending just <strong>£{{ free_delivery_delta }}</strong> more!
@@ -99,7 +105,7 @@
                         </tr>
                         <tr>
                             <td colspan="5" class="text-right">
-
+                                <!-- Navigation buttons to checkout page or return to shop -->
                                     <a href="{% url 'products' %}" class=" btn btn-lg rounded-0 text-uppercase py-2"><i
                                             class="fas fa-chevron-left"></i> Back to Shop</a>
 

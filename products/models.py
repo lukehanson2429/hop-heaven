@@ -35,6 +35,7 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+
     def rating(self):
         total = sum(int(rating['rating']) for rating in self.ratings.values())
 
