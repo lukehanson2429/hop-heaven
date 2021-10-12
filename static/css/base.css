@@ -8,6 +8,9 @@ body,
 html {
     height: 100%;
     overflow-x: hidden;
+    max-width: 2000px; 
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Site Wide - Background Overlay*/
@@ -113,7 +116,6 @@ html {
     width: 42px;
     position: fixed;
     bottom: 55px;
-    right: 3px;
 }
 
 /* To top button products page on mobile */
@@ -156,6 +158,9 @@ header {
     position: fixed;
     top: 0;
     background-color: #C5B358;
+    max-width: 2000px; 
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Site Logo Font Family  */
@@ -246,14 +251,16 @@ header {
 
 /* Footer positioning, bg & font Family  */
 .footer {
-    position: absolute;
-    left: 0;
+    position: fixed;
     bottom: 0;
     width: 100%;
     background: #C5B358;
     color: #000;
     font-family: 'Oswald', sans-serif;
     z-index: 1000;
+    max-width: 2000px; 
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* Site Logo Font Family  */
@@ -275,10 +282,12 @@ header {
 
 /* Message Container fixed position */
 .message-container {
-    position: fixed;
+    position: absolute;
     top: 110px;
-    right: 15px;
     z-index: 99999999999999999999;
+    max-width: 2000px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 /* Overflow visible  */
