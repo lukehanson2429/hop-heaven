@@ -202,7 +202,7 @@ header {
   }
 
   .home-image {
-    background: url('/static/images/home_page_hopheaven.jpg') no-repeat center center fixed;
+    background: url('/media/home_page_hopheaven.jpg') no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.2);
@@ -237,7 +237,7 @@ header {
 .accounts-bg-img {
     height: 100vh;
 
-    background: url("/static/images/accounts_img.jpg") no-repeat center center fixed;
+    background: url("/media/accounts_img.jpg") no-repeat center center fixed;
     background-size: cover;
     display: flex;
     align-items: center;
