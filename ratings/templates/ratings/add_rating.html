@@ -2,11 +2,12 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'products/css/product.css' %}">
+<link rel="stylesheet" href="{% static 'ratings/css/rating.css' %}">
 {% endblock %}
 
 {% block content %}
-<div class="accounts-bg-img">
+<!-- Add Rating Form  -->
+<div class="rating-bg-img">
     <div class="container pb-5 header-container">
         <div class="overlay"></div>
         <div class="row justify-content-center">
@@ -39,15 +40,5 @@
 
 {% block postloadjs %}
     {{ block.super }}
-    <script type="text/javascript">
-        // configure prevent multiple submit buttons on Review Submission Form
-    $('.prevent_multiple').click(function() {
-        var old_width = $(this).width();                                // store original width
-        $(this).html('<i class="fa fa-refresh fa-lg fa-spin"></i>');    // replace button text with icon
-        $(this).width(old_width);                                       // restore original width
-        $(this).prop('disabled', true);                                 // disable the button
-        $(this).parents('form:first').submit();                         // submit the form
-        $(this).trigger("reset");
-    });
-    </script>
+    <script type="text/javascript" src="{% static 'ratings/js/rating_submit.js' %}"></script>
 {% endblock %}

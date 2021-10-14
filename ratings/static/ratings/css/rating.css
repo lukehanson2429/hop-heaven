@@ -1,0 +1,15 @@
+/* Rating Form Formatting */
+.rating-form-input {
+  box-shadow: 3px 3px #C5B358;
+  -webkit-transition: box-shadow 500ms ease;
+  transition: box-shadow 500ms ease;
+  color: black;
+}
+
+.rating-form-input:focus,
+.rating-form-input:active {
+  box-shadow: none;
+  border: hidden;
+}
+
+

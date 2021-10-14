@@ -1,9 +1,12 @@
+""" Imports """
 from django import forms
 from .models import Rating
 
 
 class RatingForm(forms.ModelForm):
+    """ Rating Form  """
     class Meta:
+        """ Rating field only displayed """
         model = Rating
         fields = ('rating',)
 

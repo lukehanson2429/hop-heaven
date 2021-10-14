@@ -240,7 +240,8 @@ header {
 
 /* All auth templates background images */
 
-.accounts-bg-img {
+.accounts-bg-img,
+.rating-bg-img {
     height: 100vh;
 
     background: url("/media/accounts_img.jpg") no-repeat center center fixed;
