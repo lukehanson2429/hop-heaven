@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="{% static 'products/css/product.css' %}">
 {% endblock %}
 
+<!-- Header container to allow padding -->
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -16,6 +17,7 @@
 {% endblock %}
 
 {% block content %}
+<!-- Product Details Page within Bootstrap Card -->
 <div class="overlay"></div>
 <div class="container-fluid pt-4 pb-0 text-content">
     <div class="row justify-content-center">
@@ -26,6 +28,7 @@
                         <h3 class="card-title font-weight-bold">{{ product.name }}</h3>
                         <hr class="light-hr w-75">
                     </div>
+                    <!-- Product Image -->
                     <div class="col-12 col-md-6 col-lg-5">
                         {% if product.image %}
                         <a href="{{ product.image.url }}" target="_blank">
@@ -37,14 +40,17 @@
                             <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                         </a>
                         {% endif %}
+                        <!-- Product Description -->
                         <p class="mt-2 ml-2 mb-0 mb-md-3 mb-lg-3 mb-xl-3">Description: {{ product.description }}
                             <br>
+                        <!-- Product Rating -->
                             {% if product.rating %}
                             <small class="color-custom"><i
                                     class="fas fa-star mr-1"></i>{{ product.rating|floatformat:1 }} / 5</small>
                             {% else %}
                             <small class="color-custom text-uppercase">No Rating</small>
                             {% endif %}
+                            <!-- Edit/Delete buttons for superuser with modal -->
                             {% if request.user.is_superuser %}
                             <small class="ml-5 text-uppercase">
                                 <a href="{% url 'edit_product' product.id %}">Edit</a><strong
@@ -77,6 +83,7 @@
                             {% endif %}
                         </p>
                     </div>
+                    <!-- Product Details from Product Model on Front End -->
                     <div class="col-12 col-md-6 col-lg-7 my-auto">
                         <div class="card-body text-content text-white text-uppercase">
                             <h3 class="card-title d-none d-md-block d-lg-block d-xl-block text-center font-weight-bold">
@@ -130,6 +137,7 @@
                                         class="list-group-item list-group-item-light text-black  flex-fill rounded-0 text-right">
                                         £{{ product.price }}</li>
                                 </ul>
+                                <!-- Add quantities to cart form -->
                                 <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                                     <ul class="list-group list-group-horizontal mt-3">
                                         <li
@@ -178,6 +186,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Navigation Buttons -->
                 <div class="row pl-3 pr-3">
                     <div class="col-6 text-left pb-3">
                         <a href="{% url 'products' %}" class="btn btn-lg rounded-0 text-uppercase py-2"><i
@@ -191,6 +200,7 @@
                 <hr class="light-hr mt-2 mb-0 mx-3">
                 <div class="row text-uppercase text-center p-3">
                     <div class="col-md-6 col-lg-5 mt-2 mb-2 mt-md-3 mb-md-3">
+                        <!-- Add rating section if signed in -->
                         <div>
                             {% if request.user.is_authenticated %}
                             <a href="{% url 'add_rating' product.id %}"
@@ -201,6 +211,7 @@
                             {% endif %}
                         </div>
                     </div>
+                    <!-- Carousel Section to display ratings -->
                     <div class="col-md-6 col-lg-7 mt-2 mb-2 mt-md-3 mb-md-3 pr-0">
                             <div id="ratingslide" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">

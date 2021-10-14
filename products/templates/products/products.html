@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="{% static 'flags/sprite.css' %}">
 {% endblock %}
 
+<!-- Header Container to allow padding -->
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -20,6 +21,7 @@
     <div class="row">
         <div class="col-12 text-center mt-3">
             <h2 class="text-black font-weight-bold">Beers</h2>
+            <!-- loop through current categories and display buttons -->
             {% for c in current_categories %}
             <a class="text-decoration-none btn btn-sm my-1 py-0 px-1 text-uppercase rounded-0"
                 href="{% url 'products' %}?category={{ c.name }}">
@@ -33,6 +35,7 @@
         <div class="product-container col-12 col-md-11 col-lg-10">
             <div class="row mt-1 mb-2">
                 <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                    <!-- Sorting Section -->
                     <div class="sort-select-wrapper w-50">
                         <select id="sort-selector"
                             class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
@@ -63,6 +66,7 @@
                 </div>
                 <div class="col-12 col-md-6 order-md-first">
                     <p class="text-muted mt-3 text-center text-md-left">
+                        <!-- Display all categories -->
                         {% if search_term or current_categories or current_sorting != 'None_None' %}
                         <span class="small"><a
                                 href="{% url 'products' %}?category=american_pale_ale,india_pale_ale,pale_ale,pilsner,amber_ale,session_ipa,lager,bundle,mega_packs">All
@@ -74,6 +78,7 @@
                 </div>
             </div>
             <div class="row">
+                <!-- Products displayed in bootstrap cards -->
                 {% for product in products %}
                 <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="card h-100 bg-black border-dark rounded-0 shadow-lg">
@@ -111,6 +116,7 @@
                                     {% else %}
                                     <small class="color-custom">No Rating</small>
                                     {% endif %}
+                                    <!-- Allow edit/delete functionality for superusers -->
                                     {% if request.user.is_superuser %}
                                     <small class="ml-5 text-uppercase">
                                         <a href="{% url 'edit_product' product.id %}">Edit</a><strong
@@ -148,6 +154,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- HR's for varying display sizes -->
                 {% if forloop.counter|divisibleby:1 %}
                 <div class="col-12 d-sm-none mb-2">
                     <hr class="dark-hr">
@@ -172,6 +179,7 @@
             </div>
         </div>
     </div>
+    <!-- Back to top buttons for mobile/larger devices -->
     <div class="row justify-content-center">
         <div class="d-block d-sm-block d-md-none d-lg-none d-xl-none button-mobile">
             <a class="btt-link btn d-flex h-100 rounded-0">
@@ -187,6 +195,7 @@
 </div>
 {% endblock %}
 
+<!-- Footer Container to allow padding -->
 {% block page_footer %}
 <div class="container footer-container">
     <div class="row">
@@ -197,7 +206,7 @@
 
 {% block postloadjs %}
 {{ block.super }}
-
+<!-- JS for back to top button with set speed -->
 <script type="text/javascript">
     $(".btt-link").click(function () {
         $("html, body").animate({

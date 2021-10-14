@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="{% static 'products/css/product.css' %}">
 {% endblock %}
 
+<!-- Header Container to allow padding -->
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -14,6 +15,7 @@
 {% endblock %}
 
 {% block content %}
+<!-- Add Product form within Card on an overlay -->
     <div class="overlay"></div>
     <div class="container text-content text-white text-uppercase pt-4">
         <div class="row justify-content-center">
@@ -51,6 +53,7 @@
 
 {% block postloadjs %}
     {{ block.super }}
+    <script type="text/javascript" src="{% static 'products/js/countryfield.js' %}"></script>
     <script type="text/javascript">
         $('#new-image').change(function() {
             var file = $('#new-image')[0].files[0];
