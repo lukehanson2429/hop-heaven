@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
+<!-- Header Container to allow padding -->
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -14,6 +15,7 @@
 {% endblock %}
 
 {% block content %}
+<!-- Order Confirmation -->
     <div class="overlay"></div>
     <div class="container text-content text-uppercase">
         <div class="row">
@@ -24,7 +26,7 @@
                 <p class="">Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}.<br>Please leave us a rating on your favourite beers!</strong>.</p>
             </div>
         </div>
-
+        <!-- Order Details -->
         <div class="row">
             <div class="col-12 col-lg-7">
                 <div class="p-2 border border-black bg-black text-white box-sh">
@@ -190,6 +192,7 @@
                 </div>
             </div>
         </div>
+        <!-- Navigation Buttons -->
         <div class="row">
 			<div class="col-12 col-lg-7 text-right">
                 {% if from_profile %}
