@@ -1,12 +1,15 @@
+""" Imports  """
 from django.db import models
 from django.contrib.auth.models import User
 from django_countries.fields import CountryField
+
 from django.core.validators import RegexValidator
 
 
 class Category(models.Model):
-
+    """ Categories Model  """
     class Meta:
+        """ Admin Name  """
         verbose_name_plural = 'Categories'
 
     name = models.CharField(max_length=254)
@@ -20,6 +23,7 @@ class Category(models.Model):
 
 
 class Product(models.Model):
+    """ Custom Product Model  """
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
@@ -35,10 +39,10 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-
     def rating(self):
+        """ Return overall average rating for each product  """
         total = sum(int(rating['rating']) for rating in self.ratings.values())
-
+        # If at least one rating return rating average otherwise 0 
         if self.ratings.count() > 0:
             return total / self.ratings.count()
         else:

@@ -1,4 +1,4 @@
-// Countryfield change color of select element as per boutique ado
+// Countryfield change color of select element for add/edit Beer Management pages.
 let countrySelected = $('#id_country').val();
 if(!countrySelected) {
     $('#id_country').css('color', '#777777');

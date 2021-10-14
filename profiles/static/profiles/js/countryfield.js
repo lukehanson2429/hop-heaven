@@ -1,3 +1,4 @@
+// Countryfield change color as per Boutique Ado project with custom color 
 let countrySelected = $('#id_default_country').val();
 if(!countrySelected) {
     $('#id_default_country').css('color', '#777777');

@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
 {% endblock %}
 
+<!-- Container Header to allow padding -->
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -14,6 +15,7 @@
 </div>
 {% endblock %}
 
+<!-- Profile Page displayed on bootstrap card -->
 {% block content %}
 <div class="overlay"></div>
 <div class="container-fluid text-content text-uppercase pt-4">
@@ -26,6 +28,7 @@
                         <hr class="light-hr w-50 mb-3">
                     </div>
                 </div>
+                <!-- Order History Section -->
                 <div class="row pl-2 pr-2">
                     <div class="col-12 col-md-6 col-lg-5 pt-3">
                         <div class="row">
@@ -49,6 +52,7 @@
                                     <p class="mb-1 mt-0 pr-3 small text-right color-custom"><u>Order Total</u></p>
                                 </div>
                             </div>
+                            <!-- Order History For Loop - Latest order displayed at top -->
                             <div class="py-1 pl-0 pr-3 order-scroll">
                             {% for order in orders reversed %}
                             <div class="row">
@@ -80,15 +84,19 @@
                             {% endif %}
                             {% endfor %}
                         </div>
+                        <!-- Ratings Section -->
                         <div class="col-12 px-0 py-3">
                         {% if ratings %}
+                            <!-- Ratings Header Displayed if ratings -->
                             <p class="mb-0 color-custom"><small><u>Ratings</u></small></p>
                         {% endif %}
                     <div id="ratingslide" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
+                    <!-- Ratings Carousel for Loop -->
                     {% for rating in ratings  %}
                     {% include "profiles/profile_ratings.html" %}
                     {% empty %}
+                    <!-- If no Ratings button displayed to leave a rating -->
                     <a href="{% url 'products' %}" class="btn w-100 rounded-0">
                         <span>Leave a rating <i class="fas fa-star"></i></span>
                     </a>
@@ -97,6 +105,7 @@
                 </div>
                 </div>
                     </div>
+                    <!-- Save Delivery Information Form  -->
                     <div class="col-12 col-md-6 col-lg-7 px-1">
                         <div class="card-body p-0 pt-3">
                             <div class="card-text">
@@ -131,6 +140,7 @@
 </div>
 {% endblock %}
 
+<!-- Footer container to allow padding  -->
 {% block page_footer %}
     <div class="container footer-container">
         <div class="row">

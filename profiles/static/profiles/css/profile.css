@@ -1,11 +1,14 @@
+/* Profile Form Input Placeholder */
 #profile-update-form input::placeholder {
     color: #777777;
 }
 
+/* Profile Form Control Text Color */
 #profile-update-form .form-control {
     color: #000000;
 }
 
+/* Profile Form Box Shadow */
 .profile-form-input {
   color: #000000;
   box-shadow: 3px 3px #C5B358;
@@ -13,26 +16,31 @@
   transition: box-shadow 500ms ease;
 }
 
+/* Profile Form Box Shadow Active show none/hide border */
 .profile-form-input:focus,
 .profile-form-input:active {
   box-shadow: none;
   border: hidden;
 }
 
+/* Country Field color if not first child (placeholder) */
 #id_default_country,
 #id_default_country option:not(:first-child) {
     color: #000;
 }
 
+/* Country Field color if (placeholder) */
 #id_default_country option:first-child {
     color: #777777;
 }
 
+/* Order Scroll Max height */
 .order-scroll {
     max-height: 325px;
     overflow-y: scroll;
   }
 
+  /* Order Scroll Max height for smaller devices */
   @media (max-width: 466px) {
 
     .order-scroll {
