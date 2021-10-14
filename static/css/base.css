@@ -400,6 +400,10 @@ input[name='q']::placeholder {
           color: #000 !important;
       }
 
+      nav .navbar-nav li a:hover {
+        background: #C5B358 !important;
+    }
+
       .navbar li {
           margin-left: 1em;
           margin-right: 1em;
