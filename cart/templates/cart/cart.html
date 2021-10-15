@@ -12,112 +12,97 @@
 {% endblock %}
 
 {% block content %}
+<!-- Product Details Page within Bootstrap Card -->
 <div class="overlay"></div>
-<div class="row text-center text-content text-uppercase">
+
+<div class="row text-center text-content text-uppercase" id="top">
     <div class="col-12 mt-3">
         <h2 class="text-black font-weight-bold">Beer Cart</h2>
         <hr class="dark-hr w-50 mb-1">
     </div>
 </div>
-<div class="container text-content pt-3">
+<div class="container text-content text-uppercase pt-3">
     <div class="row">
         <div class="col">
             <!-- Cart Items - Table -->
             {% if cart_items %}
-            <div class="table-responsive text-content text-uppercase rounded-0">
-                <table class="table table-sm table-striped table-dark border border-black">
-                    <thead>
-                        <tr>
-                            <th scope="col">Image</th>
-                            <th scope="col">Beer</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Qty</th>
-                            <th scope="col">Subtotal</th>
-                        </tr>
-                    </thead>
-                    <!-- For loop for items in the cart -->
+            <div class="d-block d-md-none">
+                <div class="row">
+                    <div class="col">
+                        {% include "cart/cart-total.html" %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {% include "cart/checkout-buttons.html" %}
+                        <p class="text-muted mb-5">A summary of your bag contents is below</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid pb-0">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-11 col-lg-10">
+            <div
+                class="card text-content text-uppercase text-white box-sh mb-3 bg-black border-black rounded-0 shadow-lg">
+                <div class="row no-gutters">
+                    <div class="col-12 col-md-2 d-none d-md-block py-2 pl-1">
+                        <h6><u>Image</u></h6>
+                    </div>
+                    <div class="col-12 col-md-2 d-none d-md-block py-2">
+                        <h6 class="w-75 mx-auto"><u>Info</u></h6>
+                    </div>
+                    <div class="col-12 col-md-2 d-none d-md-block py-2">
+                        <h6 class="w-75 mx-auto"><u>Price</u></h6>
+                    </div>
+                    <div class="col-12 col-md-4 d-none d-md-block py-2">
+                        <h6 class="w-75 mx-auto"><u>Totals</u></h6>
+                    </div>
+                    <div class="col-12 col-md-2 d-none d-md-block py-2">
+                        <h6 class="w-75 mx-auto"><u>Sub Total</u></h6>
+                    </div>
                     {% for item in cart_items %}
-                    <tr>
-                        <td class="p-0 w-25">
-                            {% if item.product.image %}
-                            <img class="img-fluid border-black" src="{{ item.product.image.url }}"
-                                alt="{{ item.product.name }}">
-                            {% else %}
-                            <img class="img-fluid border-black" src="{{ MEDIA_URL }}noimage.png"
-                                alt="{{ item.product.name }}">
-                            {% endif %}
-                        </td>
-                        <td class="py-3">
-                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                        </td>
-                        <td class="py-3">
-                            <p class="my-0">£{{ item.product.price }}</p>
-                        </td>
-                        <td class="py-3 w-25">
-                            <!-- Form to update/remove items in the cart -->
-                            <form class="form update-form" method="POST" action="{% url 'adjust_cart' item.item_id %}">
-                                {% csrf_token %}
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <button class="decrement-qty btn btn-sm  rounded-0"
-                                                data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                                <span>
-                                                    <i class="fas fa-minus fa-sm"></i>
-                                                </span>
-                                            </button>
-                                        </div>
-                                        <input class="form-control form-control-sm qty_input" type="number"
-                                            name="quantity" value="{{ item.quantity }}" min="1" max="99"
-                                            data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
-                                        <div class="input-group-append">
-                                            <button class="increment-qty btn btn-sm  rounded-0"
-                                                data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                                                <span>
-                                                    <i class="fas fa-plus fa-sm"></i>
-                                                </span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <a class="update-link btn btn-sm  text-info"><small>Update</small></a>
-                            <a class="remove-item text-danger btn btn-sm  float-right"
-                                id="remove_{{ item.item_id }}"><small>Remove</small></a>
-                        </td>
-                        <td class="py-3">
-                            <p class="my-0">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
-                        </td>
-                    </tr>
+                    <div class="col-12 col-md-2">
+                        {% include "cart/product-image.html" %}
+                    </div>
+                    <div class="col-12 col-md-2">
+                        {% include "cart/product-info.html" %}
+                    </div>
+                    <div class="col-12 col-md-2">
+                        <p class="d-block d-md-none my-0 w-75 mx-auto text-center">£{{ item.product.price }}</p>
+                        <p class="d-none d-md-block my-0 w-75 mx-auto">£{{ item.product.price }}</p>
+                    </div>
+                    <div class="col-12 col-md-4 my-auto py-4">
+                        {% include "cart/quantity-form.html" %}
+                    </div>
+                    <div class="col-12 col-md-2">
+                        <strong><p class="d-none d-md-block my-0 w-75 mx-auto">
+                            £{{ item.product.price | calc_subtotal:item.quantity }}</p></strong>
+                        <strong><p class="d-block d-md-none mx-auto my-auto text-center w-75">Subtotal:
+                            £{{ item.product.price | calc_subtotal:item.quantity }}</p></strong>
+                    </div>
+                    {% if forloop.counter|divisibleby:1 %}
+                    <div class="col-12 my-1">
+                        <hr class="light-hr mx-3">
+                    </div>
+                    {% endif %}
                     {% endfor %}
-                    <tr>
-                        <!-- Cart Totals -->
-                        <td colspan="5" class="pt-5 text-right">
-                            <h6><strong>Cart Total: £{{ total|floatformat:2 }}</strong></h6>
-                            <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
-                            <h4 class="mt-4"><strong>Grand Total: £{{ grand_total|floatformat:2 }}</strong></h4>
-                            <!-- Free delivery if statement -->
-                            {% if free_delivery_delta > 0 %}
-                            <p class="mb-1 text-danger">
-                                You could get free delivery by spending just <strong>£{{ free_delivery_delta }}</strong>
-                                more!
-                            </p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="5" class="text-right">
-                            <!-- Navigation buttons to checkout page or return to shop -->
-                            <a href="{% url 'products' %}" class=" btn btn-lg rounded-0 text-uppercase py-2"><i
-                                    class="fas fa-chevron-left"></i> Back to Shop</a>
-
-
-                            <a href="{% url 'checkout' %}" class=" btn btn-lg rounded-0 text-uppercase py-2">Secure
-                                Checkout <i class="fas fa-lock"></i></a>
-
-                        </td>
-                    </tr>
-                </table>
+                    <div class="col-12 d-none d-md-block text-right pr-3">
+                        {% include "cart/cart-total.html" %}
+                    </div>
+                    <div class="col-12 d-none d-md-block text-right pr-3 pb-3">
+                        {% include "cart/checkout-buttons.html" %}
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="d-block d-sm-block d-md-none d-lg-none d-xl-none button-mobile">
+                    <a class="btt-link btn d-flex h-100 rounded-0">
+                        <i class="fas fa-arrow-up mx-auto my-auto"></i>
+                    </a>
+                </div>
             </div>
             {% else %}
             <p class="lead mb-5">Your cart is empty.</p>
@@ -133,6 +118,7 @@
 </div>
 {% endblock %}
 
+
 {% block page_footer %}
 <div class="container footer-container">
     <div class="row">
@@ -143,8 +129,17 @@
 
 {% block postloadjs %}
 {{ block.super }}
+<script type="text/javascript">
+    // Back to top button
+    $(".btt-link").click(function () {
+        $("html, body").animate({
+                scrollTop: $("#top").offset().top,
+            },
+            1000
+        );
+    });
+</script>
 {% include 'products/includes/quantity_input_script.html' %}
-
 <script type="text/javascript">
     // Update quantity on click
     $('.update-link').click(function (e) {

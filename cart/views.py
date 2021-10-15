@@ -31,7 +31,7 @@ def add_to_cart(request, item_id):
 
 
 def adjust_cart(request, item_id):
-    """ Adjust quanity of beer cart """
+    """ Adjust quantity of beer cart """
 
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
