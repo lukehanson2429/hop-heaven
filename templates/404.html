@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="accounts-bg-img">
+    <div class="container">
+        <div class="overlay"></div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-7 mt-5">
+                <div class="card rounded-0 text-content text-white bg-black box-sh text-uppercase">
+                    <div class="card-header">
+                        <h2>404 Error: Page Not Found</h2>
+                        <hr class="light-hr">
+                        </div>
+                        
+                        <div class="card-body text-center pt-0">
+                        <p>The page you were looking for could not be found. Please use the link below to go back to the Home page.</p>
+                        <a href="{% url 'home' %}" class="btn w-100 rounded-0">
+                            <span>Return Home <i class="fas fa-home"></i></span>
+                        </a>
+                        </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
