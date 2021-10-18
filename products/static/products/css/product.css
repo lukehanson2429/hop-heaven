@@ -1,5 +1,5 @@
 /* Product Admin Form Formatting */
-.rating-form-input,
+.rating-form,
 .product-form {
   box-shadow: 3px 3px #C5B358;
   -webkit-transition: box-shadow 500ms ease;
@@ -7,8 +7,8 @@
   color: black;
 }
 
-.rating-form-input:focus,
-.rating-form-input:active,
+.rating-form:focus,
+.rating-form:active,
 .product-form:focus,
 .product-form:active {
   box-shadow: none;

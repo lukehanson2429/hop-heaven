@@ -23,5 +23,5 @@ class RatingForm(forms.ModelForm):
         for field in self.fields:
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'rating-form-input border-black rounded-0'
+            self.fields[field].widget.attrs['class'] = 'rating-form border-black rounded-0'
             self.fields[field].label = False
