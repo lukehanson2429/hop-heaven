@@ -108,27 +108,73 @@ Initial Wireframe designs made on Figma:
 
 * All designs responsive for smaller devices.
     
-## Features
+## Features/Quick Guide
 
 ### Site Wide
 
 * Responsive on all devices.
+* Toasts when performing certain actions to give the user feedback.
 
 * Search bar functionality within header to search by name/description.
 * Navigation dropdown bar to select beers by style/view all in Header.
-* Navigation dropdown bar to sort beers by rating, price & style all in Header.
-* My account link in header to view profile, login, logout, signup.
-* Cart link to view current shopping cart/checkout.
+* Navigation dropdown bar to sort beers by country, abv, price & style all in Header.
+* My account link in header to view profile, login, logout, signup. Superuser can access beer management.
+* Cart link in header to view current shopping cart/checkout.
 * Footer Social links.
 
 ### Home Page
 
 ### Products Page
 
-* Ability to sort by price, name, rating & style.
-* Navigation buttons at top for each style of beer when viewing all styles.
+* Ability to sort by price, name, style, country & abv.
+* Navigation buttons at top for each style of beer when viewing each/all styles.
 * Back to top button - fixed on medium/large displays and centred at bottom on smaller devices.
-* img wapper for beer images for opaque zoom effect.
+* img wapper for beer images with opaque zoom effect.
+* Rating for each beer displayed which is dynamic based on average of user ratings.
+* Country Flag for each beer displayed.
+
+### Products Details Page
+
+* Breakdown of beer info such as style, country, brewery, abv, bottle/can size, unit price and description.
+* Make you selection section to with buttons to add a quantity to your cart.
+* Nav buttons to back to shop or view cart.
+* Ratings section at bottom of details page to view current ratings/leave a rating if signed in.
+* Ratings within a carousel.
+
+### Cart Page
+
+* Breakdown of your current cart in easy to read table style format with the ability to update and remove items from your cart.
+* Checkout and back to shop buttons.
+
+### Checkout Page
+
+* Breakdown of your current order summary. If a large order - order will be scrollable. Adjust order. button next to order summary if order not quite right.
+* Form to fill out with details, delivery and payment information.
+* Ability to save your delivery information to your profile if you have an account.
+
+### Profile Page
+
+* Save your default delivery information.
+* View your order history and past order confirmations.
+* View your current ratings and edit/delete these ratings. - Ratings within a carousel.
+* If no ratings currently button to link to products page to leave your first rating.
+
+### Ratings Edit/Add Pages
+
+* Leave your ratings between 1 & 5.
+
+### Beer Management (Edit/Delete - Admin)
+
+* Allows the superuser to add/edit beers.
+
+#### Defensive Design Features
+
+* Use of form & model fields with data type validation across the site. Such as the rating model having max/min value validators so you can only leave a rating between 1 & 5.
+* Within the ratings views.py user can only leave one rating per beer otherwise an error will be returned via a toast message.
+* Within ratings views.py user has to match current session user otherwise they will not be authorized to edit/delete that rating. 
+* On the front end via django templates on the product details page the edit/delete rating buttons will also only be displayed if the user matches the current session user.
+* Login Required decorators used on views across multiple apps where the user is required to be signed in to access that feature.
+* Ability to add/edit/delete products only if you are a superuser.
 
     
 ### Features left to implement
