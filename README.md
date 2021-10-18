@@ -5,7 +5,7 @@
 ## Project Overview
 
 
-<img src="">
+![Hop Heaven](static/readme-docs/images/hop-heaven.png)
 
 ## Project Goals
 
