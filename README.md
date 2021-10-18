@@ -11,6 +11,7 @@
 
 
 
+
 ## User Stories (UX)
 
 ### Viewing and Navigation
@@ -30,7 +31,7 @@
 
 ### Sorting & Searching
 
-* As a User I want to be able to sort the list of available beers to view by rating, price, name & style.
+* As a User I want to be able to sort the list of available beers to view by price, name, style, country & abv.
 * As a User I want to be sort by style of beer to find a specific beer from a certain style of beers.
 * As a User I want to be search by beer name or description to focus my search on the beer im after.
 * As a User I want to be able easily see what I've searched for and the number of results.
@@ -55,24 +56,58 @@
 ## Design
 
 ### 1. Colour Scheme
-* 
+* #C5B358 - Vegas Gold. Used in footer, header and mobile nav slider, box shadows, buttons and font that needs to stand out. This color has been used to give a premium feel to the products being purchased and allows back text to stand out.
+#000000 - Black. Black has been used heavily across the site especially for the background color on bootstrap cards which allows the white text to be easily visible to read and fits the theme of the website.
+#777777 - White. For the black backgrounds white has been used so the text is easily visible for the user.
 
 ### 2. Typography
-* 
+* 'Bungee Shade' - Main Hop Heaven Logo. This font style has been used so the brand is distinct.
+* 'Bungee' - Header/Navbar links. Fits in with the them for the main logo and is easily visible to the user.
+* 'Oswald' - All remaining content. The text of Oswald has been used for all remaining content in uppercase as its easy on the eye/clear to read. Also fits in with the premium feel to the website.
 
 ### 3. Imagery
-* 
+* Home Page Image - A craft beer being poured grabs the users attention and signals the purpose of the webiste.
+* Accounts signup/signin/register/rating pages - A background of hops fits the theme of the website.
+* Hops logo image - A hops image between the logo HOP HEAVEN gives a clear brand image.
+* Product/Beer imagery - Photos for each beer which are clear to the user.
+
 
 ### 4. Icons
-* 
+
 
 ## WireFrames
 
 Initial Wireframe designs made on Figma:
 
-* 
+* [Initial - Home Page](static/readme-docs/wireframes/wireframe-home.jpg)
+    * Finished design similar to initital wireframe. Hop Heroes & Why shop with us section left out due to time constraints.
+* [Initial - Products Page](static/readme-docs/wireframes/wireframe-products.jpg)
+* [Initial - Product Details Page](static/readme-docs/wireframes/wireframe-product-details.jpg)
+    * Finished design similar to initital wireframe. Additional ratings section added to bottom of page for signed in user to rate the product.
+* [Initial - Cart Page](static/readme-docs/wireframes/wireframe-product-details.jpg)
+    * Finished Cart page slightly different design in a table style format.
+* [Initial - Checkout Page](static/readme-docs/wireframes/wireframe-checkout.jpg)
+    * Fnished page similar to initial design.
+* [Initial - Checkout Success Page](static/readme-docs/wireframes/wireframe-checkout-success.jpg)
+    * Fnished page similar to initial design.
+* [Initial - Sign In Page](static/readme-docs/wireframes/wireframe-signin.jpg)
+    * Fnished page similar to initial design.
+* [Initial - Sign Out Page](static/readme-docs/wireframes/wireframe-signout.jpg)
+    * Fnished page similar to initial design.
+* [Initial - Sign Up Page](static/readme-docs/wireframes/wireframe-signup.jpg)
+    * Fnished page similar to initial design.
+* [Initial - Verify Page](static/readme-docs/wireframes/wireframe-verify.jpg)
+    * Fnished page similar to initial design.
+* [Initial - Profile Page](static/readme-docs/wireframes/wireframe-profile.jpg)
+    * Fnished page similar to initial design. Additional ratings section added under order history
+    to edit/delete your ratings.
+* [Initial - Admin/management Page](static/readme-docs/wireframes/wireframe-admin.jpg)
+    * Fnished page similar to initial design. 
 
+* Other changes: Ratings Add/Edit pages not included in intitial designs. Feature added during development process. 
 
+* All designs responsive for smaller devices.
+    
 ## Features
 
 ### Site Wide
