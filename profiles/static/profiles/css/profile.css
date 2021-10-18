@@ -9,7 +9,7 @@
 }
 
 /* Profile Form Box Shadow */
-.profile-form-input {
+.profile-form {
   color: #000000;
   box-shadow: 3px 3px #C5B358;
   -webkit-transition: box-shadow 500ms ease;
@@ -17,8 +17,8 @@
 }
 
 /* Profile Form Box Shadow Active show none/hide border */
-.profile-form-input:focus,
-.profile-form-input:active {
+.profile-form:focus,
+.profile-form:active {
   box-shadow: none;
   border: hidden;
 }

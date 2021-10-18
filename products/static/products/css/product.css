@@ -1,6 +1,6 @@
 /* Product Admin Form Formatting */
 .rating-form-input,
-.product-form-input {
+.product-form {
   box-shadow: 3px 3px #C5B358;
   -webkit-transition: box-shadow 500ms ease;
   transition: box-shadow 500ms ease;
@@ -9,8 +9,8 @@
 
 .rating-form-input:focus,
 .rating-form-input:active,
-.product-form-input:focus,
-.product-form-input:active {
+.product-form:focus,
+.product-form:active {
   box-shadow: none;
   border: hidden;
 }

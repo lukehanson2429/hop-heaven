@@ -14,7 +14,7 @@ def add_rating(request, product_id):
     # filter product ratings by user
     user_rating = Rating.objects.filter(product=product, user=user)
 
-    # If there is a rating currently for this product from current user raise an error
+    # If there is a rating from current user raise an error
     if user_rating:
         # error raised
         messages.error(request, 'You have already rated this beer!')
@@ -25,8 +25,10 @@ def add_rating(request, product_id):
             # If no review currently submit rating unless form is not valid.
             if form.is_valid():
                 rating = request.POST.get('rating')
-                user_rating = Rating.objects.create(product=product, user=user, rating=rating)
-                messages.success(request, f'Successfully added rating too {product.name}!')
+                user_rating = Rating.objects.create(
+                    product=product, user=user, rating=rating)
+                messages.success(
+                    request, f'Successfully added rating too {product.name}!')
                 return redirect(reverse('product_detail', args=[product.id]))
             else:
                 messages.error(request, 'Please ensure form is valid!')
@@ -84,8 +86,7 @@ def delete_rating(request, rating_id):
     rating = get_object_or_404(Rating, pk=rating_id)
     # User can only delete rating if created by the user
     if rating.user != request.user:
-        messages.error(request, 'You are not authorized \
-            to delete this rating!')
+        messages.error(request, 'You are not authorized to delete this rating')
         return redirect(reverse('home'))
     else:
         # Otherwise delete rating

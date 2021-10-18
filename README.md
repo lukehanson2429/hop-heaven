@@ -124,6 +124,8 @@ Initial Wireframe designs made on Figma:
 
 ### Home Page
 
+* Opening statement explaining the purpose of the website to the user with button to start shopping.
+
 ### Products Page
 
 * Ability to sort by price, name, style, country & abv.
@@ -167,7 +169,7 @@ Initial Wireframe designs made on Figma:
 
 * Allows the superuser to add/edit beers.
 
-#### Defensive Design Features
+### Defensive Design Features
 
 * Use of form & model fields with data type validation across the site. Such as the rating model having max/min value validators so you can only leave a rating between 1 & 5.
 * Within the ratings views.py user can only leave one rating per beer otherwise an error will be returned via a toast message.
@@ -179,7 +181,9 @@ Initial Wireframe designs made on Figma:
     
 ### Features left to implement
 
-* 
+* Favourites app to star your favourites which will display these on your profile page to make for easier purchasing.
+* Contact app with form to fill out to contact the site owner.
+* Blog app with monthly a blog post detailing interesting craft beer news from the site owner also mentioning any exciting deals/new beers in stock.
 
 ### Languages Used
 
