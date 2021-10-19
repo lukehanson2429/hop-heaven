@@ -144,6 +144,9 @@
     // Update quantity on click
     $('.update-link').click(function (e) {
         var form = $(this).prev('.update-form');
+        var old_width = $(this).width();                                
+        $(this).html('<i class="fa fa-refresh fa-lg fa-spin"></i>');
+        $(this).width(old_width); 
         form.submit();
     })
 
@@ -151,6 +154,9 @@
     $('.remove-item').click(function (e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
+        var old_width = $(this).width();                                
+        $(this).html('<i class="fa fa-refresh fa-lg fa-trash"></i>');
+        $(this).width(old_width);
         var url = `/cart/remove/${itemId}/`;
         var data = {
             'csrfmiddlewaretoken': csrfToken
