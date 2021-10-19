@@ -185,6 +185,33 @@ Initial Wireframe designs made on Figma:
 * Contact app with form to fill out to contact the site owner.
 * Blog app with monthly a blog post detailing interesting craft beer news from the site owner also mentioning any exciting deals/new beers in stock.
 
+## Database Schema
+
+### Products App
+
+* Category Model
+![category_model](static/readme-docs/images/category_model.png)
+
+* Custom Products Model
+![products_model](static/readme-docs/images/products_model.png)
+
+### Ratings App
+
+* Custom Ratings Model
+![ratings_model](static/readme-docs/images/rating_model.png)
+
+### Checkout App
+
+* Order Model
+![order_model](static/readme-docs/images/order_model.png)
+
+* OrderLineItem Model
+![orderlineitem_model](static/readme-docs/images/orderlineitem_model.png)
+
+### Profiles App
+
+* UserProfile Model
+![userprofile_model](static/readme-docs/images/userprofile_model.png)
 
 ### Languages 
 
