@@ -78,10 +78,10 @@
                         {% include "cart/quantity-form.html" %}
                     </div>
                     <div class="col-12 col-md-2">
-                        <strong><p class="d-none d-md-block my-0 w-75 mx-auto">
-                            £{{ item.product.price | calc_subtotal:item.quantity }}</p></strong>
-                        <strong><p class="d-block d-md-none mx-auto my-auto text-center w-75"><u>Subtotal:
-                            £{{ item.product.price | calc_subtotal:item.quantity }}</u></p></strong>
+                        <p class="d-none d-md-block my-0 w-75 mx-auto"><strong>
+                            £{{ item.product.price | calc_subtotal:item.quantity }}</strong></p>
+                        <p class="d-block d-md-none mx-auto my-auto text-center w-75"><strong><u>Subtotal:
+                            £{{ item.product.price | calc_subtotal:item.quantity }}</u></strong></p>
                     </div>
                     {% if forloop.counter|divisibleby:1 %}
                     <div class="col-12 my-1">

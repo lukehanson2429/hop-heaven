@@ -114,19 +114,19 @@ Initial Wireframe designs made on Figma:
 
 * Responsive on all devices.
 * Toasts when performing certain actions to give the user feedback.
-
 * Search bar functionality within header to search by name/description.
 * Navigation dropdown bar to select beers by style/view all in Header.
 * Navigation dropdown bar to sort beers by country, abv, price & style all in Header.
+* JS Slide Animation for dropdown menus.
 * My account link in header to view profile, login, logout, signup. Superuser can access beer management.
 * Cart link in header to view current shopping cart/checkout.
 * Footer Social links.
 
-### Home Page
+### index.html 
 
 * Opening statement explaining the purpose of the website to the user with button to start shopping.
 
-### Products Page
+### products.html
 
 * Ability to sort by price, name, style, country & abv.
 * Navigation buttons at top for each style of beer when viewing each/all styles.
@@ -135,39 +135,56 @@ Initial Wireframe designs made on Figma:
 * Rating for each beer displayed which is dynamic based on average of user ratings.
 * Country Flag for each beer displayed.
 
-### Products Details Page
+### product_detail.html
 
 * Breakdown of beer info such as style, country, brewery, abv, bottle/can size, unit price and description.
 * Make you selection section to with buttons to add a quantity to your cart.
+* JS included to prevent multiple submits when adding to your cart.
 * Nav buttons to back to shop or view cart.
 * Ratings section at bottom of details page to view current ratings/leave a rating if signed in.
-* Ratings within a carousel.
+* Ratings within a carousel if ratings within database.
+* Ratings carousel contained within product_ratings.html template.
 
-### Cart Page
+### cart.html
 
 * Breakdown of your current cart in easy to read table style format with the ability to update and remove items from your cart.
+* Custom JS to give some feedback to the user when updating/removing items.
 * Checkout and back to shop buttons.
 
-### Checkout Page
+### checkout.html
 
 * Breakdown of your current order summary. If a large order - order will be scrollable. Adjust order. button next to order summary if order not quite right.
-* Form to fill out with details, delivery and payment information.
+* Form to fill out with details, delivery and payment information using Stripe Payments.
 * Ability to save your delivery information to your profile if you have an account.
 
-### Profile Page
+### profile.html
 
 * Save your default delivery information.
 * View your order history and past order confirmations.
 * View your current ratings and edit/delete these ratings. - Ratings within a carousel.
+* Ratings carousel contained within profile_ratings.html template.
 * If no ratings currently button to link to products page to leave your first rating.
 
-### Ratings Edit/Add Pages
+### Ratings Edit/Add/Delete
 
 * Leave your ratings between 1 & 5.
+* Can only access these pages if signed in.
+* Can only leave one rating per product.
+* Can only edit rating if user rating matched session user.
+* Form validation throws an error if inputing incorrect value.
+* JS included to prevent multiple submits.
+* When deleting a rating pop up modal is displayed to confirm whether you want to delete your rating.
 
-### Beer Management (Edit/Delete - Admin)
+### Beer Management (Add/Edit/Delete - Admin)
 
-* Allows the superuser to add/edit beers.
+* Allows the superuser to add/edit/delete beers.
+* Pop up modal on deleting product to confirm.
+
+### Root template folder.
+
+* Default All auth templates for django all-auth features.
+* Custom Toasts to give feedback to the user with success/error/info & warning alerts.
+* Custom 404 & 500 error pages.
 
 ### Defensive Design Features
 
@@ -184,6 +201,7 @@ Initial Wireframe designs made on Figma:
 * Favourites app to star your favourites which will display these on your profile page to make for easier purchasing.
 * Contact app with form to fill out to contact the site owner.
 * Blog app with monthly a blog post detailing interesting craft beer news from the site owner also mentioning any exciting deals/new beers in stock.
+* Pagination.
 
 ## Database Schema
 
@@ -237,12 +255,12 @@ Initial Wireframe designs made on Figma:
 * [Figma](https://figma.com/) - This was used to create my wireframe designs for desktop/mobile formats.
 * [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - To assist with debugging code and assessing perforamnce through lighthouse.
 * [AmIResponsive](http://ami.responsivedesign.is/) - Used to created mock up of website.
-* [FavIcon](https://en.wikipedia.org/wiki/Python_(programming_language))
+* [FavIcon](https://favicon.io/) - Used to generate Favicon
 
 
 ## Testing
 
-
+Testing in ![test.md](/test.md) file
 
 ### User Stories Testing
 

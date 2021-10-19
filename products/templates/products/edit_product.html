@@ -23,7 +23,7 @@
                 <div class="card text-content text-white box-sh mb-3 bg-black border-dark rounded-0 shadow-lg p-4">
                     <h3 class="text-center">Beer Management - Edit a Beer</h3>
                     <hr class="light-hr">
-                <form method="POST" action="{% url 'edit_product' product.id %}" id="product-form class="form mb-2" enctype="multipart/form-data">
+                <form method="POST" action="{% url 'edit_product' product.id %}" id="product-form" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
                         {% if field.name != 'image' %}
