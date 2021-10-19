@@ -185,11 +185,32 @@ Initial Wireframe designs made on Figma:
 * Contact app with form to fill out to contact the site owner.
 * Blog app with monthly a blog post detailing interesting craft beer news from the site owner also mentioning any exciting deals/new beers in stock.
 
-### Languages Used
 
-* 
+### Languages 
+
+* [HTML5](https://en.wikipedia.org/wiki/HTML5)
+* [CSS3](https://en.wikipedia.org/wiki/CSS)
+* [Javascript](https://en.wikipedia.org/wiki/JavaScript)
+* [Python3](https://en.wikipedia.org/wiki/Python_(programming_language))
 
 ### Frameworks, Libraries & Programs Used
+
+* [Heroku](https://heroku.com/) - Platform that enables developers to build, run, and operate applications entirely in the cloud.
+* [Jquery](https://en.wikipedia.org/wiki/JQuery)
+* [Django](https://www.djangoproject.com/) - High-level Python web framework that encourages rapid development and clean, pragmatic design
+* [SQlite](https://www.sqlite.org/index.html) - Default database
+* [PostgreSQL](https://www.postgresql.org/) - Database used for deployed version.
+* [Bootstrap4](https://getbootstrap.com/) - CSS Framework
+* [Google Fonts](https://fonts.google.com/) - Google Fonts imported for my project.
+* [AWS Amazon S3](https://aws.amazon.com/) - Used to host static/media files.
+* [Font Awesome](https://fontawesome.com/) - Font Awesome was used to add icons for aesthetic and UX purposes.
+* [Stripe](https://stripe.com/gb) - Used to make online payments/authentication.
+* [Gitpod](https://www.gitpod.io/) - The Interactive Development Envvironment to code the website. Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+* [Github](https://github.com/) - GitHub is used to store the projects code after being pushed from Git.
+* [Figma](https://figma.com/) - This was used to create my wireframe designs for desktop/mobile formats.
+* [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - To assist with debugging code and assessing perforamnce through lighthouse.
+* [AmIResponsive](http://ami.responsivedesign.is/) - Used to created mock up of website.
+* [FavIcon](https://en.wikipedia.org/wiki/Python_(programming_language))
 
 
 ## Testing
