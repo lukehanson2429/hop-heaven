@@ -138,7 +138,7 @@
                                         £{{ product.price }}</li>
                                 </ul>
                                 <!-- Add quantities to cart form -->
-                                <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
+                                <form class="form" id="formID" action="{% url 'add_to_cart' product.id %}" method="POST">
                                     <ul class="list-group list-group-horizontal mt-3">
                                         <li
                                             class="list-group-item list-group-item-light text-black flex-fill rounded-0">
@@ -174,7 +174,7 @@
                                             <div class="text-center mt-3">
                                                 <input type="submit"
                                                     class="text-uppercase btn btn-lg w-100 rounded-0 py-2"
-                                                    value="add to cart">
+                                                    value="add to cart" id="submitID">
 
                                             </div>
                                         </li>
@@ -241,4 +241,19 @@
 {% block postloadjs %}
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
+<script type="text/javascript">
+// JS to disable submit input when adding QTY's to cart & replacing text value
+var form = document.getElementById('formID');
+var submitButton = document.getElementById('submitID');
+
+form.addEventListener('submit', function() {
+
+   // Disable the submit button
+   submitButton.setAttribute('disabled', 'disabled');
+
+   // change submit value text 
+   submitButton.value = 'adding.....';
+			
+}, false);
+</script>
 {% endblock %}
