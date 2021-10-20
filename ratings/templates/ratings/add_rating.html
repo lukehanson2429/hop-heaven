@@ -17,7 +17,7 @@
                         <hr class="light-hr">
                         <div>
                             {% if request.user.is_authenticated %}
-                            <form method="post" id="review" action="">
+                            <form method="post" id="review" action=".">
                                 {% csrf_token %}
                                 {% for field in form %}
                                 {{ field | as_crispy_field }}
