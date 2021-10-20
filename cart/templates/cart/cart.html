@@ -148,7 +148,7 @@
         $(this).html('<i class="fa fa-refresh fa-lg fa-spin"></i>');
         $(this).width(old_width); 
         form.submit();
-    })
+    });
 
     // Remove item and reload on click
     $('.remove-item').click(function (e) {
@@ -166,6 +166,6 @@
             .done(function () {
                 location.reload();
             });
-    })
+    });
 </script>
 {% endblock %}
