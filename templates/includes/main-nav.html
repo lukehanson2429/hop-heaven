@@ -50,14 +50,14 @@
 
 {% block postloadjs %}
 <script type="text/javascript">
-    // Add slideDown animation to Bootstrap dropdown when expanding.
-  $('.dropdown').on('show.bs.dropdown', function() {
-    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+    // Add FadeIn animation to Bootstrap dropdown when mouseenters dropdown.
+  $('.dropdown').mouseenter('show.bs.dropdown', function() {
+    $(this).find('.dropdown-menu').first().stop(true, true).fadeIn();
   });
 
-  // Add slideUp animation to Bootstrap dropdown when collapsing.
-  $('.dropdown').on('hide.bs.dropdown', function() {
-    $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+  // Add FadeOut animation to Bootstrap dropdown when mouseleaves dropdown.
+  $('.dropdown').mouseleave('hide.bs.dropdown', function() {
+    $(this).find('.dropdown-menu').first().stop(true, true).fadeOut();
   });
 </script>
 {% endblock %}
