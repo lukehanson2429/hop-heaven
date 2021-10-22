@@ -1,1 +1,1 @@
-Hop Heaven Confirmation for Order Number {{ order.order_number }}
+EmailEnquiry {{ contact.subject}}
