@@ -5,7 +5,7 @@
 ## Project Overview
 
 
-![Hop Heaven](static/readme-docs/images/hop-heaven.png)
+![Hop Heaven](readme_docs/images/hop-heaven.png)
 
 ## Project Goals
 
@@ -88,29 +88,29 @@
 
 Initial Wireframe designs made on Figma:
 
-* [Initial - Home Page](static/readme-docs/wireframes/wireframe-home.jpg)
+* [Initial - Home Page](readme_docs/wireframes/wireframe-home.jpg)
     * Finished design similar to initital wireframe. Hop Heroes & Why shop with us section left out due to time constraints.
-* [Initial - Products Page](static/readme-docs/wireframes/wireframe-products.jpg)
-* [Initial - Product Details Page](static/readme-docs/wireframes/wireframe-product-details.jpg)
+* [Initial - Products Page](readme_docs/wireframes/wireframe-products.jpg)
+* [Initial - Product Details Page](readme_docs/wireframes/wireframe-product-details.jpg)
     * Finished design similar to initital wireframe. Additional ratings section added to bottom of page for signed in user to rate the product.
-* [Initial - Cart Page](static/readme-docs/wireframes/wireframe-product-details.jpg)
+* [Initial - Cart Page](readme_docs/wireframes/wireframe-product-details.jpg)
     * Finished Cart page slightly different design in a table style format.
-* [Initial - Checkout Page](static/readme-docs/wireframes/wireframe-checkout.jpg)
+* [Initial - Checkout Page](readme_docs/wireframes/wireframe-checkout.jpg)
     * Fnished page similar to initial design.
-* [Initial - Checkout Success Page](static/readme-docs/wireframes/wireframe-checkout-success.jpg)
+* [Initial - Checkout Success Page](readme_docs/wireframes/wireframe-checkout-success.jpg)
     * Fnished page similar to initial design.
-* [Initial - Sign In Page](static/readme-docs/wireframes/wireframe-signin.jpg)
+* [Initial - Sign In Page](readme_docs/wireframes/wireframe-signin.jpg)
     * Fnished page similar to initial design.
-* [Initial - Sign Out Page](static/readme-docs/wireframes/wireframe-signout.jpg)
+* [Initial - Sign Out Page](readme_docs/wireframes/wireframe-signout.jpg)
     * Fnished page similar to initial design.
-* [Initial - Sign Up Page](static/readme-docs/wireframes/wireframe-signup.jpg)
+* [Initial - Sign Up Page](readme_docs/wireframes/wireframe-signup.jpg)
     * Fnished page similar to initial design.
-* [Initial - Verify Page](static/readme-docs/wireframes/wireframe-verify.jpg)
+* [Initial - Verify Page](readme_docs/wireframes/wireframe-verify.jpg)
     * Fnished page similar to initial design.
-* [Initial - Profile Page](static/readme-docs/wireframes/wireframe-profile.jpg)
+* [Initial - Profile Page](readme_docs/wireframes/wireframe-profile.jpg)
     * Fnished page similar to initial design. Additional ratings section added under order history
     to edit/delete your ratings.
-* [Initial - Admin/management Page](static/readme-docs/wireframes/wireframe-admin.jpg)
+* [Initial - Admin/management Page](readme_docs/wireframes/wireframe-admin.jpg)
     * Fnished page similar to initial design. 
 
 * Other changes: Ratings Add/Edit pages not included in intitial designs. Feature added during development process. 
@@ -217,28 +217,28 @@ Initial Wireframe designs made on Figma:
 ### Products App
 
 * Category Model
-![category_model](static/readme-docs/images/category_model.png)
+![category_model](readme_docs/images/category_model.png)
 
 * Custom Products Model
-![products_model](static/readme-docs/images/products_model.png)
+![products_model](readme_docs/images/products_model.png)
 
 ### Ratings App
 
 * Custom Ratings Model
-![ratings_model](static/readme-docs/images/rating_model.png)
+![ratings_model](readme_docs/images/rating_model.png)
 
 ### Checkout App
 
 * Order Model
-![order_model](static/readme-docs/images/order_model.png)
+![order_model](readme_docs/images/order_model.png)
 
 * OrderLineItem Model
-![orderlineitem_model](static/readme-docs/images/orderlineitem_model.png)
+![orderlineitem_model](readme_docs/images/orderlineitem_model.png)
 
 ### Profiles App
 
 * UserProfile Model
-![userprofile_model](static/readme-docs/images/userprofile_model.png)
+![userprofile_model](readme_docs/images/userprofile_model.png)
 
 ### Languages 
 
