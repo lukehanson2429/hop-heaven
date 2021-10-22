@@ -4,6 +4,8 @@
 
 * Website responsive from 350px up to large 2000px+ 4K displays. Viewed on various devices via chrome dev tools such as Mac, Mac Pro, Ipad, Ipad Mini, Iphone 5/6/7/8. 
 
+* Tested on multiple browsers such as Safari, Google Chrome & Mozilla Firefox - All working.
+
 ### Validation
 
 * [W3C Markup Validation - HTML](https://validator.w3.org/) - All HTML validated and any errors resolved.
@@ -36,3 +38,46 @@
 | 15 |  Order History Testing | View existing order history via profile - User Stories | ![history_testing](readme_docs/testing/orderhistory_testing_before.png) View order history on profile | ![history_testing](readme_docs/testing/orderhistory_testing_after.png) Existing Order Confirmation | PASSED |
 | 16 |  Profile Delivery Information Testing | Update existing delivery information to make checking out easier - User Stories | ![profile_testing](readme_docs/testing/del_info_testing_before.png) Saving delivery info on Profile | ![profile_testing](readme_docs/testing/del_info_testing_after.png) Displayed when checking out | PASSED |
 | 17 |  404 error page Testing | incorrect url  | ...  |![404_testing](readme_docs/testing/404_testing.png) 404 Page Displayed | PASSED |
+
+#### Additional Testing Notes
+
+* All user stories checked and satisfied.
+* Order confirmation email received when checking out.
+* JS working to prevent multiple submits when adding a rating/adding a beer to your cart.
+* To checkout stripe test payment must be used using 4242 4242 4242 4242 04/24 242 42424
+* Static/Media files hosted correctly on AWS S3 Bucket.
+    * Checked also by adding new product via admin with new image. Image updated automatically to media folder within S3 Bucket.
+
+### Lighthouse Testing
+
+* Lighthouse testing undertaken using chrome dev tools - exceptional performance on desktop devices.
+* Lighthouse testing undertaken using chrome dev tools - within acceptable constraints for mobile devices.
+    * Could be improved upon further with optimization.
+
+### Bugs/Development Fixes
+
+* Ability to enter add multiple ratings for each beer. Resolved by using an objects filter:
+```
+# filter product ratings by user
+user_rating = Rating.objects.filter(product=product, user=user)
+
+    # If there is a rating from current user raise an error
+    if user_rating:
+        # error raised
+        messages.error(request, 'You have already rated this beer!')
+        return redirect(reverse('product_detail', args=[product.id]))
+```
+
+* Website incorrectly responsive for XL devices such as Mac Pro. Fixed by setting max width of 2000px with ml & mr auto on body,html, header & footers.:
+```
+body,
+html {
+    height: 100%;
+    overflow-x: hidden;
+    max-width: 2000px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+```
