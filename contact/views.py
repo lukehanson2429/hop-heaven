@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from .models import Contact
+from .forms import ContactForm
 
 
 @login_required
@@ -9,24 +11,24 @@ def contact(request):
     user = request.user
 
     if request.method == 'POST' and request.user.is_authenticated:
-        form = RatingForm(request.POST)
+        form = ContactForm(request.POST)
         # If no review currently submit rating unless form is not valid.
         if form.is_valid():
-            rating = request.POST.get('rating')
-            user_rating = Rating.objects.create(
-                product=product, user=user, rating=rating)
+            email = request.POST.get('email')
+            subject = request.POST.get('subject')
+            message = request.POST.get('message')
+            contact_email = Contact.objects.create(user=user, email=email, subject=subject, message=message)
             messages.success(
-                request, f'Successfully added rating too {product.name}!')
-            return redirect(reverse('product_detail', args=[product.id]))
+                request, 'Thanks for getting in touch!')
+            return redirect(reverse('profile'))
         else:
             messages.error(request, 'Please ensure form is valid!')
     else:
-        form = RatingForm()
+        form = ContactForm()
 
     template = 'contact/contact.html'
     context = {
         'form': form,
-        'product': product,
     }
 
     return render(request, template, context)

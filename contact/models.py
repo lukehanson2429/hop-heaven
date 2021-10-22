@@ -16,4 +16,4 @@ class Contact(models.Model):
     date_sent = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.subject
+        return self.email

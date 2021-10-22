@@ -16,14 +16,13 @@ class ContactForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
-            'full_name': 'Full Name',
             'email': 'Email',
             'subject': 'Subject Title',
             'message': 'Message Body',
         }
 
         self.fields['message'].widget.attrs.update(style='max-height: 120px')
-        self.fields['full_name'].widget.attrs['autofocus'] = True
+        self.fields['email'].widget.attrs['autofocus'] = True
         for field in self.fields:
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
