@@ -46,6 +46,14 @@
 * As a User I want to view my order confirmation once purchase has been made to make sure I have not made any mistakes.
 * As a User I want to be able to receive an email confirmation on order to be sure I will receive my order & it is being delivered to the correct address.
 
+### Ratings
+
+* As a User how do I rate a product that I have purchased?
+* As a User I want to edit a rating I have previously added?
+* As a User I want to delete a rating I have a previously added?
+* As a user how do I view my ratings I have added to various products?
+* As a user how do I get started with rating products?
+
 ### Admin & Store Management
 
 * As the site owner I would like to be able to add a new beer so It's avaliable to purchase on the store.
@@ -73,6 +81,7 @@
 
 
 ### 4. Icons
+* Font Awesome Icons used for a clean UX.
 
 
 ## WireFrames
@@ -117,7 +126,7 @@ Initial Wireframe designs made on Figma:
 * Search bar functionality within header to search by name/description.
 * Navigation dropdown bar to select beers by style/view all in Header.
 * Navigation dropdown bar to sort beers by country, abv, price & style all in Header.
-* JS Slide Animation for dropdown menus.
+* JS Fade animation for dropdown menus on hover.
 * My account link in header to view profile, login, logout, signup. Superuser can access beer management.
 * Cart link in header to view current shopping cart/checkout.
 * Footer Social links.
@@ -260,7 +269,7 @@ Initial Wireframe designs made on Figma:
 
 ## Testing
 
-Testing in ![test.md](/test.md) file
+Testing in [test.md](/test.md) file
 
 ### User Stories Testing
 
