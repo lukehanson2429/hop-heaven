@@ -434,6 +434,17 @@ input[name='q']::placeholder {
   }
   /* Navbar Collapse Slide in from the left for medium devices and smaller */
   @media (max-width: 992px) {
+
+    .navbar-toggler {
+        border: none;
+        background: transparent !important;
+      }
+      
+    .navbar-toggler:focus {
+        outline: none;
+        background: transparent !important;
+      }
+
     .navbar-collapse {
         position: fixed;
         top: 75px; /* adjusted to height of navbar */
