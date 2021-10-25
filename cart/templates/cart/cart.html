@@ -79,9 +79,9 @@
                     </div>
                     <div class="col-12 col-md-2">
                         <p class="d-none d-md-block my-0 w-75 mx-auto"><strong>
-                            £{{ item.product.price | calc_subtotal:item.quantity }}</strong></p>
+                                £{{ item.product.price | calc_subtotal:item.quantity }}</strong></p>
                         <p class="d-block d-md-none mx-auto my-auto text-center w-75"><strong><u>Subtotal:
-                            £{{ item.product.price | calc_subtotal:item.quantity }}</u></strong></p>
+                                    £{{ item.product.price | calc_subtotal:item.quantity }}</u></strong></p>
                     </div>
                     {% if forloop.counter|divisibleby:1 %}
                     <div class="col-12 my-1">
@@ -144,9 +144,9 @@
     // Update quantity on click
     $('.update-link').click(function (e) {
         var form = $(this).prev('.update-form');
-        var old_width = $(this).width();                                
+        var old_width = $(this).width();
         $(this).html('<i class="fa fa-refresh fa-lg fa-spin"></i>');
-        $(this).width(old_width); 
+        $(this).width(old_width);
         form.submit();
     });
 
@@ -154,7 +154,7 @@
     $('.remove-item').click(function (e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
-        var old_width = $(this).width();                                
+        var old_width = $(this).width();
         $(this).html('<i class="fa fa-refresh fa-lg fa-trash"></i>');
         $(this).width(old_width);
         var url = `/cart/remove/${itemId}/`;

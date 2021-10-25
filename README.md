@@ -4,13 +4,20 @@
 
 ## Project Overview
 
+Hop Heaven is an e-commerce craft beer website which will allow craft beer enthusiasts to browse world leading craft beers, purchase craft beers and manage there account/leave ratings on beers.
 
 ![Hop Heaven](readme_docs/images/hop-heaven.png)
 
-## Project Goals
+## Project Goals 
 
-
-
+* To design and develop and implement a full stack web application, with a relational database, using the Django/Python. This must have at least 2 custom models.
+* Design and implement a relational data model, application features and business logic to manage, query and manipulate relational data to meet given needs in a particular real-world domain.
+* Identify and apply authorisation, authentication and permission features in a full stack web application solution using django all-auth features.
+* Integrate a cloud based payment system such as stripe to the project which could allow real world payments.
+* Document the development process using a Git version control and deploy the application using heroku.
+* Create a custom clean responsive front end design and implement to provide a distinct brand for the website to attract target users with an intuitive UI/UX.
+* CRUD functionality must be included with feedback to user such as toast messages.
+* Target Users for this site are craft beer enthusiasts.
 
 ## User Stories (UX)
 
@@ -219,12 +226,12 @@ Initial Wireframe designs made on Figma:
 * Category Model
 ![category_model](readme_docs/images/category_model.png)
 
-* Custom Products Model
+* **Custom Products Model**
 ![products_model](readme_docs/images/products_model.png)
 
 ### Ratings App
 
-* Custom Ratings Model
+* **Custom Ratings Model**
 ![ratings_model](readme_docs/images/rating_model.png)
 
 ### Checkout App
@@ -271,23 +278,6 @@ Initial Wireframe designs made on Figma:
 
 Testing in [test.md](/test.md) file
 
-### User Stories Testing
-
-
-### Functionality Testing - Products Page
-
-
-#### Contact Form:
-
-
-#### Social Media Icons:
-
-
-### Responsive Design Testing:
-
-
-### Lighthouse Performance Testing:
-
 ## Deployment
 
 ### GitHub Pages
@@ -303,8 +293,13 @@ Testing in [test.md](/test.md) file
 
 ### Code
 
+* Boutique Ado Mini project a helpful guide to this project.
+
 
 ### Media 
+
+* [Logo png from pngwing.com](https://www.pngwing.com/en/free-png-scjji)
+* All remaining images for site obtained from usplash.com.
 
 
 
