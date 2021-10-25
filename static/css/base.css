@@ -422,7 +422,7 @@ input[name='q']::placeholder {
   @media (max-width: 466px) {
 
   .list-inline-item p {
-        font-size: 8px;
+        font-size: 10px;
     }
     .message-container {
         top: 75px;
