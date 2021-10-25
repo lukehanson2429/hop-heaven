@@ -1,6 +1,6 @@
 # Hop Heaven - Milestone Project 4
 
-[View the live project here.]()
+[View the live project here.](https://hop-heaven.herokuapp.com/)
 
 ## Project Overview
 
@@ -214,7 +214,9 @@ Initial Wireframe designs made on Figma:
     
 ### Features left to implement
 
+* Detailed about us page on why to to shop with hop heaven.
 * Favourites app to star your favourites which will display these on your profile page to make for easier purchasing.
+* Monthly subsciption with beer of the month delivered to your door.
 * Contact app with form to fill out to contact the site owner.
 * Blog app with monthly a blog post detailing interesting craft beer news from the site owner also mentioning any exciting deals/new beers in stock.
 * Pagination.
@@ -290,10 +292,14 @@ Testing in [test.md](/test.md) file
 
 ### Content
 
+* [Website inspired from beerhawk](https://www.beerhawk.co.uk/)
+* Beer info/descriptions from ratebeer.com/untappd.com
+
 
 ### Code
 
 * Boutique Ado Mini project a helpful guide to this project.
+* W3C schools/stack overflow.
 
 
 ### Media 
@@ -301,6 +307,7 @@ Testing in [test.md](/test.md) file
 * [Logo png from pngwing.com](https://www.pngwing.com/en/free-png-scjji)
 * All remaining images for site obtained from usplash.com.
 
-
-
 ### Acknowledgements
+
+* Tutor support at code institute.
+* My mentor Brian Macharia with his helpful feedback while developing this project.
