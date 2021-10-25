@@ -71,17 +71,17 @@ Hop Heaven is an e-commerce craft beer website which will allow craft beer enthu
 ## Design
 
 ### 1. Colour Scheme
-* #C5B358 - Vegas Gold. Used in footer, header and mobile nav slider, box shadows, buttons and font that needs to stand out. This color has been used to give a premium feel to the products being purchased and allows back text to stand out.
+* #C5B358 - Vegas Gold. Used in footer, header and mobile nav slider, box shadows, buttons and font that needs to stand out. This color has been used to give a premium feel to the products being purchased and allows black text to stand out.
 #000000 - Black. Black has been used heavily across the site especially for the background color on bootstrap cards which allows the white text to be easily visible to read and fits the theme of the website.
 #777777 - White. For the black backgrounds white has been used so the text is easily visible for the user.
 
 ### 2. Typography
 * 'Bungee Shade' - Main Hop Heaven Logo. This font style has been used so the brand is distinct.
-* 'Bungee' - Header/Navbar links. Fits in with the them for the main logo and is easily visible to the user.
+* 'Bungee' - Header/Navbar links. Fits in with the theme for the main logo and is easily visible to the user.
 * 'Oswald' - All remaining content. The text of Oswald has been used for all remaining content in uppercase as its easy on the eye/clear to read. Also fits in with the premium feel to the website.
 
 ### 3. Imagery
-* Home Page Image - A craft beer being poured grabs the users attention and signals the purpose of the webiste.
+* Home Page Image - A craft beer being poured grabs the users attention and signals the purpose of the website.
 * Accounts signup/signin/register/rating pages - A background of hops fits the theme of the website.
 * Hops logo image - A hops image between the logo HOP HEAVEN gives a clear brand image.
 * Product/Beer imagery - Photos for each beer which are clear to the user.
