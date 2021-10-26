@@ -1,8 +1,7 @@
 """ Imports  """
 from django.db import models
 from django_countries.fields import CountryField
-
-from django.core.validators import RegexValidator
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Category(models.Model):
@@ -18,6 +17,7 @@ class Category(models.Model):
         return self.name
 
     def get_friendly_name(self):
+        """ Return Friendly Name  """
         return self.friendly_name
 
 
@@ -33,9 +33,13 @@ class Product(models.Model):
     country = CountryField(null=False, blank=False)
     brewery = models.CharField(max_length=20)
     abv = models.DecimalField(max_digits=6, decimal_places=2)
-    size = models.CharField(
-        max_length=3, validators=[RegexValidator(r'^\d{1,10}$')]
-    )
+    size = models.IntegerField(
+        null=False, blank=False,
+        validators=[
+            MaxValueValidator(999),
+            MinValueValidator(300)
+        ]
+     )
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
