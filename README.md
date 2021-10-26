@@ -230,6 +230,7 @@ Initial Wireframe designs made on Figma:
 
 * **Custom Products Model**
 ![products_model](readme_docs/images/products_model.png)
+* Size Charfield updated to Integerfield on final deployed version with  Max/Min Value Validators.
 
 ### Ratings App
 
@@ -256,7 +257,7 @@ Initial Wireframe designs made on Figma:
 * [Javascript](https://en.wikipedia.org/wiki/JavaScript)
 * [Python3](https://en.wikipedia.org/wiki/Python_(programming_language))
 
-### Frameworks, Libraries & Programs Used
+### Frameworks, Libraries, Programs, Tools Used
 
 * [Heroku](https://heroku.com/) - Platform that enables developers to build, run, and operate applications entirely in the cloud.
 * [Jquery](https://en.wikipedia.org/wiki/JQuery)
@@ -266,12 +267,16 @@ Initial Wireframe designs made on Figma:
 * [Bootstrap4](https://getbootstrap.com/) - CSS Framework
 * [Google Fonts](https://fonts.google.com/) - Google Fonts imported for my project.
 * [AWS Amazon S3](https://aws.amazon.com/) - Used to host static/media files.
+* [Pillow](https://pypi.org/project/Pillow/2.2.1/) - Python imaging library to aid in processing image files to store in database.
+* [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html) - To enable creation, configuration and management of AWS S3.
+* [Django Crispy Forms](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html) - To style django forms.
+* [Gunicorn](https://gunicorn.org/) - WSGI HTTP Server for UNIX to aid in deployment of the Django project to heroku.
 * [Font Awesome](https://fontawesome.com/) - Font Awesome was used to add icons for aesthetic and UX purposes.
 * [Stripe](https://stripe.com/gb) - Used to make online payments/authentication.
 * [Gitpod](https://www.gitpod.io/) - The Interactive Development Envvironment to code the website. Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 * [Github](https://github.com/) - GitHub is used to store the projects code after being pushed from Git.
 * [Figma](https://figma.com/) - This was used to create my wireframe designs for desktop/mobile formats.
-* [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - To assist with debugging code and assessing perforamnce through lighthouse.
+* [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - To assist with debugging code and assessing performance through lighthouse.
 * [AmIResponsive](http://ami.responsivedesign.is/) - Used to created mock up of website.
 * [FavIcon](https://favicon.io/) - Used to generate Favicon
 
@@ -280,12 +285,220 @@ Initial Wireframe designs made on Figma:
 
 Testing in [test.md](/test.md) file
 
-## Deployment
+## Deployment 
 
-### GitHub Pages
+### Running the project locally on the default SQlite database
+* To clone my repository type the following into a new workspace. Alternatively you can download a zip file of my repository off my github account.
+```
+git clone https://github.com/lukehanson2429/hop-heaven.git
+```
+
+#### Software Requirements:
+To install requirements for the project to run please run the following code in the terminal.
+```
+pip3 install -r requirements.txt
+```
+#### Run Migrations:
+Run Migrations to install the database structure from the models.
+```
+python3 manage.py makemigrations --dry-run
+python3 manage.py makemigrations 
+python3 manage.py migrate --plan 
+python3 manage.py migrate 
+```
+
+#### Load database from fixtures folder:
+Categories & Products stored in json database. Categories must be loaded first as products are dependant on these.
+```
+python3 manage.py loaddata categories
+python3 manage.py loaddata products
+```
+
+#### Setup an enviroment for variables
+Set up your workspace environment variables for gitpod in workspace settings. My preferred method is using workspace variables and is the method I used for this project. Alternatively can be added into an env.py file and env.py included within gitignore. 
+
+* Format as per the following in env.py for each variable:
+```
+os.environ.setdefault('SECRET_KEY', '<your_variable_here>')
+```
+* You will need to import env.py into settings.py also.
 
 
-### Making a Local Clone
+* Workspace Variables:
+```
+KEY = 'SECRET_KEY', VALUE = '<your_variable_here>'
+KEY = 'DEVELOPMENT', VALUE = 'True'
+KEY = 'STRIPE_PUBLIC_KEY', VALUE = '<your_variable_here>'
+KEY = 'STRIPE_SECRET_KEY', VALUE = '<your_variable_here>'
+KEY = 'STRIPE_WH_SECRET', VALUE = '<your_variable_here>'
+If AWS is setup can add the following variables also to use your AWS S3 Bucket:
+KEY = 'AWS_ACCESS_KEY_ID', VALUE: '<your_variable_here>'
+KEY = 'AWS_SECRET_ACCESS_KEY', VALUE: '<your_variable_here>'
+KEY = 'USE_AWS', VALUE: 'True'
+ ```
+
+* In settings.py add:
+ ```
+ SECRET_KEY = os.environ.get('SECRET_KEY', '')
+ ```
+
+#### DEBUG 
+```
+DEBUG = 'DEVELOPMENT' in os.environ
+```
+
+### Heroku Deployment
+* Go to the [Heroku](https://www.heroku.com/) website. Register a new account  or login and create a new app.
+* Setup a Heroku app within the Heroku dashboard - Type in the app name and select region closest to you.
+* In your heroku app settings click on "GitHub" to connect to your repository. Type in the repository name as on GitHub. Click on "Connect".
+* Search for your repo (or sign in and connect GitHub account) and select this.
+* Then click "Hide Config Vars" in Heroku.
+* Go to the resources tab and search for Heroku Postgres to set up database for your deployed version of your site.
+* On settings.py temporarily comment out the 'SQLite and Postgres databases' section.
+* Add the database URL from Heroku & migrate your models to the PostgreSQL database with: 
+    ```
+    python3 manage.py migrate
+    ```
+* Load your data from your fixtures into the POSTGRES database.
+    ```
+    python3 manage.py loaddata categories
+    python3 manage.py loaddata products
+    ```
+* Create a superuser:
+    ```
+    python3 manage.py createsuperuser
+    ```
+* In settings.py delete the PostgreSQL Database section and uncomment the SQLite and PostgreSQL Databases section so you can use either database.
+* Install gunicorn and freeze that to the requirements.txt file with the following commands:
+    ```
+    pip3 install gunicorn
+    pip3 freeze --local > requirements.txt
+    ```
+* Create a Procfile and inside and add the following:
+    ```
+    web: gunicorn hop_heaven.wsgi:application
+* In settings.py use an if statement so that when the app runs on Heroku, you will connect to Postgres otherwise it will connect to sqlite3:
+    ```
+    if 'DATABASE_URL' in os.environ:
+        DATABASES = {
+            'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        }
+    else:
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': BASE_DIR / 'db.sqlite3',
+            }
+        }
+    ```
+* Copy the variables from the variable enviroment one by one into the heroku config vars. They would be:
+   ```
+    KEY: 'SECRET_KEY', VALUE: “your_variable_here”
+    KEY: 'DEVELOPMENT', VALUE: "True"
+    KEY: 'STRIPE_PUBLIC_KEY', VALUE: "your_variable_here"
+    KEY: 'STRIPE_SECRET_KEY', VALUE: "your_variable_here"
+    KEY: 'STRIPE_WH_SECRET_CH', VALUE: "your_variable_here"
+    KEY: 'STRIPE_WH_SECRET_SUB', VALUE: "your_variable_here"
+    AWS secret keys acquired by setting up S3 Bucket:
+    KEY: AWS_ACCESS_KEY_ID, VALUE: "AWS access key ID"
+    KEY: AWS_SECRET_ACCESS_KEY, VALUE: "AWS secret access key"
+    KEY: USE_AWS, VALUE: "True"
+    Also add email variables for live emails to work:
+    KEY: EMAIL_HOST_PASS, VALUE: "your_variable_here"
+    KEY: EMAIL_HOST_USER, VALUE: "your_variable_here"
+    ```
+* Login to Heroku in the CLI and temporarity disable collectstatic, with the following command:
+    ```
+    heroku config:set DISABLE_COLLECTSTATIC=1 --app hop-heaven
+    ```
+* Add your Heroku app and local host to allowed hosts in settings.py.
+* Push to Github, and then to Heroku main. 
+* Connect your heroku app to your github repository and enable automatic deployment in your heroku app settings.
+
+### AWS S3 bucket to host static/media files
+Create an account with [AWS](www.aws.amazon.com) or login. 
+* Create a new S3 bucket and uncheck 'block all public access' and acknowledge that the bucket will be public.
+* Update buckets properties and activate static website hosting.
+* Set the CORS configuration in the permissions tab:
+```
+[
+  {
+      "AllowedHeaders": [
+          "Authorization"
+      ],
+      "AllowedMethods": [
+          "GET"
+      ],
+      "AllowedOrigins": [
+          "*"
+      ],
+      "ExposeHeaders": []
+  }
+]
+```
+* Go to the Bucket policy tab and create a policy with the following settings:
+    - Type of Policy: **"S3 Bucket Policy"**
+        - Principal: **"*"**
+        - Action: **"GetObject"**
+        - ARN: This can be found on the Edit Bucket Policy page
+        - **Add the statement**
+        - **Generate the policy**
+* Copy the generated policy into the Policy section on the Edit Bucket Policy page.
+        - Add "/*" to the end of the resource key to ensure all files are loaded.
+* Allow read public access to all list objects. 
+* Create a new user group in IAM services called manage-hop-heaven
+* Attach policy to the manage-hop-heaven group.
+* Create new user hop-heaven-staticfiles-user and give access and add the user to the group Download the .csv file for your access keys to add to heroku config variables. 
+
+* Install boto3 and Django storages and freeze requirements:
+    ```
+    pip3 install boto3
+    pip3 install django-storages
+    pip3 freeze > requirements.txt
+    ```
+* Add storages to the installed apps in the settings.py file.
+* Add the following if statement:
+    ```
+    if 'USE_AWS' in os.environ:
+        # Cache control
+        AWS_S3_OBJECT_PARAMETERS = {
+            'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+            'CacheControl': 'max-age=94608000',
+        }
+        # Bucket Config
+        AWS_STORAGE_BUCKET_NAME = 'hop-heaven'
+        AWS_S3_REGION_NAME = 'eu-west-2'
+        AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY_ID = os.environ.get('AWS_SECRET_ACCESS_KEY')
+        AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+        # Static and media files
+        STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+        STATICFILES_LOCATION = 'static'
+        DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+        MEDIAFILES_LOCATION = 'media'
+
+        # Override static and media URLS in production
+        STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+        MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+    ```
+* Set USE_AWS and set it to True in heroku config variables. 
+* Remove the DISABLE_COLLECTSTATIC from the variables so static files will be automatically deployed to heroku. 
+* Create custom_storages.py and add:
+    ```
+    from django.conf import settings
+    from storages.backends.s3boto3 import S#Boto3Storage
+
+    class StaticStorage(S3Boto3Storage):
+        location = settings.STATICFILES_LOCATION
+
+
+    class MediaStorage(S3Boto3Storage):
+        location = settings.MEDIAFILES_LOCATION 
+    ```
+* Add, commit and push these changes. Static files will now be hosted within your AWS S3 Bucket. 
+* Add a new media folder to your bucket and upload your media files.
+* Update your stripe webhook end point with your deployed heroku checkout wh url.
 
 
 ## Credits
@@ -309,5 +522,5 @@ Testing in [test.md](/test.md) file
 
 ### Acknowledgements
 
-* Tutor support at code institute.
-* My mentor Brian Macharia with his helpful feedback while developing this project.
+* Tutor support at code institute/Slack community.
+* My mentor Brian Macharia with his very helpful feedback while developing this project.
