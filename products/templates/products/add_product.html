@@ -16,32 +16,35 @@
 {% endblock %}
 
 {% block content %}
-<!-- Add Product form within Card on an overlay -->
+<main>
+    <!-- Add Product form within Card on an overlay -->
     <div class="overlay"></div>
     <div class="container text-content text-white text-uppercase pt-4">
         <div class="row justify-content-center">
             <div class="col-12 col-md-10">
                 <div class="card text-content text-white box-sh mb-3 bg-black border-dark rounded-0 shadow-lg p-4">
-                <h3 class="text-center">Beer Management - Add a Beer</h3>
-                <hr class="light-hr">
-                <form method="POST" action="{% url 'add_product' %}" id="product-form" class="form mb-2" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {% for field in form %}
-                        {% if field.name != 'image' %}
-                            {{ field | as_crispy_field }}
-                        {% else %}
-                            {{ field }}
-                        {% endif %}
-                    {% endfor %}
-                    <div class="text-right">
-                        <a class="btn btn-lg rounded-0" href="{% url 'products' %}">Cancel</a>
-                        <button class="btn btn-lg rounded-0 text-uppercase" type="submit">Add Product</button>
-                    </div>
-                </form>
-            </div> 
-        </div>           
+                    <h3 class="text-center">Beer Management - Add a Beer</h3>
+                    <hr class="light-hr">
+                    <form method="POST" action="{% url 'add_product' %}" id="product-form" class="form mb-2"
+                        enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            {% if field.name != 'image' %}
+                                {{ field | as_crispy_field }}
+                            {% else %}
+                                {{ field }}
+                            {% endif %}
+                        {% endfor %}
+                        <div class="text-right">
+                            <a class="btn btn-lg rounded-0" href="{% url 'products' %}">Cancel</a>
+                            <button class="btn btn-lg rounded-0 text-uppercase" type="submit">Add Product</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
+</main>
 {% endblock %}
 
 {% block page_footer %}

@@ -4,23 +4,25 @@
 
 
 {% block content %}
-<!-- Home Page with opening welcome content -->
-<div class="home-image">
-<div class="container h-100">
-    <div class="row h-100 home-content">
-        <div class="col-10 col-md-7 slide-wrap px-0 ml-1 my-auto">
-            <h3 class="text-uppercase text-content text-white slideInLeft animated">
-                Bored of watery lager? You're in the the right Place!
-                Have a browse of our great selection of craft beers from across the world.
-            </h3>
-            <div class="my-4">
-                <h4>
-                    <a href="{% url 'products' %}" class="shop-now-button  btn btn-lg rounded-0 text-uppercase py-2">Shop Now!</a>
-                </h4>
+<main>
+    <!-- Home Page with opening welcome content -->
+    <div class="home-image">
+        <div class="container h-100">
+            <div class="row h-100 home-content">
+                <div class="col-10 col-md-7 slide-wrap px-0 ml-1 my-auto">
+                    <h3 class="text-uppercase text-content text-white slideInLeft animated">
+                        Bored of watery lager? You're in the the right Place!
+                        Have a browse of our great selection of craft beers from across the world.
+                    </h3>
+                    <div class="my-4">
+                        <h4>
+                            <a href="{% url 'products' %}"
+                                class="shop-now-button  btn btn-lg rounded-0 text-uppercase py-2">Shop Now!</a>
+                        </h4>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-</div>
-
+</main>
 {% endblock %}

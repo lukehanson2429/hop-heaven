@@ -18,33 +18,34 @@
 
 <!-- Profile Page displayed on bootstrap card -->
 {% block content %}
-<div class="overlay"></div>
-<div class="container-fluid text-content text-uppercase pt-4">
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-11 col-lg-10">
-            <div class="card box-sh mb-3 text-white bg-black border-black pt-3 px-1 rounded-0">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <h3 class="font-weight-bold">Profile - {{ user }}</h3>
-                        <hr class="light-hr w-50 mb-3">
-                    </div>
-                </div>
-                <!-- Order History Section -->
-                <div class="row pl-2 pr-2">
-                    <div class="col-12 col-md-6 col-lg-5 pt-3">
-                        <div class="row">
-                            <div class="col-6 text-left pt-1 pr-1">
-                                <p><strong><u>Order History ({{ orders.count }})</u></strong></p>
-                            </div>
-                            <div class="col-6 text-right pb-3 pl-1">
-                                <a href="{% url 'account_logout' %}" class="btn btn-sm  rounded-0">
-                                    <span class="icon">
-                                        <i class="fas fa-backspace"></i>
-                                    </span>
-                                    <span>Logout Account</span>
-                                </a>
-                            </div>
+<main>
+    <div class="overlay"></div>
+    <div class="container-fluid text-content text-uppercase pt-4">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-11 col-lg-10">
+                <div class="card box-sh mb-3 text-white bg-black border-black pt-3 px-1 rounded-0">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h3 class="font-weight-bold">Profile - {{ user }}</h3>
+                            <hr class="light-hr w-50 mb-3">
                         </div>
+                    </div>
+                    <!-- Order History Section -->
+                    <div class="row pl-2 pr-2">
+                        <div class="col-12 col-md-6 col-lg-5 pt-3">
+                            <div class="row">
+                                <div class="col-6 text-left pt-1 pr-1">
+                                    <p><strong><u>Order History ({{ orders.count }})</u></strong></p>
+                                </div>
+                                <div class="col-6 text-right pb-3 pl-1">
+                                    <a href="{% url 'account_logout' %}" class="btn btn-sm  rounded-0">
+                                        <span class="icon">
+                                            <i class="fas fa-backspace"></i>
+                                        </span>
+                                        <span>Logout Account</span>
+                                    </a>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-6">
                                     <p class="mb-1 mt-0 small text-left color-custom"><u>Order No</u></p>
@@ -55,81 +56,87 @@
                             </div>
                             <!-- Order History For Loop - Latest order displayed at top -->
                             <div class="py-1 pl-0 pr-3 order-scroll">
-                            {% for order in orders reversed %}
-                            <div class="row">
-                                <div class="col-12">
-                                    <ul class="list-group list-group-horizontal my-1 mx-auto">
-                                        <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">
-                                    <a class="my-0 small" href="{% url 'order_history' order.order_number %}"
-                                        title="{{ order.order_number }}">
-                                            {{ order.order_number|truncatechars:6 }}
+                                {% for order in orders reversed %}
+                                <div class="row">
+                                    <div class="col-12">
+                                        <ul class="list-group list-group-horizontal my-1 mx-auto">
+                                            <li
+                                                class="list-group-item list-group-item-light text-black flex-fill rounded-0">
+                                                <a class="my-0 small"
+                                                    href="{% url 'order_history' order.order_number %}"
+                                                    title="{{ order.order_number }}">
+                                                    {{ order.order_number|truncatechars:6 }}
+                                                </a>
+                                            <li
+                                                class="list-group-item list-group-item-light text-black flex-fill rounded-0">
+                                                <p class="my-0 small">{{ order.date }}</p>
+                                                {% for item in order.lineitems.all %}
+                                                <small class="mt-1 mb-0">{{ item.product.name }}</small>
+                                                <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                                                {% endfor %}
+                                            </li>
+                                            <li
+                                                class="list-group-item list-group-item-light text-black flex-fill rounded-0">
+                                                <p class="my-0 small">
+                                                    £{{ order.grand_total }}</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                {% if forloop.counter|divisibleby:1 %}
+                                <div class="col-12 mb-1">
+                                    <hr class="light-hr">
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                            <!-- Ratings Section -->
+                            <div class="col-12 px-0 py-3">
+                                {% if ratings %}
+                                <!-- Ratings Header Displayed if ratings -->
+                                <p class="mb-0 color-custom"><small><u>Ratings</u></small></p>
+                                {% endif %}
+                                <div id="ratingslide" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <!-- Ratings Carousel for Loop -->
+                                        {% for rating in ratings  %}
+                                        {% include "profiles/profile_ratings.html" %}
+                                        {% empty %}
+                                        <!-- If no Ratings button displayed to leave a rating -->
+                                        <a href="{% url 'products' %}" class="btn w-100 rounded-0">
+                                            <span>Leave a rating <i class="fas fa-star"></i></span>
                                         </a>
-                                        <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">
-                                    <p class="my-0 small">{{ order.date }}</p>
-                                    {% for item in order.lineitems.all %}
-                                    <small class="mt-1 mb-0">{{ item.product.name }}</small>
-                                    <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
-                                    {% endfor %}
-                                </li>
-                                <li class="list-group-item list-group-item-light text-black flex-fill rounded-0">
-                                    <p class="my-0 small">
-                                        £{{ order.grand_total }}</p>
-                                    </li>
-                                    </ul>
+                                        {% endfor %}
+                                    </div>
                                 </div>
                             </div>
-                            {% if forloop.counter|divisibleby:1 %}
-                            <div class="col-12 mb-1">
-                                <hr class="light-hr">
-                            </div>
-                            {% endif %}
-                            {% endfor %}
                         </div>
-                        <!-- Ratings Section -->
-                        <div class="col-12 px-0 py-3">
-                        {% if ratings %}
-                            <!-- Ratings Header Displayed if ratings -->
-                            <p class="mb-0 color-custom"><small><u>Ratings</u></small></p>
-                        {% endif %}
-                    <div id="ratingslide" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                    <!-- Ratings Carousel for Loop -->
-                    {% for rating in ratings  %}
-                    {% include "profiles/profile_ratings.html" %}
-                    {% empty %}
-                    <!-- If no Ratings button displayed to leave a rating -->
-                    <a href="{% url 'products' %}" class="btn w-100 rounded-0">
-                        <span>Leave a rating <i class="fas fa-star"></i></span>
-                    </a>
-                    {% endfor %}
-                </div>
-                </div>
-                </div>
-                    </div>
-                    <!-- Save Delivery Information Form  -->
-                    <div class="col-12 col-md-6 col-lg-7 px-1">
-                        <div class="card-body p-0 pt-3">
-                            <div class="card-text">
-                                <div class="col-12 pl-md-0 pl-lg-0 pl-xl-0 pt-1">
-                                    <h6><u>Save your delivery information to make checking out easier.</u></h6>
-                                    <form action="{% url 'profile' %}" method="POST" id="profile-update-form" class="pt-2">
-                                        {% csrf_token %}
-                                        <fieldset class="rounded-0 color-custom border px-3 py-2">
-                                            <legend class="fieldset-label small px-2 w-auto">Default Delivery
-                                            </legend>
-                                        {{ form| crispy }}
-                                        </fieldset>
-                                        <div class="row pl-3 pt-3 pr-3">
-                                            <div class="col-12 text-right pb-3">
-                                                <button id="submit-button" class="btn rounded-0 w-100">
-                                                    <span class="text-uppercase">Update Information</span>
-                                                    <span class="icon">
-                                                        <i class="fas fa-edit"></i>
-                                                    </span>
-                                                </button>
+                        <!-- Save Delivery Information Form  -->
+                        <div class="col-12 col-md-6 col-lg-7 px-1">
+                            <div class="card-body p-0 pt-3">
+                                <div class="card-text">
+                                    <div class="col-12 pl-md-0 pl-lg-0 pl-xl-0 pt-1">
+                                        <h6><u>Save your delivery information to make checking out easier.</u></h6>
+                                        <form action="{% url 'profile' %}" method="POST" id="profile-update-form"
+                                            class="pt-2">
+                                            {% csrf_token %}
+                                            <fieldset class="rounded-0 color-custom border px-3 py-2">
+                                                <legend class="fieldset-label small px-2 w-auto">Default Delivery
+                                                </legend>
+                                                {{ form| crispy }}
+                                            </fieldset>
+                                            <div class="row pl-3 pt-3 pr-3">
+                                                <div class="col-12 text-right pb-3">
+                                                    <button id="submit-button" class="btn rounded-0 w-100">
+                                                        <span class="text-uppercase">Update Information</span>
+                                                        <span class="icon">
+                                                            <i class="fas fa-edit"></i>
+                                                        </span>
+                                                    </button>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -138,7 +145,7 @@
             </div>
         </div>
     </div>
-</div>
+</main>
 {% endblock %}
 
 <!-- Footer container to allow padding  -->

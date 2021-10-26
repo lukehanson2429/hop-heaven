@@ -16,7 +16,8 @@
 {% endblock %}
 
 {% block content %}
-<!-- Order Confirmation -->
+<main>
+    <!-- Order Confirmation -->
     <div class="overlay"></div>
     <div class="container text-content text-uppercase">
         <div class="row">
@@ -24,7 +25,8 @@
                 <hr>
                 <h2 class="mb-4">Thank You</h2>
                 <hr>
-                <p class="">Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}.<br>Please leave us a rating on your favourite beers!</strong>.</p>
+                <p class="">Your order information is below. A confirmation email will be sent to
+                    <strong>{{ order.email }}.<br>Please leave us a rating on your favourite beers!</strong>.</p>
             </div>
         </div>
         <!-- Order Details -->
@@ -195,25 +197,26 @@
         </div>
         <!-- Navigation Buttons -->
         <div class="row">
-			<div class="col-12 col-lg-7 text-right">
+            <div class="col-12 col-lg-7 text-right">
                 {% if from_profile %}
-                    <a href="{% url 'profile' %}" class="btn btn-black rounded-0 my-3">
-                        <span class="icon mr-2">
-                            <i class="fas fa-angle-left"></i>
-                        </span>
-                        <span class="text-uppercase">Back to Profile</span>
-                    </a>
+                <a href="{% url 'profile' %}" class="btn btn-black rounded-0 my-3">
+                    <span class="icon mr-2">
+                        <i class="fas fa-angle-left"></i>
+                    </span>
+                    <span class="text-uppercase">Back to Profile</span>
+                </a>
                 {% else %}
-                    <a href="{% url 'products' %}?category=bundle,mega_packs" class="btn  rounded-0 my-3">
-                        <span class="icon mr-2">
-                            <i class="fas fa-gifts"></i>
-                        </span>
-                        <span class="text-uppercase">Now check out our latest specials!</span>
-                    </a>
+                <a href="{% url 'products' %}?category=bundle,mega_packs" class="btn  rounded-0 my-3">
+                    <span class="icon mr-2">
+                        <i class="fas fa-gifts"></i>
+                    </span>
+                    <span class="text-uppercase">Now check out our latest specials!</span>
+                </a>
                 {% endif %}
-			</div>
-		</div>
+            </div>
+        </div>
     </div>
+</main>
 {% endblock %}
 
 {% block page_footer %}
